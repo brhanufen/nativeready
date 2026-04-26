@@ -27,5 +27,5 @@ EXPOSE 8000
 
 WORKDIR /app/backend
 
-# Use shell form so $PORT expands at runtime (Railway sets this)
-CMD uvicorn main:app --host 0.0.0.0 --port ${PORT}
+# Exec form via sh -c so $PORT expands at runtime AND signals are forwarded properly.
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
