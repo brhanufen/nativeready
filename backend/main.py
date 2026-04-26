@@ -22,8 +22,12 @@ from pydantic import BaseModel, Field
 
 from predictor_v2 import predict as run_prediction
 
+_HERE = Path(__file__).resolve().parent
 FEEDBACK_LOG = Path(
-    os.environ.get("NATIVEREADY_FEEDBACK_LOG", "/Users/bfentaw2/startup/nativeready/data/feedback.jsonl")
+    os.environ.get(
+        "NATIVEREADY_FEEDBACK_LOG",
+        str(_HERE.parent / "data" / "feedback.jsonl"),
+    )
 )
 
 ALLOWED_AA = set("ACDEFGHIKLMNPQRSTVWYXBZ")

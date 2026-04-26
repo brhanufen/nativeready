@@ -17,8 +17,13 @@ import numpy as np
 
 from features import extract_features
 
-MODEL_PATH = "/Users/bfentaw2/startup/nativeready/model/model.joblib"
-FEATURE_NAMES_PATH = "/Users/bfentaw2/startup/nativeready/model/feature_names.json"
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_MODEL_DIR = os.environ.get(
+    "NATIVEREADY_MODEL_DIR",
+    os.path.normpath(os.path.join(_HERE, "..", "model")),
+)
+MODEL_PATH = os.path.join(_MODEL_DIR, "model.joblib")
+FEATURE_NAMES_PATH = os.path.join(_MODEL_DIR, "feature_names.json")
 TRAINED_VERSION = "0.1-baseline"
 HEURISTIC_VERSION = "0.1-baseline-heuristic"
 
