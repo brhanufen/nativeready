@@ -1,0 +1,156 @@
+{
+  "model_type": "RandomForestClassifier",
+  "n_estimators": 200,
+  "max_depth": 8,
+  "training_set_size": 106,
+  "test_set_size": 27,
+  "n_features": 36,
+  "held_out_test": {
+    "accuracy": 0.8888888888888888,
+    "auc": 0.9670329670329672,
+    "confusion_matrix": [
+      [
+        12,
+        1
+      ],
+      [
+        2,
+        12
+      ]
+    ],
+    "classification_report": {
+      "0": {
+        "precision": 0.8571428571428571,
+        "recall": 0.9230769230769231,
+        "f1-score": 0.8888888888888888,
+        "support": 13.0
+      },
+      "1": {
+        "precision": 0.9230769230769231,
+        "recall": 0.8571428571428571,
+        "f1-score": 0.8888888888888888,
+        "support": 14.0
+      },
+      "accuracy": 0.8888888888888888,
+      "macro avg": {
+        "precision": 0.8901098901098901,
+        "recall": 0.8901098901098901,
+        "f1-score": 0.8888888888888888,
+        "support": 27.0
+      },
+      "weighted avg": {
+        "precision": 0.8913308913308913,
+        "recall": 0.8888888888888888,
+        "f1-score": 0.8888888888888888,
+        "support": 27.0
+      }
+    }
+  },
+  "cross_validation_5fold": {
+    "mean_auc": 0.8688715131022823,
+    "std_auc": 0.05268695279371681,
+    "mean_accuracy": 0.8039886039886041,
+    "std_accuracy": 0.08153127400973591,
+    "fold_aucs": [
+      0.8516483516483516,
+      0.7967032967032968,
+      0.945054945054945,
+      0.9107142857142857,
+      0.8402366863905326
+    ]
+  },
+  "top_features": [
+    [
+      "instability_index",
+      0.07549463830675313
+    ],
+    [
+      "pct_L",
+      0.06562173795891708
+    ],
+    [
+      "log_length",
+      0.06327001547395013
+    ],
+    [
+      "length",
+      0.055104358353929024
+    ],
+    [
+      "pct_F",
+      0.04992622930888134
+    ],
+    [
+      "molecular_weight_kda",
+      0.04280375938069769
+    ],
+    [
+      "pct_T",
+      0.03671528659477854
+    ],
+    [
+      "pct_H",
+      0.036105784524740205
+    ],
+    [
+      "secondary_structure_sheet",
+      0.033210000307539206
+    ],
+    [
+      "pct_S",
+      0.02924499325633878
+    ],
+    [
+      "pct_proline",
+      0.028645782284813293
+    ],
+    [
+      "pct_G",
+      0.027099588221943575
+    ],
+    [
+      "pct_C",
+      0.026456230622741123
+    ],
+    [
+      "pct_V",
+      0.026396661640819635
+    ],
+    [
+      "pct_P",
+      0.0262024478471005
+    ],
+    [
+      "pct_cysteine",
+      0.025993479487560166
+    ],
+    [
+      "pct_hydrophobic",
+      0.02588342343050091
+    ],
+    [
+      "pct_N",
+      0.02584397724398052
+    ],
+    [
+      "pct_D",
+      0.024426757837813267
+    ],
+    [
+      "aromaticity",
+      0.022849582307121745
+    ]
+  ],
+  "honest_caveats": [
+    "Small dataset: trained on only ~133 examples; performance estimates have high variance.",
+    "Negatives are proxy examples (random Swiss-Prot proteins), not true experimental failures.",
+    "Real native MS failure data is largely unpublished, limiting label quality.",
+    "Limitations: model is a v0 baseline. Validate critical experiments yourself.",
+    "Generalization to proteins very different from the training set is uncertain.",
+    "Limitations on small peptides: model under-predicts for sequences shorter than 50 amino acids because the training set has few small proteins."
+  ],
+  "data_sources": [
+    "Positives: 69 proteins curated from native MS literature; sequences from UniProt REST API.",
+    "Negatives: ~64 proteins sampled from Swiss-Prot (reviewed, organism=human) excluding the positive list."
+  ]
+}

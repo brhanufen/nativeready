@@ -1,0 +1,40 @@
+{
+  "model_type": "CalibratedClassifierCV(RandomForest, isotonic)",
+  "training_set_size": 185,
+  "test_set_size": 47,
+  "n_features": 36,
+  "n_positives": 138,
+  "n_negatives": 94,
+  "held_out_test": {
+    "accuracy": 0.723404255319149,
+    "auc": 0.7800751879699248,
+    "brier": 0.19596921549735605,
+    "confusion_matrix": [
+      [
+        13,
+        6
+      ],
+      [
+        7,
+        21
+      ]
+    ]
+  },
+  "cross_validation_5fold": {
+    "mean_auc": 0.8554441659704818,
+    "std_auc": 0.04305675651264786,
+    "mean_accuracy": 0.7973172987974098,
+    "std_accuracy": 0.0382339131739701,
+    "mean_brier": 0.15482782174832105
+  },
+  "ood_threshold_95pct": 7.360197902697483,
+  "calibration_method": "isotonic",
+  "honest_caveats": [
+    "Small dataset: now expanded but still under 250 examples; performance estimates have meaningful variance.",
+    "Negatives include proxy examples (random Swiss-Prot proteins) plus expert-curated hard cases (mucins, large membrane proteins, aggregation-prone). Still not true experimental failures.",
+    "Calibration via isotonic regression on 5-fold CV. Reported probabilities should be roughly aligned with empirical frequencies but accuracy of calibration depends on training set diversity.",
+    "Out-of-distribution detection: nearest-neighbor distance in feature space. Inputs above the 95th percentile of training distances get a low-confidence warning.",
+    "Limitations: model is a v0.2 prototype. Validate critical experiments yourself.",
+    "Generalization to proteins very different from the training set remains uncertain."
+  ]
+}

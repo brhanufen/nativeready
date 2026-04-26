@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NativeReady — Will your protein survive native MS?</title>
+  <meta name="description" content="Predict whether a protein will give usable native mass spectrometry data. Paste a sequence, get a suitability score in 30 seconds." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">NativeReady<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#predict">Try free &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Free during beta</span>
+    <h1>Will your protein survive <span class="accent">native MS</span>?</h1>
+    <p class="lead">Paste a sequence. Get a prediction in 30 seconds. Save days of failed experiments.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#predict">Predict suitability &rarr;</a>
+      <a class="btn btn-ghost" href="#how">How it works</a>
+    </div>
+  </div>
+</header>
+
+<section id="predict">
+  <div class="wrap">
+    <h2>Predict native MS suitability</h2>
+    <p class="section-lead">Paste a single protein sequence below. FASTA headers are fine — we'll strip them.</p>
+
+    <form id="predict-form" class="predict-form" novalidate>
+      <label class="seq-label" for="sequence">Protein sequence</label>
+      <textarea
+        id="sequence"
+        name="sequence"
+        rows="10"
+        spellcheck="false"
+        autocomplete="off"
+        placeholder="&gt;sp|P00918|CAH2_HUMAN&#10;MSHHWGYGKHNGPEHWHKDFPIAKGERQSPVDIDTHTAKYDPSLKPL..."
+      ></textarea>
+
+      <div class="form-actions">
+        <button type="submit" id="submit-btn" class="btn btn-primary">
+          <span class="btn-label">Predict suitability</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="sample-row">
+        <span class="sample-label">Try with example:</span>
+        <button type="button" class="sample-btn" data-sample="carbonic_anhydrase">Carbonic anhydrase 2</button>
+        <button type="button" class="sample-btn" data-sample="ubiquitin">Ubiquitin</button>
+        <button type="button" class="sample-btn" data-sample="lysozyme">Lysozyme</button>
+        <button type="button" class="sample-btn" data-sample="insulin">Insulin (small peptide)</button>
+        <button type="button" class="sample-btn" data-sample="mucin">Mucin (hard case)</button>
+      </div>
+
+      <p class="status">50 free predictions / month / IP. No login required.</p>
+    </form>
+
+    <div id="error-box" class="error-box" hidden></div>
+
+    <div id="results" class="results" hidden>
+      <div class="result-head">
+        <div>
+          <div class="result-eyebrow">Prediction result</div>
+          <h3 id="result-label">&mdash;</h3>
+          <p id="result-ci" class="result-ci"></p>
+        </div>
+        <div class="score-block">
+          <div class="score-num" id="result-score">0</div>
+          <div class="score-cap">/ 100</div>
+        </div>
+      </div>
+
+      <div class="bar-wrap">
+        <div id="result-bar" class="bar-fill"></div>
+      </div>
+
+      <h4 class="sub">Risk factors</h4>
+      <div id="result-risks" class="risk-grid"></div>
+
+      <h4 class="sub">Recommendations</h4>
+      <ul id="result-recs" class="recs"></ul>
+
+      <p id="model-version" class="model-version"></p>
+
+      <div id="feedback-card" class="feedback-card">
+        <div class="feedback-head">
+          <strong>Help improve NativeReady</strong>
+          <p>Did this protein actually give usable native MS data in your hands?</p>
+        </div>
+        <div class="feedback-actions">
+          <button type="button" class="feedback-btn worked" data-outcome="worked">
+            <span class="fb-icon">✓</span> Yes, it worked
+          </button>
+          <button type="button" class="feedback-btn failed" data-outcome="failed">
+            <span class="fb-icon">✗</span> No, it failed
+          </button>
+          <button type="button" class="feedback-btn skip" data-outcome="not_tested">
+            Haven&rsquo;t tested
+          </button>
+        </div>
+        <p class="feedback-meta">Anonymous. Sequence is hashed before storage. No login required.</p>
+      </div>
+
+      <div id="feedback-thanks" class="feedback-thanks" hidden>
+        <strong>Thanks.</strong> Your input goes straight into the next training cycle.
+      </div>
+
+      <div class="form-actions">
+        <button type="button" id="reset-btn" class="btn btn-ghost">Predict another</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="section-lead">Three steps, no setup. Built for bench scientists who want a sanity check before spending a week on sample prep.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="step">01 INGEST</span>
+        <h3>Paste a sequence</h3>
+        <p>Drop in a single protein in plain text or FASTA. We clean and validate it client-side before sending anything.</p>
+      </div>
+      <div class="card">
+        <span class="step">02 ANALYZE</span>
+        <h3>Score it against known native MS data</h3>
+        <p>The model checks length, charge profile, hydrophobic patches, disorder, and other features known to predict whether a protein survives native ionization.</p>
+      </div>
+      <div class="card">
+        <span class="step">03 DELIVER</span>
+        <h3>Get a score and clear next steps</h3>
+        <p>You see a suitability score from 0 to 100, the specific risk factors that hurt it, and concrete buffer and instrument recommendations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p class="section-lead">Built solo as a weekend project. Trained on public datasets from the PDB and UniProt. Honest about limitations: this is a v1, validate critical experiments yourself.</p>
+    <div class="disclaimer">
+      <strong>What this is.</strong> A first-pass screening tool. Useful for ranking candidates before committing instrument time. Not a substitute for empirical optimization, and not a guarantee of success.
+    </div>
+    <div class="disclaimer" style="margin-top: 12px;">
+      <strong>Known limitations.</strong> Trained on ~133 proteins (69 native MS validated + 64 proxy negatives from Swiss-Prot). The model under-predicts for sequences shorter than 50 amino acids and is less reliable for very large complexes (&gt;1000 aa). Cross-validated AUC ≈ 0.87 on the training distribution; generalization to unusual sequences is uncertain. Treat scores as guidance, not as definitive predictions.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>NativeReady &middot; Research tool &middot; Not a medical or diagnostic device</p>
+    <p>&copy; 2026</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
