@@ -3,7 +3,7 @@
 
 const API_BASE = window.location.hostname === 'localhost'
   ? 'http://localhost:8000'
-  : 'https://api.nativeready.app'; // production URL — change as needed
+  : 'https://nativeready-production.up.railway.app';
 
 // Real UniProt sequences for sample buttons. All canonical, verifiable.
 const SAMPLES = {
