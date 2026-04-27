@@ -117,46 +117,6 @@ def health() -> Dict[str, str]:
     return {"status": "ok", "service": "nativeready"}
 
 
-@app.get("/diag")
-def diagnostic() -> Dict[str, Any]:
-    """Temporary debug endpoint — remove after launch."""
-    import sys, traceback
-    info: Dict[str, Any] = {}
-    try:
-        import sklearn, joblib, numpy
-        info["versions"] = {
-            "sklearn": sklearn.__version__,
-            "joblib": joblib.__version__,
-            "numpy": numpy.__version__,
-            "python": sys.version.split()[0],
-        }
-        import predictor_v2
-        info["model_path"] = predictor_v2.MODEL_PATH_V2
-        info["model_path_exists"] = os.path.exists(predictor_v2.MODEL_PATH_V2)
-        loaded = predictor_v2._try_load()
-        info["try_load"] = loaded
-        info["version"] = predictor_v2._version
-        info["bundle_is_none"] = predictor_v2._bundle is None
-        if predictor_v2._bundle is not None:
-            info["bundle_type"] = type(predictor_v2._bundle).__name__
-            if isinstance(predictor_v2._bundle, dict):
-                info["bundle_keys"] = list(predictor_v2._bundle.keys())
-                info["bundle_value_types"] = {
-                    k: type(v).__name__ for k, v in predictor_v2._bundle.items()
-                }
-        # Try a real prediction
-        result = predictor_v2.predict("MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG")
-        info["test_prediction"] = {
-            "score": result.get("suitability_score"),
-            "label": result.get("suitability_label"),
-            "version": result.get("model_version"),
-        }
-    except Exception as exc:
-        info["exception"] = repr(exc)
-        info["traceback"] = traceback.format_exc().splitlines()[-15:]
-    return info
-
-
 @app.post("/predict")
 def predict_endpoint(req: PredictRequest) -> Dict[str, Any]:
     seq = _clean_sequence(req.sequence)
