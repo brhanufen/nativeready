@@ -1,0 +1,5153 @@
+{
+  "uids": [
+    "P00918",
+    "P0CG48",
+    "P00698",
+    "P00004",
+    "P02185",
+    "P02144",
+    "P02666",
+    "P69905",
+    "P68871",
+    "P02766",
+    "P02769",
+    "P02768",
+    "P00760",
+    "P00974",
+    "P01857",
+    "P01834",
+    "P01859",
+    "P01860",
+    "P01861",
+    "P0AF00",
+    "P02943",
+    "P02931",
+    "P02932",
+    "P0ABB0",
+    "P0ABB4",
+    "P11166",
+    "P30536",
+    "P0DTC2",
+    "P0A6F5",
+    "P0A6F9",
+    "P11142",
+    "P07900",
+    "P08238",
+    "P31947",
+    "P63104",
+    "P0A6Y8",
+    "P0C6A0",
+    "P03612",
+    "P03611",
+    "P69470",
+    "P03435",
+    "P37840",
+    "P05067",
+    "P10636",
+    "P04637",
+    "P01133",
+    "P00533",
+    "P04626",
+    "P02787",
+    "P02788",
+    "P01008",
+    "P00734",
+    "P01112",
+    "P01116",
+    "P0DP23",
+    "P02753",
+    "P19429",
+    "P63316",
+    "P45379",
+    "P0A7V0",
+    "P0A7L0",
+    "P22629",
+    "P02701",
+    "P00722",
+    "P00946",
+    "P00366",
+    "P00563",
+    "P02662",
+    "P00489",
+    "A6H8Y1",
+    "A6NKB5",
+    "O00507",
+    "O14497",
+    "O15078",
+    "O15230",
+    "O60281",
+    "O60469",
+    "O75369",
+    "O75376",
+    "O75443",
+    "O95714",
+    "O95996",
+    "P04275",
+    "P08519",
+    "A0A1B0GTW7",
+    "A2A2Y4",
+    "A6BM72",
+    "A6QL63",
+    "B7U540",
+    "O00237",
+    "O00337",
+    "O00400",
+    "O00478",
+    "O00591",
+    "O00624",
+    "O14524",
+    "O14638",
+    "O14763",
+    "O14967",
+    "A0JNW5",
+    "A0JP26",
+    "A0PK11",
+    "A1A4S6",
+    "A1A519",
+    "A1L190",
+    "A1L3X0",
+    "A1X283",
+    "A2RU14",
+    "A2RUB6",
+    "A2RUC4",
+    "A3KN83",
+    "A5PLL7",
+    "A6NFY7",
+    "A6NI61",
+    "A6NNB3",
+    "A8MQ03",
+    "A9UHW6",
+    "B2RUY7",
+    "B6A8C7",
+    "D3W0D1",
+    "O00161",
+    "O00165",
+    "O00322",
+    "A4GXA9",
+    "A5D8V7",
+    "A6NCS4",
+    "A8MW99",
+    "B3KU38",
+    "C9JRZ8",
+    "O00115",
+    "O00214",
+    "O00254",
+    "O00300",
+    "P01308",
+    "P01275",
+    "P01178",
+    "P01185",
+    "P20366",
+    "P01042",
+    "P01258",
+    "P61278",
+    "P01019",
+    "P01501",
+    "P59665",
+    "Q01523",
+    "Q01524",
+    "P01189",
+    "P01270",
+    "P05305",
+    "P10082",
+    "P01303",
+    "P0DV02",
+    "P00517",
+    "P17612",
+    "P24941",
+    "P38936",
+    "P27361",
+    "P28482",
+    "Q02750",
+    "P31749",
+    "P18031",
+    "P30153",
+    "P07550",
+    "P30542",
+    "P29274",
+    "P21728",
+    "P41595",
+    "Q03721",
+    "P63027",
+    "P32856",
+    "P01871",
+    "P01876",
+    "P01877",
+    "P01880",
+    "P01854",
+    "P01591",
+    "P01833",
+    "P00875",
+    "P10795",
+    "P03689",
+    "P03466",
+    "P03485",
+    "P03070",
+    "Q77M19",
+    "P03129",
+    "P12504",
+    "P04591",
+    "P03366",
+    "P10275",
+    "P03372",
+    "P10415",
+    "Q07817",
+    "Q9NR28",
+    "P00558",
+    "P04406",
+    "P00338",
+    "P14618",
+    "P00925",
+    "P25786",
+    "P28074",
+    "P62195",
+    "P62333",
+    "P15941",
+    "Q02817",
+    "P98088",
+    "Q9HC84",
+    "Q8WXI7",
+    "Q9HCU0",
+    "P11532",
+    "Q8WZ42",
+    "P02549",
+    "Q15149",
+    "P27816",
+    "P78527",
+    "P98164",
+    "Q9Y6V0",
+    "P21817",
+    "O95997",
+    "Q12778",
+    "Q9Y261",
+    "P04150",
+    "P38398",
+    "Q14653",
+    "P42858",
+    "P54259",
+    "P54253",
+    "P04156",
+    "P19838",
+    "Q9UM47",
+    "P35658",
+    "Q8N3C0",
+    "P49792",
+    "P10104",
+    "P00784",
+    "P32787",
+    "P35828",
+    "Q6P4V5",
+    "A0A090M4C4",
+    "Q92FL9",
+    "D0LZ74",
+    "Q63NA5",
+    "Q9X8F4",
+    "A0ABF7SXM9",
+    "A0A649V088",
+    "Q4WQY4",
+    "P73407",
+    "I6YC99",
+    "V7IWJ0",
+    "P0C195",
+    "P9WMC1",
+    "P48632",
+    "Q06584",
+    "Q9MBW4",
+    "I0DF35",
+    "Q4WFT3",
+    "P9WJD9",
+    "Q96X30",
+    "Q8ZJX7",
+    "P50984",
+    "P0C1V7",
+    "P56638",
+    "P0ACB0",
+    "Q9BPX1",
+    "P60752",
+    "P0AFS7",
+    "P10397",
+    "Q3UKX1",
+    "A0A2H1V327",
+    "A5PJT3",
+    "O14960",
+    "C5BJ89",
+    "Q9RW95",
+    "Q9RUM0",
+    "Q9RVT2",
+    "B2HNQ9",
+    "P79074",
+    "C4N415",
+    "A0A422MHI3",
+    "Q5W0Q7",
+    "P55854",
+    "Q48GF5",
+    "Q48GF6",
+    "P0DMM5",
+    "Q8DKB5",
+    "A2PZA5",
+    "D6N7U3",
+    "P76008",
+    "Q96RT7",
+    "A0A2J9UXT5",
+    "A0A1D8S9I5",
+    "A0A1D8S9F5",
+    "F9UR90",
+    "P67812",
+    "P61009",
+    "Q15005",
+    "Q9Y6A9",
+    "Q9BY50",
+    "P0A790",
+    "Q9RRB6",
+    "Q9RWM2",
+    "Q91184",
+    "A0A3B3H5X1",
+    "P79817",
+    "Q2RVS1",
+    "Q8J2T0",
+    "P0A3X9",
+    "P20239",
+    "P61626",
+    "M1EBB2",
+    "M1EAS5",
+    "P07623",
+    "Q05128",
+    "E5L7Z5",
+    "P70662",
+    "P24821",
+    "B3ECE3",
+    "F2RGC9",
+    "B9L163",
+    "Q96L58",
+    "Q16820",
+    "P62873",
+    "P59768",
+    "P63092",
+    "P0ABE7",
+    "P61956",
+    "Q8TDB6",
+    "Q05996",
+    "P23258",
+    "Q96RT8",
+    "Q9UGJ1",
+    "Q96CW5",
+    "Q9BSJ2",
+    "F1NCD6",
+    "A1L3D9",
+    "Q79PF4",
+    "Q79PF5",
+    "Q79PF6",
+    "P03147",
+    "P52293",
+    "Q9Y255",
+    "O43715",
+    "P0DTD1",
+    "A0A2H4K974",
+    "S6B291",
+    "Q8TCD0",
+    "P04792",
+    "P15532",
+    "Q8CFZ4",
+    "F1LW30",
+    "O75469",
+    "D5ANZ2",
+    "D5ANZ3",
+    "D5ANZ4",
+    "Q13526",
+    "P51654",
+    "P55210",
+    "P61586",
+    "P46736",
+    "Q15018",
+    "Q9NXR7",
+    "Q9NWV8",
+    "A0R202",
+    "A0R200",
+    "A0R201",
+    "A0R1Z9",
+    "P0A7Z4",
+    "P0A8V2",
+    "P0A8T7",
+    "P0A800",
+    "Q96MG8",
+    "Q93034",
+    "Q9UBF6",
+    "Q15370",
+    "Q15369",
+    "Q57TX9",
+    "Q57XX1",
+    "Q38CM0",
+    "Q586H1",
+    "Q38B96",
+    "Q57ZP0",
+    "P05631",
+    "P05630",
+    "P05632",
+    "P07926",
+    "A0A1S3V7C2",
+    "A0A1S3TZB2",
+    "A0A1S3TNX9",
+    "A0A1S3U1E4",
+    "A0A1S3UMA0",
+    "A0A1S3VV60",
+    "A0A1S3V319",
+    "A0A1S3TUX2",
+    "D5ARP4",
+    "D5ARP5",
+    "D5ARP7",
+    "O43353",
+    "P00579",
+    "D5ARP9",
+    "Q05389",
+    "P60901",
+    "P40112",
+    "P40307",
+    "P28075",
+    "P18421",
+    "P34067",
+    "P17220",
+    "P21670",
+    "P48004",
+    "P34064",
+    "P18420",
+    "P18422",
+    "P28073",
+    "Q9JHW0",
+    "Q8NNK5",
+    "Q8NS61",
+    "Q8NSJ8",
+    "Q9AEL8",
+    "Q8NP09",
+    "Q8NNK3",
+    "Q8NNK2",
+    "Q79VD7",
+    "Q79VE8",
+    "Q8NMB4",
+    "Q79VE9",
+    "Q9WUB0",
+    "Q924T7",
+    "Q91WA6",
+    "A0R051",
+    "A0R0M4",
+    "A0R056",
+    "A0R049",
+    "A0R052",
+    "A0R050",
+    "A0R057",
+    "A0R1B6",
+    "A0R1B5",
+    "P21243",
+    "P25451",
+    "P22141",
+    "Q05778",
+    "P36040",
+    "P23639",
+    "P23638",
+    "P40303",
+    "P32379",
+    "P40302",
+    "P21242",
+    "P38293",
+    "P25043",
+    "P84233",
+    "P62799",
+    "P06897",
+    "P02281",
+    "Q8TEK3",
+    "P0CG47",
+    "Q8N668",
+    "Q9Y6G5",
+    "Q86X83",
+    "Q9UBI1",
+    "Q9H0A8",
+    "Q9GZQ3",
+    "Q7Z4G1",
+    "Q86VX2",
+    "Q9NX08",
+    "Q9P000",
+    "P03929",
+    "Q3ZBI7",
+    "P32876",
+    "P00847",
+    "P13619",
+    "P13620",
+    "Q00361",
+    "Q28851",
+    "Q28852",
+    "P14790",
+    "P30656",
+    "P23724",
+    "P15207",
+    "Q8R418",
+    "Q567U6",
+    "O60826",
+    "A1B498",
+    "A1B483",
+    "A1B482",
+    "A1B481",
+    "A1B480",
+    "A1B479",
+    "A1AZB0",
+    "A1B1M0",
+    "A1B357",
+    "A1B5L6",
+    "A1B4F3",
+    "P37659",
+    "Q2G0V7",
+    "P9WKK7",
+    "P25440",
+    "P09883",
+    "P0A855",
+    "P06129",
+    "O75717",
+    "P01009",
+    "P23497",
+    "P02721",
+    "P19483",
+    "P00829",
+    "P01096",
+    "P13621",
+    "Q6P2Q9",
+    "P83876",
+    "P55081",
+    "Q2TAY7",
+    "O43447",
+    "Q96NC0",
+    "P55769",
+    "O43290",
+    "O75554",
+    "Q13123",
+    "P62316",
+    "Q15029",
+    "P62306",
+    "P62304",
+    "P62308",
+    "P62318",
+    "P14678",
+    "P62314",
+    "Q9Y333",
+    "P62310",
+    "Q9Y4Z0",
+    "Q9Y4Y9",
+    "O75643",
+    "P62312",
+    "Q9UK45",
+    "O95777",
+    "O75533",
+    "Q15393",
+    "Q9BWJ5",
+    "Q7RTV0",
+    "P09661",
+    "P08579",
+    "Q96DI7",
+    "O43395",
+    "O43172",
+    "O94906",
+    "Q8WWY3",
+    "Q8NAV1",
+    "P16113",
+    "C4NV37",
+    "P62593",
+    "P22498",
+    "P51813",
+    "O43924",
+    "A2QHE5",
+    "P43235",
+    "Q9H7B4",
+    "P22862",
+    "Q96FZ2",
+    "I6Y9J2",
+    "Q96DC9",
+    "D9IEF7",
+    "P22455",
+    "P25774",
+    "P05164",
+    "P22734",
+    "O00255",
+    "O14733",
+    "P28347",
+    "A0A3A6VNK6",
+    "Q0H8B9",
+    "A4KWA1",
+    "O14965",
+    "P61964",
+    "Q92835",
+    "P37231",
+    "Q7KTX7",
+    "Q04771",
+    "P11362",
+    "Q06187",
+    "O00571",
+    "P12931",
+    "Q8IXJ6",
+    "P21802",
+    "P13053",
+    "Q15648",
+    "Q99497",
+    "A0A143BHS7",
+    "A0A143BHS8",
+    "A0A143BHR6",
+    "A0A143BK87",
+    "A0A143BJ28",
+    "A0A143BHR2",
+    "Q97W73",
+    "P01317",
+    "P17931",
+    "P61823",
+    "P14283",
+    "P69681",
+    "P38507",
+    "P08637",
+    "P60844",
+    "Q9KUY7",
+    "Q9KPH3",
+    "P40763",
+    "P0AE98",
+    "P52107",
+    "P42212",
+    "P00690",
+    "Q86TI2",
+    "O70131",
+    "P07674",
+    "P03052",
+    "P00747",
+    "P42898",
+    "Q8IVB4",
+    "P31554",
+    "P0ADC1",
+    "P0ADN6",
+    "P60880",
+    "Q16623",
+    "P63041",
+    "P18239",
+    "Q15084",
+    "P35077",
+    "P01574",
+    "P01375",
+    "P01391",
+    "P60615",
+    "P0DTC1",
+    "P61769",
+    "P00738",
+    "P25156",
+    "Q14654",
+    "P17987",
+    "P48643",
+    "Q8JQF8"
+  ],
+  "extra": [
+    {
+      "uniprot_id": "P00918",
+      "label": 1,
+      "sequence_length": 260,
+      "protein_class": "enzyme",
+      "mw_kda": 29.2
+    },
+    {
+      "uniprot_id": "P0CG48",
+      "label": 1,
+      "sequence_length": 685,
+      "protein_class": "small soluble",
+      "mw_kda": 8.6
+    },
+    {
+      "uniprot_id": "P00698",
+      "label": 1,
+      "sequence_length": 147,
+      "protein_class": "enzyme",
+      "mw_kda": 14.3
+    },
+    {
+      "uniprot_id": "P00004",
+      "label": 1,
+      "sequence_length": 105,
+      "protein_class": "heme protein",
+      "mw_kda": 12.4
+    },
+    {
+      "uniprot_id": "P02185",
+      "label": 1,
+      "sequence_length": 154,
+      "protein_class": "heme protein",
+      "mw_kda": 17.2
+    },
+    {
+      "uniprot_id": "P02144",
+      "label": 1,
+      "sequence_length": 154,
+      "protein_class": "heme protein",
+      "mw_kda": 17.0
+    },
+    {
+      "uniprot_id": "P02666",
+      "label": 1,
+      "sequence_length": 224,
+      "protein_class": "intrinsically disordered",
+      "mw_kda": 24.0
+    },
+    {
+      "uniprot_id": "P69905",
+      "label": 1,
+      "sequence_length": 142,
+      "protein_class": "tetramer",
+      "mw_kda": 15.1
+    },
+    {
+      "uniprot_id": "P68871",
+      "label": 1,
+      "sequence_length": 147,
+      "protein_class": "tetramer",
+      "mw_kda": 15.9
+    },
+    {
+      "uniprot_id": "P02766",
+      "label": 1,
+      "sequence_length": 147,
+      "protein_class": "amyloidogenic tetramer",
+      "mw_kda": 13.8
+    },
+    {
+      "uniprot_id": "P02769",
+      "label": 1,
+      "sequence_length": 607,
+      "protein_class": "transport protein",
+      "mw_kda": 66.5
+    },
+    {
+      "uniprot_id": "P02768",
+      "label": 1,
+      "sequence_length": 609,
+      "protein_class": "transport protein",
+      "mw_kda": 66.5
+    },
+    {
+      "uniprot_id": "P00760",
+      "label": 1,
+      "sequence_length": 246,
+      "protein_class": "protease",
+      "mw_kda": 23.3
+    },
+    {
+      "uniprot_id": "P00974",
+      "label": 1,
+      "sequence_length": 100,
+      "protein_class": "protease inhibitor",
+      "mw_kda": 6.5
+    },
+    {
+      "uniprot_id": "P01857",
+      "label": 1,
+      "sequence_length": 399,
+      "protein_class": "antibody",
+      "mw_kda": 50.0
+    },
+    {
+      "uniprot_id": "P01834",
+      "label": 1,
+      "sequence_length": 107,
+      "protein_class": "antibody",
+      "mw_kda": 25.0
+    },
+    {
+      "uniprot_id": "P01859",
+      "label": 1,
+      "sequence_length": 395,
+      "protein_class": "antibody",
+      "mw_kda": 50.0
+    },
+    {
+      "uniprot_id": "P01860",
+      "label": 1,
+      "sequence_length": 446,
+      "protein_class": "antibody",
+      "mw_kda": 56.0
+    },
+    {
+      "uniprot_id": "P01861",
+      "label": 1,
+      "sequence_length": 396,
+      "protein_class": "antibody",
+      "mw_kda": 50.0
+    },
+    {
+      "uniprot_id": "P0AF00",
+      "label": 1,
+      "sequence_length": 170,
+      "protein_class": "membrane protein",
+      "mw_kda": 44.5
+    },
+    {
+      "uniprot_id": "P02943",
+      "label": 1,
+      "sequence_length": 446,
+      "protein_class": "periplasmic",
+      "mw_kda": 40.7
+    },
+    {
+      "uniprot_id": "P02931",
+      "label": 1,
+      "sequence_length": 362,
+      "protein_class": "beta-barrel membrane",
+      "mw_kda": 39.3
+    },
+    {
+      "uniprot_id": "P02932",
+      "label": 1,
+      "sequence_length": 351,
+      "protein_class": "beta-barrel membrane",
+      "mw_kda": 35.2
+    },
+    {
+      "uniprot_id": "P0ABB0",
+      "label": 1,
+      "sequence_length": 513,
+      "protein_class": "membrane complex",
+      "mw_kda": 55.2
+    },
+    {
+      "uniprot_id": "P0ABB4",
+      "label": 1,
+      "sequence_length": 460,
+      "protein_class": "membrane complex",
+      "mw_kda": 50.3
+    },
+    {
+      "uniprot_id": "P11166",
+      "label": 1,
+      "sequence_length": 492,
+      "protein_class": "membrane transporter",
+      "mw_kda": 54.1
+    },
+    {
+      "uniprot_id": "P30536",
+      "label": 1,
+      "sequence_length": 169,
+      "protein_class": "membrane protein",
+      "mw_kda": 18.8
+    },
+    {
+      "uniprot_id": "P0DTC2",
+      "label": 1,
+      "sequence_length": 1273,
+      "protein_class": "viral glycoprotein",
+      "mw_kda": 141.0
+    },
+    {
+      "uniprot_id": "P0A6F5",
+      "label": 1,
+      "sequence_length": 548,
+      "protein_class": "chaperonin",
+      "mw_kda": 57.2
+    },
+    {
+      "uniprot_id": "P0A6F9",
+      "label": 1,
+      "sequence_length": 97,
+      "protein_class": "co-chaperonin",
+      "mw_kda": 10.4
+    },
+    {
+      "uniprot_id": "P11142",
+      "label": 1,
+      "sequence_length": 646,
+      "protein_class": "chaperone",
+      "mw_kda": 70.9
+    },
+    {
+      "uniprot_id": "P07900",
+      "label": 1,
+      "sequence_length": 732,
+      "protein_class": "chaperone dimer",
+      "mw_kda": 84.6
+    },
+    {
+      "uniprot_id": "P08238",
+      "label": 1,
+      "sequence_length": 724,
+      "protein_class": "chaperone dimer",
+      "mw_kda": 83.2
+    },
+    {
+      "uniprot_id": "P31947",
+      "label": 1,
+      "sequence_length": 248,
+      "protein_class": "scaffold dimer",
+      "mw_kda": 27.8
+    },
+    {
+      "uniprot_id": "P63104",
+      "label": 1,
+      "sequence_length": 245,
+      "protein_class": "scaffold dimer",
+      "mw_kda": 27.7
+    },
+    {
+      "uniprot_id": "P0A6Y8",
+      "label": 1,
+      "sequence_length": 638,
+      "protein_class": "chaperone",
+      "mw_kda": 69.1
+    },
+    {
+      "uniprot_id": "P0C6A0",
+      "label": 1,
+      "sequence_length": 273,
+      "protein_class": "viral capsid",
+      "mw_kda": 21.0
+    },
+    {
+      "uniprot_id": "P03612",
+      "label": 1,
+      "sequence_length": 130,
+      "protein_class": "viral capsid",
+      "mw_kda": 13.7
+    },
+    {
+      "uniprot_id": "P03611",
+      "label": 1,
+      "sequence_length": 129,
+      "protein_class": "viral capsid",
+      "mw_kda": 14.1
+    },
+    {
+      "uniprot_id": "P69470",
+      "label": 1,
+      "sequence_length": 209,
+      "protein_class": "viral capsid",
+      "mw_kda": 87.0
+    },
+    {
+      "uniprot_id": "P03435",
+      "label": 1,
+      "sequence_length": 567,
+      "protein_class": "viral glycoprotein",
+      "mw_kda": 63.0
+    },
+    {
+      "uniprot_id": "P37840",
+      "label": 1,
+      "sequence_length": 140,
+      "protein_class": "IDP",
+      "mw_kda": 14.5
+    },
+    {
+      "uniprot_id": "P05067",
+      "label": 1,
+      "sequence_length": 770,
+      "protein_class": "IDP/amyloid",
+      "mw_kda": 86.9
+    },
+    {
+      "uniprot_id": "P10636",
+      "label": 1,
+      "sequence_length": 758,
+      "protein_class": "IDP",
+      "mw_kda": 45.9
+    },
+    {
+      "uniprot_id": "P04637",
+      "label": 1,
+      "sequence_length": 393,
+      "protein_class": "transcription factor",
+      "mw_kda": 43.7
+    },
+    {
+      "uniprot_id": "P01133",
+      "label": 1,
+      "sequence_length": 1207,
+      "protein_class": "growth factor",
+      "mw_kda": 6.2
+    },
+    {
+      "uniprot_id": "P00533",
+      "label": 1,
+      "sequence_length": 1210,
+      "protein_class": "RTK ectodomain",
+      "mw_kda": 134.0
+    },
+    {
+      "uniprot_id": "P04626",
+      "label": 1,
+      "sequence_length": 1255,
+      "protein_class": "RTK",
+      "mw_kda": 138.0
+    },
+    {
+      "uniprot_id": "P02787",
+      "label": 1,
+      "sequence_length": 698,
+      "protein_class": "glycoprotein",
+      "mw_kda": 77.0
+    },
+    {
+      "uniprot_id": "P02788",
+      "label": 1,
+      "sequence_length": 710,
+      "protein_class": "glycoprotein",
+      "mw_kda": 78.2
+    },
+    {
+      "uniprot_id": "P01008",
+      "label": 1,
+      "sequence_length": 464,
+      "protein_class": "serpin glycoprotein",
+      "mw_kda": 52.6
+    },
+    {
+      "uniprot_id": "P00734",
+      "label": 1,
+      "sequence_length": 622,
+      "protein_class": "serine protease",
+      "mw_kda": 70.0
+    },
+    {
+      "uniprot_id": "P01112",
+      "label": 1,
+      "sequence_length": 189,
+      "protein_class": "small GTPase",
+      "mw_kda": 21.3
+    },
+    {
+      "uniprot_id": "P01116",
+      "label": 1,
+      "sequence_length": 189,
+      "protein_class": "small GTPase",
+      "mw_kda": 21.7
+    },
+    {
+      "uniprot_id": "P0DP23",
+      "label": 1,
+      "sequence_length": 149,
+      "protein_class": "Ca-binding regulator",
+      "mw_kda": 16.8
+    },
+    {
+      "uniprot_id": "P02753",
+      "label": 1,
+      "sequence_length": 201,
+      "protein_class": "lipocalin",
+      "mw_kda": 23.0
+    },
+    {
+      "uniprot_id": "P19429",
+      "label": 1,
+      "sequence_length": 210,
+      "protein_class": "regulatory",
+      "mw_kda": 24.0
+    },
+    {
+      "uniprot_id": "P63316",
+      "label": 1,
+      "sequence_length": 161,
+      "protein_class": "Ca-binding subunit",
+      "mw_kda": 18.4
+    },
+    {
+      "uniprot_id": "P45379",
+      "label": 1,
+      "sequence_length": 298,
+      "protein_class": "structural subunit",
+      "mw_kda": 35.9
+    },
+    {
+      "uniprot_id": "P0A7V0",
+      "label": 1,
+      "sequence_length": 241,
+      "protein_class": "ribosomal protein",
+      "mw_kda": 26.7
+    },
+    {
+      "uniprot_id": "P0A7L0",
+      "label": 1,
+      "sequence_length": 234,
+      "protein_class": "ribosomal protein",
+      "mw_kda": 24.7
+    },
+    {
+      "uniprot_id": "P22629",
+      "label": 1,
+      "sequence_length": 183,
+      "protein_class": "tetramer",
+      "mw_kda": 13.2
+    },
+    {
+      "uniprot_id": "P02701",
+      "label": 1,
+      "sequence_length": 152,
+      "protein_class": "glycoprotein tetramer",
+      "mw_kda": 16.4
+    },
+    {
+      "uniprot_id": "P00722",
+      "label": 1,
+      "sequence_length": 1024,
+      "protein_class": "enzyme tetramer",
+      "mw_kda": 116.5
+    },
+    {
+      "uniprot_id": "P00946",
+      "label": 1,
+      "sequence_length": 391,
+      "protein_class": "lectin tetramer",
+      "mw_kda": 25.6
+    },
+    {
+      "uniprot_id": "P00366",
+      "label": 1,
+      "sequence_length": 558,
+      "protein_class": "enzyme hexamer",
+      "mw_kda": 61.4
+    },
+    {
+      "uniprot_id": "P00563",
+      "label": 1,
+      "sequence_length": 381,
+      "protein_class": "enzyme dimer",
+      "mw_kda": 43.0
+    },
+    {
+      "uniprot_id": "P02662",
+      "label": 1,
+      "sequence_length": 214,
+      "protein_class": "IDP/phosphoprotein",
+      "mw_kda": 24.5
+    },
+    {
+      "uniprot_id": "P00489",
+      "label": 1,
+      "sequence_length": 843,
+      "protein_class": "enzyme dimer",
+      "mw_kda": 97.4
+    },
+    {
+      "uniprot_id": "A6H8Y1",
+      "label": 0,
+      "sequence_length": 2624,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 293.885
+    },
+    {
+      "uniprot_id": "A6NKB5",
+      "label": 0,
+      "sequence_length": 2137,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 237.277
+    },
+    {
+      "uniprot_id": "O00507",
+      "label": 0,
+      "sequence_length": 2555,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 291.077
+    },
+    {
+      "uniprot_id": "O14497",
+      "label": 0,
+      "sequence_length": 2285,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 242.045
+    },
+    {
+      "uniprot_id": "O15078",
+      "label": 0,
+      "sequence_length": 2479,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 290.386
+    },
+    {
+      "uniprot_id": "O15230",
+      "label": 0,
+      "sequence_length": 3695,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 399.737
+    },
+    {
+      "uniprot_id": "O60281",
+      "label": 0,
+      "sequence_length": 2723,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 304.816
+    },
+    {
+      "uniprot_id": "O60469",
+      "label": 0,
+      "sequence_length": 2012,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 222.26
+    },
+    {
+      "uniprot_id": "O75369",
+      "label": 0,
+      "sequence_length": 2602,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 278.164
+    },
+    {
+      "uniprot_id": "O75376",
+      "label": 0,
+      "sequence_length": 2440,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 270.21
+    },
+    {
+      "uniprot_id": "O75443",
+      "label": 0,
+      "sequence_length": 2155,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 239.527
+    },
+    {
+      "uniprot_id": "O95714",
+      "label": 0,
+      "sequence_length": 4834,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 527.228
+    },
+    {
+      "uniprot_id": "O95996",
+      "label": 0,
+      "sequence_length": 2303,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 243.949
+    },
+    {
+      "uniprot_id": "P04275",
+      "label": 0,
+      "sequence_length": 2813,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 309.265
+    },
+    {
+      "uniprot_id": "P08519",
+      "label": 0,
+      "sequence_length": 2040,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 226.546
+    },
+    {
+      "uniprot_id": "A0A1B0GTW7",
+      "label": 0,
+      "sequence_length": 788,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 85.397
+    },
+    {
+      "uniprot_id": "A2A2Y4",
+      "label": 0,
+      "sequence_length": 597,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 68.772
+    },
+    {
+      "uniprot_id": "A6BM72",
+      "label": 0,
+      "sequence_length": 1044,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 110.844
+    },
+    {
+      "uniprot_id": "A6QL63",
+      "label": 0,
+      "sequence_length": 1104,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 120.884
+    },
+    {
+      "uniprot_id": "B7U540",
+      "label": 0,
+      "sequence_length": 433,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 48.88
+    },
+    {
+      "uniprot_id": "O00237",
+      "label": 0,
+      "sequence_length": 685,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 79.405
+    },
+    {
+      "uniprot_id": "O00337",
+      "label": 0,
+      "sequence_length": 649,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 71.584
+    },
+    {
+      "uniprot_id": "O00400",
+      "label": 0,
+      "sequence_length": 549,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 60.909
+    },
+    {
+      "uniprot_id": "O00478",
+      "label": 0,
+      "sequence_length": 584,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 65.002
+    },
+    {
+      "uniprot_id": "O00591",
+      "label": 0,
+      "sequence_length": 440,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 50.64
+    },
+    {
+      "uniprot_id": "O00624",
+      "label": 0,
+      "sequence_length": 439,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 47.277
+    },
+    {
+      "uniprot_id": "O14524",
+      "label": 0,
+      "sequence_length": 444,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 50.64
+    },
+    {
+      "uniprot_id": "O14638",
+      "label": 0,
+      "sequence_length": 875,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 100.124
+    },
+    {
+      "uniprot_id": "O14763",
+      "label": 0,
+      "sequence_length": 440,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 47.878
+    },
+    {
+      "uniprot_id": "O14967",
+      "label": 0,
+      "sequence_length": 610,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 70.039
+    },
+    {
+      "uniprot_id": "A0JNW5",
+      "label": 0,
+      "sequence_length": 1464,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 164.199
+    },
+    {
+      "uniprot_id": "A0JP26",
+      "label": 0,
+      "sequence_length": 581,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 65.71
+    },
+    {
+      "uniprot_id": "A0PK11",
+      "label": 0,
+      "sequence_length": 232,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 25.446
+    },
+    {
+      "uniprot_id": "A1A4S6",
+      "label": 0,
+      "sequence_length": 786,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 89.375
+    },
+    {
+      "uniprot_id": "A1A519",
+      "label": 0,
+      "sequence_length": 330,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 37.158
+    },
+    {
+      "uniprot_id": "A1L190",
+      "label": 0,
+      "sequence_length": 88,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 10.601
+    },
+    {
+      "uniprot_id": "A1L3X0",
+      "label": 0,
+      "sequence_length": 281,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 33.356
+    },
+    {
+      "uniprot_id": "A1X283",
+      "label": 0,
+      "sequence_length": 911,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 101.579
+    },
+    {
+      "uniprot_id": "A2RU14",
+      "label": 0,
+      "sequence_length": 115,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 12.459
+    },
+    {
+      "uniprot_id": "A2RUB6",
+      "label": 0,
+      "sequence_length": 948,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 109.411
+    },
+    {
+      "uniprot_id": "A2RUC4",
+      "label": 0,
+      "sequence_length": 315,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 36.548
+    },
+    {
+      "uniprot_id": "A3KN83",
+      "label": 0,
+      "sequence_length": 1393,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 154.312
+    },
+    {
+      "uniprot_id": "A5PLL7",
+      "label": 0,
+      "sequence_length": 270,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 31.135
+    },
+    {
+      "uniprot_id": "A6NFY7",
+      "label": 0,
+      "sequence_length": 115,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 12.806
+    },
+    {
+      "uniprot_id": "A6NI61",
+      "label": 0,
+      "sequence_length": 221,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 24.699
+    },
+    {
+      "uniprot_id": "A6NNB3",
+      "label": 0,
+      "sequence_length": 132,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 14.378
+    },
+    {
+      "uniprot_id": "A8MQ03",
+      "label": 0,
+      "sequence_length": 144,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 15.313
+    },
+    {
+      "uniprot_id": "A9UHW6",
+      "label": 0,
+      "sequence_length": 222,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 25.423
+    },
+    {
+      "uniprot_id": "B2RUY7",
+      "label": 0,
+      "sequence_length": 222,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 24.57
+    },
+    {
+      "uniprot_id": "B6A8C7",
+      "label": 0,
+      "sequence_length": 271,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 29.455
+    },
+    {
+      "uniprot_id": "D3W0D1",
+      "label": 0,
+      "sequence_length": 207,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 24.008
+    },
+    {
+      "uniprot_id": "O00161",
+      "label": 0,
+      "sequence_length": 211,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 23.354
+    },
+    {
+      "uniprot_id": "O00165",
+      "label": 0,
+      "sequence_length": 279,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 31.621
+    },
+    {
+      "uniprot_id": "O00322",
+      "label": 0,
+      "sequence_length": 258,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 28.879
+    },
+    {
+      "uniprot_id": "A4GXA9",
+      "label": 0,
+      "sequence_length": 379,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 41.178
+    },
+    {
+      "uniprot_id": "A5D8V7",
+      "label": 0,
+      "sequence_length": 595,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 69.14
+    },
+    {
+      "uniprot_id": "A6NCS4",
+      "label": 0,
+      "sequence_length": 301,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 32.121
+    },
+    {
+      "uniprot_id": "A8MW99",
+      "label": 0,
+      "sequence_length": 385,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 44.024
+    },
+    {
+      "uniprot_id": "B3KU38",
+      "label": 0,
+      "sequence_length": 563,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 62.248
+    },
+    {
+      "uniprot_id": "C9JRZ8",
+      "label": 0,
+      "sequence_length": 316,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 36.537
+    },
+    {
+      "uniprot_id": "O00115",
+      "label": 0,
+      "sequence_length": 360,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 39.581
+    },
+    {
+      "uniprot_id": "O00214",
+      "label": 0,
+      "sequence_length": 317,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 35.808
+    },
+    {
+      "uniprot_id": "O00254",
+      "label": 0,
+      "sequence_length": 374,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 42.508
+    },
+    {
+      "uniprot_id": "O00300",
+      "label": 0,
+      "sequence_length": 401,
+      "protein_class": "proxy negative (Swiss-Prot sample)",
+      "mw_kda": 46.026
+    },
+    {
+      "uniprot_id": "P01308",
+      "label": 1,
+      "sequence_length": 110,
+      "protein_class": "small peptide",
+      "mw_kda": 5.8
+    },
+    {
+      "uniprot_id": "P01275",
+      "label": 1,
+      "sequence_length": 180,
+      "protein_class": "small peptide",
+      "mw_kda": 3.5
+    },
+    {
+      "uniprot_id": "P01178",
+      "label": 1,
+      "sequence_length": 125,
+      "protein_class": "small peptide",
+      "mw_kda": 1.0
+    },
+    {
+      "uniprot_id": "P01185",
+      "label": 1,
+      "sequence_length": 164,
+      "protein_class": "small peptide",
+      "mw_kda": 1.1
+    },
+    {
+      "uniprot_id": "P20366",
+      "label": 1,
+      "sequence_length": 129,
+      "protein_class": "small peptide",
+      "mw_kda": 1.35
+    },
+    {
+      "uniprot_id": "P01042",
+      "label": 1,
+      "sequence_length": 644,
+      "protein_class": "small peptide",
+      "mw_kda": 1.06
+    },
+    {
+      "uniprot_id": "P01258",
+      "label": 1,
+      "sequence_length": 141,
+      "protein_class": "small peptide",
+      "mw_kda": 3.4
+    },
+    {
+      "uniprot_id": "P61278",
+      "label": 1,
+      "sequence_length": 116,
+      "protein_class": "small peptide",
+      "mw_kda": 1.64
+    },
+    {
+      "uniprot_id": "P01019",
+      "label": 1,
+      "sequence_length": 476,
+      "protein_class": "small peptide",
+      "mw_kda": 1.05
+    },
+    {
+      "uniprot_id": "P01501",
+      "label": 1,
+      "sequence_length": 70,
+      "protein_class": "small peptide / antimicrobial",
+      "mw_kda": 2.85
+    },
+    {
+      "uniprot_id": "P59665",
+      "label": 1,
+      "sequence_length": 94,
+      "protein_class": "small peptide / antimicrobial",
+      "mw_kda": 3.4
+    },
+    {
+      "uniprot_id": "Q01523",
+      "label": 1,
+      "sequence_length": 94,
+      "protein_class": "small peptide / antimicrobial",
+      "mw_kda": 3.6
+    },
+    {
+      "uniprot_id": "Q01524",
+      "label": 1,
+      "sequence_length": 100,
+      "protein_class": "small peptide / antimicrobial",
+      "mw_kda": 3.7
+    },
+    {
+      "uniprot_id": "P01189",
+      "label": 1,
+      "sequence_length": 267,
+      "protein_class": "small peptide",
+      "mw_kda": 4.5
+    },
+    {
+      "uniprot_id": "P01270",
+      "label": 1,
+      "sequence_length": 115,
+      "protein_class": "small peptide / hormone",
+      "mw_kda": 9.4
+    },
+    {
+      "uniprot_id": "P05305",
+      "label": 1,
+      "sequence_length": 212,
+      "protein_class": "small peptide",
+      "mw_kda": 2.49
+    },
+    {
+      "uniprot_id": "P10082",
+      "label": 1,
+      "sequence_length": 97,
+      "protein_class": "small peptide",
+      "mw_kda": 4.05
+    },
+    {
+      "uniprot_id": "P01303",
+      "label": 1,
+      "sequence_length": 97,
+      "protein_class": "small peptide",
+      "mw_kda": 4.27
+    },
+    {
+      "uniprot_id": "P0DV02",
+      "label": 1,
+      "sequence_length": 15,
+      "protein_class": "small peptide / hormone",
+      "mw_kda": 3.36
+    },
+    {
+      "uniprot_id": "P00517",
+      "label": 1,
+      "sequence_length": 351,
+      "protein_class": "kinase",
+      "mw_kda": 40.6
+    },
+    {
+      "uniprot_id": "P17612",
+      "label": 1,
+      "sequence_length": 351,
+      "protein_class": "kinase",
+      "mw_kda": 40.6
+    },
+    {
+      "uniprot_id": "P24941",
+      "label": 1,
+      "sequence_length": 298,
+      "protein_class": "kinase",
+      "mw_kda": 33.9
+    },
+    {
+      "uniprot_id": "P38936",
+      "label": 1,
+      "sequence_length": 164,
+      "protein_class": "IDP / kinase regulator",
+      "mw_kda": 18.1
+    },
+    {
+      "uniprot_id": "P27361",
+      "label": 1,
+      "sequence_length": 379,
+      "protein_class": "kinase",
+      "mw_kda": 43.1
+    },
+    {
+      "uniprot_id": "P28482",
+      "label": 1,
+      "sequence_length": 360,
+      "protein_class": "kinase",
+      "mw_kda": 41.4
+    },
+    {
+      "uniprot_id": "Q02750",
+      "label": 1,
+      "sequence_length": 393,
+      "protein_class": "kinase",
+      "mw_kda": 43.4
+    },
+    {
+      "uniprot_id": "P31749",
+      "label": 1,
+      "sequence_length": 480,
+      "protein_class": "kinase",
+      "mw_kda": 55.7
+    },
+    {
+      "uniprot_id": "P18031",
+      "label": 1,
+      "sequence_length": 435,
+      "protein_class": "phosphatase",
+      "mw_kda": 49.9
+    },
+    {
+      "uniprot_id": "P30153",
+      "label": 1,
+      "sequence_length": 589,
+      "protein_class": "phosphatase scaffold",
+      "mw_kda": 65.3
+    },
+    {
+      "uniprot_id": "P07550",
+      "label": 1,
+      "sequence_length": 413,
+      "protein_class": "GPCR",
+      "mw_kda": 46.5
+    },
+    {
+      "uniprot_id": "P30542",
+      "label": 1,
+      "sequence_length": 326,
+      "protein_class": "GPCR",
+      "mw_kda": 36.5
+    },
+    {
+      "uniprot_id": "P29274",
+      "label": 1,
+      "sequence_length": 412,
+      "protein_class": "GPCR",
+      "mw_kda": 44.7
+    },
+    {
+      "uniprot_id": "P21728",
+      "label": 1,
+      "sequence_length": 446,
+      "protein_class": "GPCR",
+      "mw_kda": 49.3
+    },
+    {
+      "uniprot_id": "P41595",
+      "label": 1,
+      "sequence_length": 481,
+      "protein_class": "GPCR",
+      "mw_kda": 54.3
+    },
+    {
+      "uniprot_id": "Q03721",
+      "label": 1,
+      "sequence_length": 635,
+      "protein_class": "membrane channel",
+      "mw_kda": 70.4
+    },
+    {
+      "uniprot_id": "P63027",
+      "label": 1,
+      "sequence_length": 116,
+      "protein_class": "SNARE",
+      "mw_kda": 12.7
+    },
+    {
+      "uniprot_id": "P32856",
+      "label": 1,
+      "sequence_length": 288,
+      "protein_class": "SNARE",
+      "mw_kda": 33.2
+    },
+    {
+      "uniprot_id": "P01871",
+      "label": 1,
+      "sequence_length": 474,
+      "protein_class": "antibody",
+      "mw_kda": 49.4
+    },
+    {
+      "uniprot_id": "P01876",
+      "label": 1,
+      "sequence_length": 398,
+      "protein_class": "antibody",
+      "mw_kda": 37.7
+    },
+    {
+      "uniprot_id": "P01877",
+      "label": 1,
+      "sequence_length": 391,
+      "protein_class": "antibody",
+      "mw_kda": 36.5
+    },
+    {
+      "uniprot_id": "P01880",
+      "label": 1,
+      "sequence_length": 430,
+      "protein_class": "antibody",
+      "mw_kda": 42.2
+    },
+    {
+      "uniprot_id": "P01854",
+      "label": 1,
+      "sequence_length": 546,
+      "protein_class": "antibody",
+      "mw_kda": 47.2
+    },
+    {
+      "uniprot_id": "P01591",
+      "label": 1,
+      "sequence_length": 159,
+      "protein_class": "antibody adapter",
+      "mw_kda": 18.1
+    },
+    {
+      "uniprot_id": "P01833",
+      "label": 1,
+      "sequence_length": 764,
+      "protein_class": "antibody-related",
+      "mw_kda": 83.3
+    },
+    {
+      "uniprot_id": "P00875",
+      "label": 1,
+      "sequence_length": 475,
+      "protein_class": "plant enzyme",
+      "mw_kda": 52.9
+    },
+    {
+      "uniprot_id": "P10795",
+      "label": 1,
+      "sequence_length": 180,
+      "protein_class": "plant enzyme",
+      "mw_kda": 14.8
+    },
+    {
+      "uniprot_id": "P03689",
+      "label": 1,
+      "sequence_length": 233,
+      "protein_class": "photosynthetic membrane",
+      "mw_kda": 50.1
+    },
+    {
+      "uniprot_id": "P03466",
+      "label": 1,
+      "sequence_length": 498,
+      "protein_class": "viral RNP",
+      "mw_kda": 56.2
+    },
+    {
+      "uniprot_id": "P03485",
+      "label": 1,
+      "sequence_length": 252,
+      "protein_class": "viral matrix",
+      "mw_kda": 27.8
+    },
+    {
+      "uniprot_id": "P03070",
+      "label": 1,
+      "sequence_length": 708,
+      "protein_class": "viral helicase",
+      "mw_kda": 81.6
+    },
+    {
+      "uniprot_id": "Q77M19",
+      "label": 1,
+      "sequence_length": 299,
+      "protein_class": "viral capsid",
+      "mw_kda": 56.5
+    },
+    {
+      "uniprot_id": "P03129",
+      "label": 1,
+      "sequence_length": 98,
+      "protein_class": "viral oncoprotein / IDP",
+      "mw_kda": 11.0
+    },
+    {
+      "uniprot_id": "P12504",
+      "label": 1,
+      "sequence_length": 192,
+      "protein_class": "viral regulatory",
+      "mw_kda": 23.1
+    },
+    {
+      "uniprot_id": "P04591",
+      "label": 1,
+      "sequence_length": 500,
+      "protein_class": "viral structural",
+      "mw_kda": 55.8
+    },
+    {
+      "uniprot_id": "P03366",
+      "label": 1,
+      "sequence_length": 1447,
+      "protein_class": "viral enzyme",
+      "mw_kda": 115.3
+    },
+    {
+      "uniprot_id": "P10275",
+      "label": 1,
+      "sequence_length": 920,
+      "protein_class": "nuclear receptor LBD",
+      "mw_kda": 99.2
+    },
+    {
+      "uniprot_id": "P03372",
+      "label": 1,
+      "sequence_length": 595,
+      "protein_class": "nuclear receptor LBD",
+      "mw_kda": 66.2
+    },
+    {
+      "uniprot_id": "P10415",
+      "label": 1,
+      "sequence_length": 239,
+      "protein_class": "apoptosis regulator",
+      "mw_kda": 26.3
+    },
+    {
+      "uniprot_id": "Q07817",
+      "label": 1,
+      "sequence_length": 233,
+      "protein_class": "apoptosis regulator",
+      "mw_kda": 26.0
+    },
+    {
+      "uniprot_id": "Q9NR28",
+      "label": 1,
+      "sequence_length": 239,
+      "protein_class": "apoptosis regulator",
+      "mw_kda": 27.1
+    },
+    {
+      "uniprot_id": "P00558",
+      "label": 1,
+      "sequence_length": 417,
+      "protein_class": "metabolic enzyme",
+      "mw_kda": 44.6
+    },
+    {
+      "uniprot_id": "P04406",
+      "label": 1,
+      "sequence_length": 335,
+      "protein_class": "metabolic enzyme tetramer",
+      "mw_kda": 36.0
+    },
+    {
+      "uniprot_id": "P00338",
+      "label": 1,
+      "sequence_length": 332,
+      "protein_class": "metabolic enzyme tetramer",
+      "mw_kda": 36.7
+    },
+    {
+      "uniprot_id": "P14618",
+      "label": 1,
+      "sequence_length": 531,
+      "protein_class": "metabolic enzyme tetramer",
+      "mw_kda": 57.9
+    },
+    {
+      "uniprot_id": "P00925",
+      "label": 1,
+      "sequence_length": 437,
+      "protein_class": "metabolic enzyme dimer",
+      "mw_kda": 47.3
+    },
+    {
+      "uniprot_id": "P25786",
+      "label": 1,
+      "sequence_length": 263,
+      "protein_class": "proteasome subunit",
+      "mw_kda": 29.5
+    },
+    {
+      "uniprot_id": "P28074",
+      "label": 1,
+      "sequence_length": 263,
+      "protein_class": "proteasome subunit",
+      "mw_kda": 28.5
+    },
+    {
+      "uniprot_id": "P62195",
+      "label": 1,
+      "sequence_length": 406,
+      "protein_class": "AAA+ ATPase",
+      "mw_kda": 45.6
+    },
+    {
+      "uniprot_id": "P62333",
+      "label": 1,
+      "sequence_length": 389,
+      "protein_class": "AAA+ ATPase",
+      "mw_kda": 44.2
+    },
+    {
+      "uniprot_id": "P15941",
+      "label": 0,
+      "sequence_length": 1255,
+      "protein_class": "O-glycosylated mucin",
+      "mw_kda": 122.1
+    },
+    {
+      "uniprot_id": "Q02817",
+      "label": 0,
+      "sequence_length": 5289,
+      "protein_class": "O-glycosylated mucin",
+      "mw_kda": 540.0
+    },
+    {
+      "uniprot_id": "P98088",
+      "label": 0,
+      "sequence_length": 5654,
+      "protein_class": "O-glycosylated mucin",
+      "mw_kda": 585.0
+    },
+    {
+      "uniprot_id": "Q9HC84",
+      "label": 0,
+      "sequence_length": 5762,
+      "protein_class": "O-glycosylated mucin",
+      "mw_kda": 596.0
+    },
+    {
+      "uniprot_id": "Q8WXI7",
+      "label": 0,
+      "sequence_length": 14507,
+      "protein_class": "O-glycosylated mucin",
+      "mw_kda": 1518.0
+    },
+    {
+      "uniprot_id": "Q9HCU0",
+      "label": 0,
+      "sequence_length": 757,
+      "protein_class": "O-glycosylated single-pass",
+      "mw_kda": 80.9
+    },
+    {
+      "uniprot_id": "P11532",
+      "label": 0,
+      "sequence_length": 3685,
+      "protein_class": "very large cytoskeletal",
+      "mw_kda": 426.7
+    },
+    {
+      "uniprot_id": "Q8WZ42",
+      "label": 0,
+      "sequence_length": 34350,
+      "protein_class": "very large multi-domain",
+      "mw_kda": 3816.0
+    },
+    {
+      "uniprot_id": "P02549",
+      "label": 0,
+      "sequence_length": 2419,
+      "protein_class": "very large cytoskeletal",
+      "mw_kda": 280.0
+    },
+    {
+      "uniprot_id": "Q15149",
+      "label": 0,
+      "sequence_length": 4684,
+      "protein_class": "very large cytoskeletal",
+      "mw_kda": 531.5
+    },
+    {
+      "uniprot_id": "P27816",
+      "label": 0,
+      "sequence_length": 1152,
+      "protein_class": "large MAP / disordered",
+      "mw_kda": 121.0
+    },
+    {
+      "uniprot_id": "P78527",
+      "label": 0,
+      "sequence_length": 4128,
+      "protein_class": "very large kinase",
+      "mw_kda": 469.0
+    },
+    {
+      "uniprot_id": "P98164",
+      "label": 0,
+      "sequence_length": 4655,
+      "protein_class": "very large single-pass receptor",
+      "mw_kda": 521.9
+    },
+    {
+      "uniprot_id": "Q9Y6V0",
+      "label": 0,
+      "sequence_length": 5142,
+      "protein_class": "very large scaffold / disordered",
+      "mw_kda": 560.0
+    },
+    {
+      "uniprot_id": "P21817",
+      "label": 0,
+      "sequence_length": 5038,
+      "protein_class": "very large multi-pass channel",
+      "mw_kda": 565.0
+    },
+    {
+      "uniprot_id": "O95997",
+      "label": 0,
+      "sequence_length": 202,
+      "protein_class": "IDP / cell cycle",
+      "mw_kda": 22.0
+    },
+    {
+      "uniprot_id": "Q12778",
+      "label": 0,
+      "sequence_length": 655,
+      "protein_class": "IDP transcription factor",
+      "mw_kda": 69.7
+    },
+    {
+      "uniprot_id": "Q9Y261",
+      "label": 0,
+      "sequence_length": 457,
+      "protein_class": "IDP transcription factor",
+      "mw_kda": 48.3
+    },
+    {
+      "uniprot_id": "P04150",
+      "label": 0,
+      "sequence_length": 777,
+      "protein_class": "IDR-containing nuclear receptor",
+      "mw_kda": 85.6
+    },
+    {
+      "uniprot_id": "P38398",
+      "label": 0,
+      "sequence_length": 1863,
+      "protein_class": "very large IDR-containing",
+      "mw_kda": 207.7
+    },
+    {
+      "uniprot_id": "Q14653",
+      "label": 0,
+      "sequence_length": 427,
+      "protein_class": "TF with IDR",
+      "mw_kda": 47.2
+    },
+    {
+      "uniprot_id": "P42858",
+      "label": 0,
+      "sequence_length": 3142,
+      "protein_class": "polyQ / aggregation-prone",
+      "mw_kda": 347.6
+    },
+    {
+      "uniprot_id": "P54259",
+      "label": 0,
+      "sequence_length": 1190,
+      "protein_class": "polyQ / aggregation-prone",
+      "mw_kda": 125.5
+    },
+    {
+      "uniprot_id": "P54253",
+      "label": 0,
+      "sequence_length": 815,
+      "protein_class": "polyQ / aggregation-prone",
+      "mw_kda": 86.9
+    },
+    {
+      "uniprot_id": "P04156",
+      "label": 0,
+      "sequence_length": 253,
+      "protein_class": "aggregation-prone / amyloidogenic",
+      "mw_kda": 27.7
+    },
+    {
+      "uniprot_id": "P19838",
+      "label": 0,
+      "sequence_length": 968,
+      "protein_class": "very large with ankyrin/IDR",
+      "mw_kda": 105.4
+    },
+    {
+      "uniprot_id": "Q9UM47",
+      "label": 0,
+      "sequence_length": 2321,
+      "protein_class": "very large multi-pass receptor",
+      "mw_kda": 243.6
+    },
+    {
+      "uniprot_id": "P35658",
+      "label": 0,
+      "sequence_length": 2090,
+      "protein_class": "FG-repeat nucleoporin",
+      "mw_kda": 213.6
+    },
+    {
+      "uniprot_id": "Q8N3C0",
+      "label": 0,
+      "sequence_length": 2202,
+      "protein_class": "very large helicase",
+      "mw_kda": 251.3
+    },
+    {
+      "uniprot_id": "P49792",
+      "label": 0,
+      "sequence_length": 3224,
+      "protein_class": "very large FG nucleoporin",
+      "mw_kda": 358.2
+    },
+    {
+      "uniprot_id": "P10104",
+      "label": 1,
+      "sequence_length": 487,
+      "protein_class": "chaperone",
+      "mw_kda": 51.87
+    },
+    {
+      "uniprot_id": "P00784",
+      "label": 1,
+      "sequence_length": 345,
+      "protein_class": "enzyme",
+      "mw_kda": 38.92
+    },
+    {
+      "uniprot_id": "P32787",
+      "label": 1,
+      "sequence_length": 269,
+      "protein_class": "protein",
+      "mw_kda": 30.09
+    },
+    {
+      "uniprot_id": "P35828",
+      "label": 1,
+      "sequence_length": 1026,
+      "protein_class": "protein",
+      "mw_kda": 98.13
+    },
+    {
+      "uniprot_id": "Q6P4V5",
+      "label": 1,
+      "sequence_length": 538,
+      "protein_class": "enzyme",
+      "mw_kda": 57.98
+    },
+    {
+      "uniprot_id": "A0A090M4C4",
+      "label": 1,
+      "sequence_length": 725,
+      "protein_class": "protein",
+      "mw_kda": 79.06
+    },
+    {
+      "uniprot_id": "Q92FL9",
+      "label": 1,
+      "sequence_length": 271,
+      "protein_class": "protein",
+      "mw_kda": 30.62
+    },
+    {
+      "uniprot_id": "D0LZ74",
+      "label": 1,
+      "sequence_length": 266,
+      "protein_class": "protein",
+      "mw_kda": 28.81
+    },
+    {
+      "uniprot_id": "Q63NA5",
+      "label": 1,
+      "sequence_length": 138,
+      "protein_class": "protein",
+      "mw_kda": 15.12
+    },
+    {
+      "uniprot_id": "Q9X8F4",
+      "label": 1,
+      "sequence_length": 136,
+      "protein_class": "protein",
+      "mw_kda": 14.32
+    },
+    {
+      "uniprot_id": "A0ABF7SXM9",
+      "label": 1,
+      "sequence_length": 121,
+      "protein_class": "viral capsid",
+      "mw_kda": 14.33
+    },
+    {
+      "uniprot_id": "A0A649V088",
+      "label": 1,
+      "sequence_length": 291,
+      "protein_class": "enzyme",
+      "mw_kda": 30.98
+    },
+    {
+      "uniprot_id": "Q4WQY4",
+      "label": 1,
+      "sequence_length": 502,
+      "protein_class": "enzyme",
+      "mw_kda": 56.48
+    },
+    {
+      "uniprot_id": "P73407",
+      "label": 1,
+      "sequence_length": 112,
+      "protein_class": "protein",
+      "mw_kda": 11.9
+    },
+    {
+      "uniprot_id": "I6YC99",
+      "label": 1,
+      "sequence_length": 400,
+      "protein_class": "membrane protein",
+      "mw_kda": 42.42
+    },
+    {
+      "uniprot_id": "V7IWJ0",
+      "label": 1,
+      "sequence_length": 331,
+      "protein_class": "protein",
+      "mw_kda": 36.98
+    },
+    {
+      "uniprot_id": "P0C195",
+      "label": 1,
+      "sequence_length": 22,
+      "protein_class": "ion channel",
+      "mw_kda": 2.56
+    },
+    {
+      "uniprot_id": "P9WMC1",
+      "label": 1,
+      "sequence_length": 216,
+      "protein_class": "protein",
+      "mw_kda": 23.76
+    },
+    {
+      "uniprot_id": "P48632",
+      "label": 1,
+      "sequence_length": 815,
+      "protein_class": "membrane protein",
+      "mw_kda": 91.17
+    },
+    {
+      "uniprot_id": "Q06584",
+      "label": 1,
+      "sequence_length": 689,
+      "protein_class": "enzyme",
+      "mw_kda": 73.85
+    },
+    {
+      "uniprot_id": "Q9MBW4",
+      "label": 1,
+      "sequence_length": 161,
+      "protein_class": "viral capsid",
+      "mw_kda": 18.46
+    },
+    {
+      "uniprot_id": "I0DF35",
+      "label": 1,
+      "sequence_length": 2084,
+      "protein_class": "enzyme",
+      "mw_kda": 235.41
+    },
+    {
+      "uniprot_id": "Q4WFT3",
+      "label": 1,
+      "sequence_length": 557,
+      "protein_class": "enzyme",
+      "mw_kda": 61.43
+    },
+    {
+      "uniprot_id": "P9WJD9",
+      "label": 1,
+      "sequence_length": 460,
+      "protein_class": "protein",
+      "mw_kda": 47.59
+    },
+    {
+      "uniprot_id": "Q96X30",
+      "label": 1,
+      "sequence_length": 438,
+      "protein_class": "enzyme",
+      "mw_kda": 47.3
+    },
+    {
+      "uniprot_id": "Q8ZJX7",
+      "label": 1,
+      "sequence_length": 343,
+      "protein_class": "enzyme",
+      "mw_kda": 39.22
+    },
+    {
+      "uniprot_id": "P50984",
+      "label": 1,
+      "sequence_length": 16,
+      "protein_class": "ion channel",
+      "mw_kda": 1.63
+    },
+    {
+      "uniprot_id": "P0C1V7",
+      "label": 1,
+      "sequence_length": 17,
+      "protein_class": "ion channel",
+      "mw_kda": 1.71
+    },
+    {
+      "uniprot_id": "P56638",
+      "label": 1,
+      "sequence_length": 56,
+      "protein_class": "ion channel",
+      "mw_kda": 5.98
+    },
+    {
+      "uniprot_id": "P0ACB0",
+      "label": 1,
+      "sequence_length": 471,
+      "protein_class": "enzyme",
+      "mw_kda": 52.39
+    },
+    {
+      "uniprot_id": "Q9BPX1",
+      "label": 1,
+      "sequence_length": 270,
+      "protein_class": "enzyme",
+      "mw_kda": 28.32
+    },
+    {
+      "uniprot_id": "P60752",
+      "label": 1,
+      "sequence_length": 582,
+      "protein_class": "membrane protein",
+      "mw_kda": 64.46
+    },
+    {
+      "uniprot_id": "P0AFS7",
+      "label": 1,
+      "sequence_length": 370,
+      "protein_class": "membrane protein",
+      "mw_kda": 39.84
+    },
+    {
+      "uniprot_id": "P10397",
+      "label": 1,
+      "sequence_length": 71,
+      "protein_class": "protein",
+      "mw_kda": 7.53
+    },
+    {
+      "uniprot_id": "Q3UKX1",
+      "label": 1,
+      "sequence_length": 445,
+      "protein_class": "enzyme",
+      "mw_kda": 50.5
+    },
+    {
+      "uniprot_id": "A0A2H1V327",
+      "label": 1,
+      "sequence_length": 147,
+      "protein_class": "protein",
+      "mw_kda": 15.96
+    },
+    {
+      "uniprot_id": "A5PJT3",
+      "label": 1,
+      "sequence_length": 846,
+      "protein_class": "enzyme",
+      "mw_kda": 94.51
+    },
+    {
+      "uniprot_id": "O14960",
+      "label": 1,
+      "sequence_length": 151,
+      "protein_class": "protein",
+      "mw_kda": 16.39
+    },
+    {
+      "uniprot_id": "C5BJ89",
+      "label": 1,
+      "sequence_length": 436,
+      "protein_class": "enzyme",
+      "mw_kda": 49.08
+    },
+    {
+      "uniprot_id": "Q9RW95",
+      "label": 1,
+      "sequence_length": 740,
+      "protein_class": "membrane protein",
+      "mw_kda": 78.59
+    },
+    {
+      "uniprot_id": "Q9RUM0",
+      "label": 1,
+      "sequence_length": 155,
+      "protein_class": "membrane protein",
+      "mw_kda": 15.94
+    },
+    {
+      "uniprot_id": "Q9RVT2",
+      "label": 1,
+      "sequence_length": 208,
+      "protein_class": "membrane protein",
+      "mw_kda": 21.8
+    },
+    {
+      "uniprot_id": "B2HNQ9",
+      "label": 1,
+      "sequence_length": 454,
+      "protein_class": "protein",
+      "mw_kda": 46.97
+    },
+    {
+      "uniprot_id": "P79074",
+      "label": 1,
+      "sequence_length": 403,
+      "protein_class": "enzyme",
+      "mw_kda": 41.61
+    },
+    {
+      "uniprot_id": "C4N415",
+      "label": 1,
+      "sequence_length": 3061,
+      "protein_class": "membrane protein",
+      "mw_kda": 347.45
+    },
+    {
+      "uniprot_id": "A0A422MHI3",
+      "label": 1,
+      "sequence_length": 344,
+      "protein_class": "enzyme",
+      "mw_kda": 39.22
+    },
+    {
+      "uniprot_id": "Q5W0Q7",
+      "label": 1,
+      "sequence_length": 1092,
+      "protein_class": "enzyme",
+      "mw_kda": 120.44
+    },
+    {
+      "uniprot_id": "P55854",
+      "label": 1,
+      "sequence_length": 103,
+      "protein_class": "protein",
+      "mw_kda": 11.64
+    },
+    {
+      "uniprot_id": "Q48GF5",
+      "label": 1,
+      "sequence_length": 250,
+      "protein_class": "membrane protein",
+      "mw_kda": 27.19
+    },
+    {
+      "uniprot_id": "Q48GF6",
+      "label": 1,
+      "sequence_length": 89,
+      "protein_class": "membrane protein",
+      "mw_kda": 9.92
+    },
+    {
+      "uniprot_id": "P0DMM5",
+      "label": 1,
+      "sequence_length": 363,
+      "protein_class": "kinase",
+      "mw_kda": 40.85
+    },
+    {
+      "uniprot_id": "Q8DKB5",
+      "label": 1,
+      "sequence_length": 652,
+      "protein_class": "enzyme",
+      "mw_kda": 71.58
+    },
+    {
+      "uniprot_id": "A2PZA5",
+      "label": 1,
+      "sequence_length": 719,
+      "protein_class": "enzyme",
+      "mw_kda": 81.61
+    },
+    {
+      "uniprot_id": "D6N7U3",
+      "label": 1,
+      "sequence_length": 610,
+      "protein_class": "protein",
+      "mw_kda": 67.1
+    },
+    {
+      "uniprot_id": "P76008",
+      "label": 1,
+      "sequence_length": 304,
+      "protein_class": "enzyme",
+      "mw_kda": 33.57
+    },
+    {
+      "uniprot_id": "Q96RT7",
+      "label": 1,
+      "sequence_length": 1819,
+      "protein_class": "protein",
+      "mw_kda": 200.5
+    },
+    {
+      "uniprot_id": "A0A2J9UXT5",
+      "label": 1,
+      "sequence_length": 299,
+      "protein_class": "membrane protein",
+      "mw_kda": 32.42
+    },
+    {
+      "uniprot_id": "A0A1D8S9I5",
+      "label": 1,
+      "sequence_length": 260,
+      "protein_class": "membrane protein",
+      "mw_kda": 28.75
+    },
+    {
+      "uniprot_id": "A0A1D8S9F5",
+      "label": 1,
+      "sequence_length": 89,
+      "protein_class": "membrane protein",
+      "mw_kda": 10.33
+    },
+    {
+      "uniprot_id": "F9UR90",
+      "label": 1,
+      "sequence_length": 705,
+      "protein_class": "membrane protein",
+      "mw_kda": 72.18
+    },
+    {
+      "uniprot_id": "P67812",
+      "label": 1,
+      "sequence_length": 179,
+      "protein_class": "membrane protein",
+      "mw_kda": 20.62
+    },
+    {
+      "uniprot_id": "P61009",
+      "label": 1,
+      "sequence_length": 180,
+      "protein_class": "membrane protein",
+      "mw_kda": 20.31
+    },
+    {
+      "uniprot_id": "Q15005",
+      "label": 1,
+      "sequence_length": 226,
+      "protein_class": "membrane protein",
+      "mw_kda": 25.0
+    },
+    {
+      "uniprot_id": "Q9Y6A9",
+      "label": 1,
+      "sequence_length": 169,
+      "protein_class": "membrane protein",
+      "mw_kda": 18.3
+    },
+    {
+      "uniprot_id": "Q9BY50",
+      "label": 1,
+      "sequence_length": 192,
+      "protein_class": "membrane protein",
+      "mw_kda": 21.54
+    },
+    {
+      "uniprot_id": "P0A790",
+      "label": 1,
+      "sequence_length": 126,
+      "protein_class": "enzyme",
+      "mw_kda": 13.83
+    },
+    {
+      "uniprot_id": "Q9RRB6",
+      "label": 1,
+      "sequence_length": 1167,
+      "protein_class": "membrane protein",
+      "mw_kda": 123.73
+    },
+    {
+      "uniprot_id": "Q9RWM2",
+      "label": 1,
+      "sequence_length": 206,
+      "protein_class": "protein",
+      "mw_kda": 20.87
+    },
+    {
+      "uniprot_id": "Q91184",
+      "label": 1,
+      "sequence_length": 420,
+      "protein_class": "membrane protein",
+      "mw_kda": 46.17
+    },
+    {
+      "uniprot_id": "A0A3B3H5X1",
+      "label": 1,
+      "sequence_length": 576,
+      "protein_class": "membrane protein",
+      "mw_kda": 63.38
+    },
+    {
+      "uniprot_id": "P79817",
+      "label": 1,
+      "sequence_length": 591,
+      "protein_class": "membrane protein",
+      "mw_kda": 65.04
+    },
+    {
+      "uniprot_id": "Q2RVS1",
+      "label": 1,
+      "sequence_length": 140,
+      "protein_class": "enzyme",
+      "mw_kda": 15.19
+    },
+    {
+      "uniprot_id": "Q8J2T0",
+      "label": 1,
+      "sequence_length": 600,
+      "protein_class": "enzyme",
+      "mw_kda": 67.53
+    },
+    {
+      "uniprot_id": "P0A3X9",
+      "label": 1,
+      "sequence_length": 112,
+      "protein_class": "protein",
+      "mw_kda": 11.76
+    },
+    {
+      "uniprot_id": "P20239",
+      "label": 1,
+      "sequence_length": 713,
+      "protein_class": "membrane protein",
+      "mw_kda": 80.21
+    },
+    {
+      "uniprot_id": "P61626",
+      "label": 1,
+      "sequence_length": 148,
+      "protein_class": "enzyme",
+      "mw_kda": 16.54
+    },
+    {
+      "uniprot_id": "M1EBB2",
+      "label": 1,
+      "sequence_length": 249,
+      "protein_class": "viral capsid",
+      "mw_kda": 25.66
+    },
+    {
+      "uniprot_id": "M1EAS5",
+      "label": 1,
+      "sequence_length": 749,
+      "protein_class": "viral capsid",
+      "mw_kda": 79.41
+    },
+    {
+      "uniprot_id": "P07623",
+      "label": 1,
+      "sequence_length": 309,
+      "protein_class": "enzyme",
+      "mw_kda": 35.73
+    },
+    {
+      "uniprot_id": "Q05128",
+      "label": 1,
+      "sequence_length": 326,
+      "protein_class": "membrane protein",
+      "mw_kda": 35.18
+    },
+    {
+      "uniprot_id": "E5L7Z5",
+      "label": 1,
+      "sequence_length": 702,
+      "protein_class": "enzyme",
+      "mw_kda": 76.36
+    },
+    {
+      "uniprot_id": "P70662",
+      "label": 1,
+      "sequence_length": 411,
+      "protein_class": "protein",
+      "mw_kda": 46.5
+    },
+    {
+      "uniprot_id": "P24821",
+      "label": 1,
+      "sequence_length": 2201,
+      "protein_class": "protein",
+      "mw_kda": 240.85
+    },
+    {
+      "uniprot_id": "B3ECE3",
+      "label": 1,
+      "sequence_length": 457,
+      "protein_class": "enzyme",
+      "mw_kda": 51.88
+    },
+    {
+      "uniprot_id": "F2RGC9",
+      "label": 1,
+      "sequence_length": 160,
+      "protein_class": "protein",
+      "mw_kda": 16.54
+    },
+    {
+      "uniprot_id": "B9L163",
+      "label": 1,
+      "sequence_length": 379,
+      "protein_class": "enzyme",
+      "mw_kda": 42.18
+    },
+    {
+      "uniprot_id": "Q96L58",
+      "label": 1,
+      "sequence_length": 329,
+      "protein_class": "membrane protein",
+      "mw_kda": 37.14
+    },
+    {
+      "uniprot_id": "Q16820",
+      "label": 1,
+      "sequence_length": 701,
+      "protein_class": "membrane protein",
+      "mw_kda": 79.57
+    },
+    {
+      "uniprot_id": "P62873",
+      "label": 1,
+      "sequence_length": 340,
+      "protein_class": "viral capsid",
+      "mw_kda": 37.38
+    },
+    {
+      "uniprot_id": "P59768",
+      "label": 1,
+      "sequence_length": 71,
+      "protein_class": "membrane protein",
+      "mw_kda": 7.85
+    },
+    {
+      "uniprot_id": "P63092",
+      "label": 1,
+      "sequence_length": 394,
+      "protein_class": "membrane protein",
+      "mw_kda": 45.66
+    },
+    {
+      "uniprot_id": "P0ABE7",
+      "label": 1,
+      "sequence_length": 128,
+      "protein_class": "protein",
+      "mw_kda": 14.06
+    },
+    {
+      "uniprot_id": "P61956",
+      "label": 1,
+      "sequence_length": 95,
+      "protein_class": "viral capsid",
+      "mw_kda": 10.87
+    },
+    {
+      "uniprot_id": "Q8TDB6",
+      "label": 1,
+      "sequence_length": 740,
+      "protein_class": "membrane protein",
+      "mw_kda": 83.55
+    },
+    {
+      "uniprot_id": "Q05996",
+      "label": 1,
+      "sequence_length": 745,
+      "protein_class": "membrane protein",
+      "mw_kda": 82.36
+    },
+    {
+      "uniprot_id": "P23258",
+      "label": 1,
+      "sequence_length": 451,
+      "protein_class": "protein",
+      "mw_kda": 51.17
+    },
+    {
+      "uniprot_id": "Q96RT8",
+      "label": 1,
+      "sequence_length": 1024,
+      "protein_class": "protein",
+      "mw_kda": 118.32
+    },
+    {
+      "uniprot_id": "Q9UGJ1",
+      "label": 1,
+      "sequence_length": 667,
+      "protein_class": "protein",
+      "mw_kda": 76.09
+    },
+    {
+      "uniprot_id": "Q96CW5",
+      "label": 1,
+      "sequence_length": 907,
+      "protein_class": "protein",
+      "mw_kda": 103.57
+    },
+    {
+      "uniprot_id": "Q9BSJ2",
+      "label": 1,
+      "sequence_length": 902,
+      "protein_class": "protein",
+      "mw_kda": 102.53
+    },
+    {
+      "uniprot_id": "F1NCD6",
+      "label": 1,
+      "sequence_length": 528,
+      "protein_class": "membrane protein",
+      "mw_kda": 58.42
+    },
+    {
+      "uniprot_id": "A1L3D9",
+      "label": 1,
+      "sequence_length": 699,
+      "protein_class": "membrane protein",
+      "mw_kda": 77.73
+    },
+    {
+      "uniprot_id": "Q79PF4",
+      "label": 1,
+      "sequence_length": 519,
+      "protein_class": "kinase",
+      "mw_kda": 58.0
+    },
+    {
+      "uniprot_id": "Q79PF5",
+      "label": 1,
+      "sequence_length": 102,
+      "protein_class": "membrane protein",
+      "mw_kda": 11.44
+    },
+    {
+      "uniprot_id": "Q79PF6",
+      "label": 1,
+      "sequence_length": 284,
+      "protein_class": "protein",
+      "mw_kda": 32.63
+    },
+    {
+      "uniprot_id": "P03147",
+      "label": 1,
+      "sequence_length": 183,
+      "protein_class": "viral capsid",
+      "mw_kda": 21.04
+    },
+    {
+      "uniprot_id": "P52293",
+      "label": 1,
+      "sequence_length": 529,
+      "protein_class": "protein",
+      "mw_kda": 57.93
+    },
+    {
+      "uniprot_id": "Q9Y255",
+      "label": 1,
+      "sequence_length": 219,
+      "protein_class": "protein",
+      "mw_kda": 25.18
+    },
+    {
+      "uniprot_id": "O43715",
+      "label": 1,
+      "sequence_length": 76,
+      "protein_class": "protein",
+      "mw_kda": 8.79
+    },
+    {
+      "uniprot_id": "P0DTD1",
+      "label": 1,
+      "sequence_length": 7096,
+      "protein_class": "membrane protein",
+      "mw_kda": 794.06
+    },
+    {
+      "uniprot_id": "A0A2H4K974",
+      "label": 1,
+      "sequence_length": 859,
+      "protein_class": "membrane protein",
+      "mw_kda": 96.39
+    },
+    {
+      "uniprot_id": "S6B291",
+      "label": 1,
+      "sequence_length": 466,
+      "protein_class": "antibody",
+      "mw_kda": 50.87
+    },
+    {
+      "uniprot_id": "Q8TCD0",
+      "label": 1,
+      "sequence_length": 239,
+      "protein_class": "antibody",
+      "mw_kda": 26.23
+    },
+    {
+      "uniprot_id": "P04792",
+      "label": 1,
+      "sequence_length": 205,
+      "protein_class": "viral capsid",
+      "mw_kda": 22.78
+    },
+    {
+      "uniprot_id": "P15532",
+      "label": 1,
+      "sequence_length": 152,
+      "protein_class": "kinase",
+      "mw_kda": 17.21
+    },
+    {
+      "uniprot_id": "Q8CFZ4",
+      "label": 1,
+      "sequence_length": 579,
+      "protein_class": "membrane protein",
+      "mw_kda": 65.33
+    },
+    {
+      "uniprot_id": "F1LW30",
+      "label": 1,
+      "sequence_length": 956,
+      "protein_class": "antibody",
+      "mw_kda": 106.52
+    },
+    {
+      "uniprot_id": "O75469",
+      "label": 1,
+      "sequence_length": 434,
+      "protein_class": "protein",
+      "mw_kda": 49.76
+    },
+    {
+      "uniprot_id": "D5ANZ2",
+      "label": 1,
+      "sequence_length": 191,
+      "protein_class": "membrane protein",
+      "mw_kda": 20.44
+    },
+    {
+      "uniprot_id": "D5ANZ3",
+      "label": 1,
+      "sequence_length": 437,
+      "protein_class": "membrane protein",
+      "mw_kda": 49.35
+    },
+    {
+      "uniprot_id": "D5ANZ4",
+      "label": 1,
+      "sequence_length": 279,
+      "protein_class": "membrane protein",
+      "mw_kda": 30.32
+    },
+    {
+      "uniprot_id": "Q13526",
+      "label": 1,
+      "sequence_length": 163,
+      "protein_class": "enzyme",
+      "mw_kda": 18.24
+    },
+    {
+      "uniprot_id": "P51654",
+      "label": 1,
+      "sequence_length": 580,
+      "protein_class": "membrane protein",
+      "mw_kda": 65.56
+    },
+    {
+      "uniprot_id": "P55210",
+      "label": 1,
+      "sequence_length": 303,
+      "protein_class": "enzyme",
+      "mw_kda": 34.28
+    },
+    {
+      "uniprot_id": "P61586",
+      "label": 1,
+      "sequence_length": 193,
+      "protein_class": "membrane protein",
+      "mw_kda": 21.77
+    },
+    {
+      "uniprot_id": "P46736",
+      "label": 1,
+      "sequence_length": 316,
+      "protein_class": "enzyme",
+      "mw_kda": 36.07
+    },
+    {
+      "uniprot_id": "Q15018",
+      "label": 1,
+      "sequence_length": 415,
+      "protein_class": "protein",
+      "mw_kda": 46.9
+    },
+    {
+      "uniprot_id": "Q9NXR7",
+      "label": 1,
+      "sequence_length": 383,
+      "protein_class": "protein",
+      "mw_kda": 43.55
+    },
+    {
+      "uniprot_id": "Q9NWV8",
+      "label": 1,
+      "sequence_length": 329,
+      "protein_class": "protein",
+      "mw_kda": 36.56
+    },
+    {
+      "uniprot_id": "A0R202",
+      "label": 1,
+      "sequence_length": 548,
+      "protein_class": "membrane protein",
+      "mw_kda": 58.89
+    },
+    {
+      "uniprot_id": "A0R200",
+      "label": 1,
+      "sequence_length": 475,
+      "protein_class": "membrane protein",
+      "mw_kda": 51.62
+    },
+    {
+      "uniprot_id": "A0R201",
+      "label": 1,
+      "sequence_length": 307,
+      "protein_class": "membrane protein",
+      "mw_kda": 33.4
+    },
+    {
+      "uniprot_id": "A0R1Z9",
+      "label": 1,
+      "sequence_length": 121,
+      "protein_class": "membrane protein",
+      "mw_kda": 13.27
+    },
+    {
+      "uniprot_id": "P0A7Z4",
+      "label": 1,
+      "sequence_length": 329,
+      "protein_class": "enzyme",
+      "mw_kda": 36.51
+    },
+    {
+      "uniprot_id": "P0A8V2",
+      "label": 1,
+      "sequence_length": 1342,
+      "protein_class": "enzyme",
+      "mw_kda": 150.63
+    },
+    {
+      "uniprot_id": "P0A8T7",
+      "label": 1,
+      "sequence_length": 1407,
+      "protein_class": "enzyme",
+      "mw_kda": 155.16
+    },
+    {
+      "uniprot_id": "P0A800",
+      "label": 1,
+      "sequence_length": 91,
+      "protein_class": "enzyme",
+      "mw_kda": 10.24
+    },
+    {
+      "uniprot_id": "Q96MG8",
+      "label": 1,
+      "sequence_length": 357,
+      "protein_class": "membrane protein",
+      "mw_kda": 40.67
+    },
+    {
+      "uniprot_id": "Q93034",
+      "label": 1,
+      "sequence_length": 780,
+      "protein_class": "viral capsid",
+      "mw_kda": 90.95
+    },
+    {
+      "uniprot_id": "Q9UBF6",
+      "label": 1,
+      "sequence_length": 113,
+      "protein_class": "enzyme",
+      "mw_kda": 12.68
+    },
+    {
+      "uniprot_id": "Q15370",
+      "label": 1,
+      "sequence_length": 118,
+      "protein_class": "viral capsid",
+      "mw_kda": 13.13
+    },
+    {
+      "uniprot_id": "Q15369",
+      "label": 1,
+      "sequence_length": 112,
+      "protein_class": "viral capsid",
+      "mw_kda": 12.47
+    },
+    {
+      "uniprot_id": "Q57TX9",
+      "label": 1,
+      "sequence_length": 584,
+      "protein_class": "membrane protein",
+      "mw_kda": 63.5
+    },
+    {
+      "uniprot_id": "Q57XX1",
+      "label": 1,
+      "sequence_length": 519,
+      "protein_class": "membrane protein",
+      "mw_kda": 55.78
+    },
+    {
+      "uniprot_id": "Q38CM0",
+      "label": 1,
+      "sequence_length": 305,
+      "protein_class": "membrane protein",
+      "mw_kda": 34.37
+    },
+    {
+      "uniprot_id": "Q586H1",
+      "label": 1,
+      "sequence_length": 182,
+      "protein_class": "membrane protein",
+      "mw_kda": 20.15
+    },
+    {
+      "uniprot_id": "Q38B96",
+      "label": 1,
+      "sequence_length": 75,
+      "protein_class": "protein",
+      "mw_kda": 8.69
+    },
+    {
+      "uniprot_id": "Q57ZP0",
+      "label": 1,
+      "sequence_length": 188,
+      "protein_class": "protein",
+      "mw_kda": 21.23
+    },
+    {
+      "uniprot_id": "P05631",
+      "label": 1,
+      "sequence_length": 298,
+      "protein_class": "membrane protein",
+      "mw_kda": 33.07
+    },
+    {
+      "uniprot_id": "P05630",
+      "label": 1,
+      "sequence_length": 168,
+      "protein_class": "membrane protein",
+      "mw_kda": 17.61
+    },
+    {
+      "uniprot_id": "P05632",
+      "label": 1,
+      "sequence_length": 51,
+      "protein_class": "membrane protein",
+      "mw_kda": 5.78
+    },
+    {
+      "uniprot_id": "P07926",
+      "label": 1,
+      "sequence_length": 143,
+      "protein_class": "membrane protein",
+      "mw_kda": 15.03
+    },
+    {
+      "uniprot_id": "A0A1S3V7C2",
+      "label": 1,
+      "sequence_length": 96,
+      "protein_class": "membrane protein",
+      "mw_kda": 10.49
+    },
+    {
+      "uniprot_id": "A0A1S3TZB2",
+      "label": 1,
+      "sequence_length": 383,
+      "protein_class": "membrane protein",
+      "mw_kda": 43.08
+    },
+    {
+      "uniprot_id": "A0A1S3TNX9",
+      "label": 1,
+      "sequence_length": 124,
+      "protein_class": "membrane protein",
+      "mw_kda": 13.88
+    },
+    {
+      "uniprot_id": "A0A1S3U1E4",
+      "label": 1,
+      "sequence_length": 150,
+      "protein_class": "protein",
+      "mw_kda": 16.67
+    },
+    {
+      "uniprot_id": "A0A1S3UMA0",
+      "label": 1,
+      "sequence_length": 100,
+      "protein_class": "membrane protein",
+      "mw_kda": 11.21
+    },
+    {
+      "uniprot_id": "A0A1S3VV60",
+      "label": 1,
+      "sequence_length": 181,
+      "protein_class": "protein",
+      "mw_kda": 20.0
+    },
+    {
+      "uniprot_id": "A0A1S3V319",
+      "label": 1,
+      "sequence_length": 64,
+      "protein_class": "membrane protein",
+      "mw_kda": 7.11
+    },
+    {
+      "uniprot_id": "A0A1S3TUX2",
+      "label": 1,
+      "sequence_length": 67,
+      "protein_class": "membrane protein",
+      "mw_kda": 7.61
+    },
+    {
+      "uniprot_id": "D5ARP4",
+      "label": 1,
+      "sequence_length": 532,
+      "protein_class": "membrane protein",
+      "mw_kda": 58.93
+    },
+    {
+      "uniprot_id": "D5ARP5",
+      "label": 1,
+      "sequence_length": 242,
+      "protein_class": "membrane protein",
+      "mw_kda": 26.97
+    },
+    {
+      "uniprot_id": "D5ARP7",
+      "label": 1,
+      "sequence_length": 297,
+      "protein_class": "membrane protein",
+      "mw_kda": 31.71
+    },
+    {
+      "uniprot_id": "O43353",
+      "label": 1,
+      "sequence_length": 540,
+      "protein_class": "kinase",
+      "mw_kda": 61.2
+    },
+    {
+      "uniprot_id": "P00579",
+      "label": 1,
+      "sequence_length": 613,
+      "protein_class": "protein",
+      "mw_kda": 70.26
+    },
+    {
+      "uniprot_id": "D5ARP9",
+      "label": 1,
+      "sequence_length": 151,
+      "protein_class": "protein",
+      "mw_kda": 16.27
+    },
+    {
+      "uniprot_id": "Q05389",
+      "label": 1,
+      "sequence_length": 199,
+      "protein_class": "membrane protein",
+      "mw_kda": 20.66
+    },
+    {
+      "uniprot_id": "P60901",
+      "label": 1,
+      "sequence_length": 246,
+      "protein_class": "protein",
+      "mw_kda": 27.4
+    },
+    {
+      "uniprot_id": "P40112",
+      "label": 1,
+      "sequence_length": 205,
+      "protein_class": "protein",
+      "mw_kda": 22.96
+    },
+    {
+      "uniprot_id": "P40307",
+      "label": 1,
+      "sequence_length": 201,
+      "protein_class": "protein",
+      "mw_kda": 22.91
+    },
+    {
+      "uniprot_id": "P28075",
+      "label": 1,
+      "sequence_length": 263,
+      "protein_class": "enzyme",
+      "mw_kda": 28.59
+    },
+    {
+      "uniprot_id": "P18421",
+      "label": 1,
+      "sequence_length": 240,
+      "protein_class": "protein",
+      "mw_kda": 26.48
+    },
+    {
+      "uniprot_id": "P34067",
+      "label": 1,
+      "sequence_length": 263,
+      "protein_class": "protein",
+      "mw_kda": 29.2
+    },
+    {
+      "uniprot_id": "P17220",
+      "label": 1,
+      "sequence_length": 234,
+      "protein_class": "protein",
+      "mw_kda": 25.93
+    },
+    {
+      "uniprot_id": "P21670",
+      "label": 1,
+      "sequence_length": 261,
+      "protein_class": "protein",
+      "mw_kda": 29.5
+    },
+    {
+      "uniprot_id": "P48004",
+      "label": 1,
+      "sequence_length": 254,
+      "protein_class": "protein",
+      "mw_kda": 28.33
+    },
+    {
+      "uniprot_id": "P34064",
+      "label": 1,
+      "sequence_length": 241,
+      "protein_class": "protein",
+      "mw_kda": 26.39
+    },
+    {
+      "uniprot_id": "P18420",
+      "label": 1,
+      "sequence_length": 263,
+      "protein_class": "protein",
+      "mw_kda": 29.52
+    },
+    {
+      "uniprot_id": "P18422",
+      "label": 1,
+      "sequence_length": 255,
+      "protein_class": "protein",
+      "mw_kda": 28.42
+    },
+    {
+      "uniprot_id": "P28073",
+      "label": 1,
+      "sequence_length": 238,
+      "protein_class": "enzyme",
+      "mw_kda": 25.29
+    },
+    {
+      "uniprot_id": "Q9JHW0",
+      "label": 1,
+      "sequence_length": 277,
+      "protein_class": "enzyme",
+      "mw_kda": 29.93
+    },
+    {
+      "uniprot_id": "Q8NNK5",
+      "label": 1,
+      "sequence_length": 283,
+      "protein_class": "membrane protein",
+      "mw_kda": 29.87
+    },
+    {
+      "uniprot_id": "Q8NS61",
+      "label": 1,
+      "sequence_length": 73,
+      "protein_class": "protein",
+      "mw_kda": 8.36
+    },
+    {
+      "uniprot_id": "Q8NSJ8",
+      "label": 1,
+      "sequence_length": 65,
+      "protein_class": "membrane protein",
+      "mw_kda": 6.63
+    },
+    {
+      "uniprot_id": "Q9AEL8",
+      "label": 1,
+      "sequence_length": 205,
+      "protein_class": "membrane protein",
+      "mw_kda": 22.44
+    },
+    {
+      "uniprot_id": "Q8NP09",
+      "label": 1,
+      "sequence_length": 147,
+      "protein_class": "membrane protein",
+      "mw_kda": 16.37
+    },
+    {
+      "uniprot_id": "Q8NNK3",
+      "label": 1,
+      "sequence_length": 143,
+      "protein_class": "membrane protein",
+      "mw_kda": 15.54
+    },
+    {
+      "uniprot_id": "Q8NNK2",
+      "label": 1,
+      "sequence_length": 359,
+      "protein_class": "membrane protein",
+      "mw_kda": 39.63
+    },
+    {
+      "uniprot_id": "Q79VD7",
+      "label": 1,
+      "sequence_length": 584,
+      "protein_class": "membrane protein",
+      "mw_kda": 65.1
+    },
+    {
+      "uniprot_id": "Q79VE8",
+      "label": 1,
+      "sequence_length": 408,
+      "protein_class": "membrane protein",
+      "mw_kda": 45.18
+    },
+    {
+      "uniprot_id": "Q8NMB4",
+      "label": 1,
+      "sequence_length": 194,
+      "protein_class": "protein",
+      "mw_kda": 20.01
+    },
+    {
+      "uniprot_id": "Q79VE9",
+      "label": 1,
+      "sequence_length": 539,
+      "protein_class": "membrane protein",
+      "mw_kda": 59.81
+    },
+    {
+      "uniprot_id": "Q9WUB0",
+      "label": 1,
+      "sequence_length": 508,
+      "protein_class": "enzyme",
+      "mw_kda": 57.53
+    },
+    {
+      "uniprot_id": "Q924T7",
+      "label": 1,
+      "sequence_length": 1066,
+      "protein_class": "enzyme",
+      "mw_kda": 119.31
+    },
+    {
+      "uniprot_id": "Q91WA6",
+      "label": 1,
+      "sequence_length": 380,
+      "protein_class": "protein",
+      "mw_kda": 39.85
+    },
+    {
+      "uniprot_id": "A0R051",
+      "label": 1,
+      "sequence_length": 408,
+      "protein_class": "membrane protein",
+      "mw_kda": 44.82
+    },
+    {
+      "uniprot_id": "A0R0M4",
+      "label": 1,
+      "sequence_length": 583,
+      "protein_class": "membrane protein",
+      "mw_kda": 64.79
+    },
+    {
+      "uniprot_id": "A0R056",
+      "label": 1,
+      "sequence_length": 139,
+      "protein_class": "membrane protein",
+      "mw_kda": 15.17
+    },
+    {
+      "uniprot_id": "A0R049",
+      "label": 1,
+      "sequence_length": 203,
+      "protein_class": "membrane protein",
+      "mw_kda": 22.18
+    },
+    {
+      "uniprot_id": "A0R052",
+      "label": 1,
+      "sequence_length": 546,
+      "protein_class": "membrane protein",
+      "mw_kda": 60.21
+    },
+    {
+      "uniprot_id": "A0R050",
+      "label": 1,
+      "sequence_length": 268,
+      "protein_class": "membrane protein",
+      "mw_kda": 27.85
+    },
+    {
+      "uniprot_id": "A0R057",
+      "label": 1,
+      "sequence_length": 341,
+      "protein_class": "membrane protein",
+      "mw_kda": 38.04
+    },
+    {
+      "uniprot_id": "A0R1B6",
+      "label": 1,
+      "sequence_length": 79,
+      "protein_class": "membrane protein",
+      "mw_kda": 8.35
+    },
+    {
+      "uniprot_id": "A0R1B5",
+      "label": 1,
+      "sequence_length": 157,
+      "protein_class": "protein",
+      "mw_kda": 15.9
+    },
+    {
+      "uniprot_id": "P21243",
+      "label": 1,
+      "sequence_length": 252,
+      "protein_class": "protein",
+      "mw_kda": 28.0
+    },
+    {
+      "uniprot_id": "P25451",
+      "label": 1,
+      "sequence_length": 205,
+      "protein_class": "protein",
+      "mw_kda": 22.61
+    },
+    {
+      "uniprot_id": "P22141",
+      "label": 1,
+      "sequence_length": 198,
+      "protein_class": "protein",
+      "mw_kda": 22.52
+    },
+    {
+      "uniprot_id": "Q05778",
+      "label": 1,
+      "sequence_length": 276,
+      "protein_class": "chaperone",
+      "mw_kda": 30.7
+    },
+    {
+      "uniprot_id": "P36040",
+      "label": 1,
+      "sequence_length": 267,
+      "protein_class": "chaperone",
+      "mw_kda": 30.74
+    },
+    {
+      "uniprot_id": "P23639",
+      "label": 1,
+      "sequence_length": 250,
+      "protein_class": "protein",
+      "mw_kda": 27.16
+    },
+    {
+      "uniprot_id": "P23638",
+      "label": 1,
+      "sequence_length": 258,
+      "protein_class": "protein",
+      "mw_kda": 28.71
+    },
+    {
+      "uniprot_id": "P40303",
+      "label": 1,
+      "sequence_length": 254,
+      "protein_class": "protein",
+      "mw_kda": 28.44
+    },
+    {
+      "uniprot_id": "P32379",
+      "label": 1,
+      "sequence_length": 260,
+      "protein_class": "protein",
+      "mw_kda": 28.62
+    },
+    {
+      "uniprot_id": "P40302",
+      "label": 1,
+      "sequence_length": 234,
+      "protein_class": "protein",
+      "mw_kda": 25.6
+    },
+    {
+      "uniprot_id": "P21242",
+      "label": 1,
+      "sequence_length": 288,
+      "protein_class": "protein",
+      "mw_kda": 31.54
+    },
+    {
+      "uniprot_id": "P38293",
+      "label": 1,
+      "sequence_length": 148,
+      "protein_class": "chaperone",
+      "mw_kda": 16.76
+    },
+    {
+      "uniprot_id": "P25043",
+      "label": 1,
+      "sequence_length": 261,
+      "protein_class": "enzyme",
+      "mw_kda": 28.27
+    },
+    {
+      "uniprot_id": "P84233",
+      "label": 1,
+      "sequence_length": 136,
+      "protein_class": "protein",
+      "mw_kda": 15.39
+    },
+    {
+      "uniprot_id": "P62799",
+      "label": 1,
+      "sequence_length": 103,
+      "protein_class": "protein",
+      "mw_kda": 11.37
+    },
+    {
+      "uniprot_id": "P06897",
+      "label": 1,
+      "sequence_length": 130,
+      "protein_class": "protein",
+      "mw_kda": 13.97
+    },
+    {
+      "uniprot_id": "P02281",
+      "label": 1,
+      "sequence_length": 126,
+      "protein_class": "protein",
+      "mw_kda": 13.93
+    },
+    {
+      "uniprot_id": "Q8TEK3",
+      "label": 1,
+      "sequence_length": 1537,
+      "protein_class": "enzyme",
+      "mw_kda": 164.86
+    },
+    {
+      "uniprot_id": "P0CG47",
+      "label": 1,
+      "sequence_length": 229,
+      "protein_class": "membrane protein",
+      "mw_kda": 25.76
+    },
+    {
+      "uniprot_id": "Q8N668",
+      "label": 1,
+      "sequence_length": 190,
+      "protein_class": "membrane protein",
+      "mw_kda": 21.18
+    },
+    {
+      "uniprot_id": "Q9Y6G5",
+      "label": 1,
+      "sequence_length": 202,
+      "protein_class": "protein",
+      "mw_kda": 22.97
+    },
+    {
+      "uniprot_id": "Q86X83",
+      "label": 1,
+      "sequence_length": 199,
+      "protein_class": "protein",
+      "mw_kda": 22.75
+    },
+    {
+      "uniprot_id": "Q9UBI1",
+      "label": 1,
+      "sequence_length": 195,
+      "protein_class": "protein",
+      "mw_kda": 22.15
+    },
+    {
+      "uniprot_id": "Q9H0A8",
+      "label": 1,
+      "sequence_length": 199,
+      "protein_class": "protein",
+      "mw_kda": 21.76
+    },
+    {
+      "uniprot_id": "Q9GZQ3",
+      "label": 1,
+      "sequence_length": 224,
+      "protein_class": "protein",
+      "mw_kda": 24.67
+    },
+    {
+      "uniprot_id": "Q7Z4G1",
+      "label": 1,
+      "sequence_length": 85,
+      "protein_class": "protein",
+      "mw_kda": 9.64
+    },
+    {
+      "uniprot_id": "Q86VX2",
+      "label": 1,
+      "sequence_length": 200,
+      "protein_class": "protein",
+      "mw_kda": 22.54
+    },
+    {
+      "uniprot_id": "Q9NX08",
+      "label": 1,
+      "sequence_length": 183,
+      "protein_class": "protein",
+      "mw_kda": 21.09
+    },
+    {
+      "uniprot_id": "Q9P000",
+      "label": 1,
+      "sequence_length": 198,
+      "protein_class": "protein",
+      "mw_kda": 21.82
+    },
+    {
+      "uniprot_id": "P03929",
+      "label": 1,
+      "sequence_length": 66,
+      "protein_class": "membrane protein",
+      "mw_kda": 7.94
+    },
+    {
+      "uniprot_id": "Q3ZBI7",
+      "label": 1,
+      "sequence_length": 58,
+      "protein_class": "membrane protein",
+      "mw_kda": 6.43
+    },
+    {
+      "uniprot_id": "P32876",
+      "label": 1,
+      "sequence_length": 136,
+      "protein_class": "membrane protein",
+      "mw_kda": 14.22
+    },
+    {
+      "uniprot_id": "P00847",
+      "label": 1,
+      "sequence_length": 226,
+      "protein_class": "membrane protein",
+      "mw_kda": 24.79
+    },
+    {
+      "uniprot_id": "P13619",
+      "label": 1,
+      "sequence_length": 256,
+      "protein_class": "membrane protein",
+      "mw_kda": 28.82
+    },
+    {
+      "uniprot_id": "P13620",
+      "label": 1,
+      "sequence_length": 161,
+      "protein_class": "membrane protein",
+      "mw_kda": 18.69
+    },
+    {
+      "uniprot_id": "Q00361",
+      "label": 1,
+      "sequence_length": 71,
+      "protein_class": "membrane protein",
+      "mw_kda": 8.32
+    },
+    {
+      "uniprot_id": "Q28851",
+      "label": 1,
+      "sequence_length": 88,
+      "protein_class": "membrane protein",
+      "mw_kda": 10.3
+    },
+    {
+      "uniprot_id": "Q28852",
+      "label": 1,
+      "sequence_length": 103,
+      "protein_class": "membrane protein",
+      "mw_kda": 11.42
+    },
+    {
+      "uniprot_id": "P14790",
+      "label": 1,
+      "sequence_length": 60,
+      "protein_class": "membrane protein",
+      "mw_kda": 6.83
+    },
+    {
+      "uniprot_id": "P30656",
+      "label": 1,
+      "sequence_length": 287,
+      "protein_class": "enzyme",
+      "mw_kda": 31.64
+    },
+    {
+      "uniprot_id": "P23724",
+      "label": 1,
+      "sequence_length": 241,
+      "protein_class": "protein",
+      "mw_kda": 26.87
+    },
+    {
+      "uniprot_id": "P15207",
+      "label": 1,
+      "sequence_length": 902,
+      "protein_class": "protein",
+      "mw_kda": 98.24
+    },
+    {
+      "uniprot_id": "Q8R418",
+      "label": 1,
+      "sequence_length": 1916,
+      "protein_class": "enzyme",
+      "mw_kda": 216.82
+    },
+    {
+      "uniprot_id": "Q567U6",
+      "label": 1,
+      "sequence_length": 631,
+      "protein_class": "protein",
+      "mw_kda": 73.2
+    },
+    {
+      "uniprot_id": "O60826",
+      "label": 1,
+      "sequence_length": 627,
+      "protein_class": "protein",
+      "mw_kda": 70.76
+    },
+    {
+      "uniprot_id": "A1B498",
+      "label": 1,
+      "sequence_length": 121,
+      "protein_class": "membrane protein",
+      "mw_kda": 13.65
+    },
+    {
+      "uniprot_id": "A1B483",
+      "label": 1,
+      "sequence_length": 199,
+      "protein_class": "membrane protein",
+      "mw_kda": 21.69
+    },
+    {
+      "uniprot_id": "A1B482",
+      "label": 1,
+      "sequence_length": 101,
+      "protein_class": "membrane protein",
+      "mw_kda": 10.86
+    },
+    {
+      "uniprot_id": "A1B481",
+      "label": 1,
+      "sequence_length": 703,
+      "protein_class": "membrane protein",
+      "mw_kda": 77.74
+    },
+    {
+      "uniprot_id": "A1B480",
+      "label": 1,
+      "sequence_length": 513,
+      "protein_class": "membrane protein",
+      "mw_kda": 56.48
+    },
+    {
+      "uniprot_id": "A1B479",
+      "label": 1,
+      "sequence_length": 499,
+      "protein_class": "membrane protein",
+      "mw_kda": 52.53
+    },
+    {
+      "uniprot_id": "A1AZB0",
+      "label": 1,
+      "sequence_length": 330,
+      "protein_class": "protein",
+      "mw_kda": 35.34
+    },
+    {
+      "uniprot_id": "A1B1M0",
+      "label": 1,
+      "sequence_length": 103,
+      "protein_class": "membrane protein",
+      "mw_kda": 12.03
+    },
+    {
+      "uniprot_id": "A1B357",
+      "label": 1,
+      "sequence_length": 62,
+      "protein_class": "protein",
+      "mw_kda": 7.06
+    },
+    {
+      "uniprot_id": "A1B5L6",
+      "label": 1,
+      "sequence_length": 217,
+      "protein_class": "enzyme",
+      "mw_kda": 23.51
+    },
+    {
+      "uniprot_id": "A1B4F3",
+      "label": 1,
+      "sequence_length": 440,
+      "protein_class": "membrane protein",
+      "mw_kda": 50.12
+    },
+    {
+      "uniprot_id": "P37659",
+      "label": 1,
+      "sequence_length": 559,
+      "protein_class": "membrane protein",
+      "mw_kda": 62.03
+    },
+    {
+      "uniprot_id": "Q2G0V7",
+      "label": 1,
+      "sequence_length": 244,
+      "protein_class": "protein",
+      "mw_kda": 27.44
+    },
+    {
+      "uniprot_id": "P9WKK7",
+      "label": 1,
+      "sequence_length": 428,
+      "protein_class": "enzyme",
+      "mw_kda": 47.09
+    },
+    {
+      "uniprot_id": "P25440",
+      "label": 1,
+      "sequence_length": 801,
+      "protein_class": "viral capsid",
+      "mw_kda": 88.06
+    },
+    {
+      "uniprot_id": "P09883",
+      "label": 1,
+      "sequence_length": 582,
+      "protein_class": "enzyme",
+      "mw_kda": 61.59
+    },
+    {
+      "uniprot_id": "P0A855",
+      "label": 1,
+      "sequence_length": 430,
+      "protein_class": "protein",
+      "mw_kda": 45.96
+    },
+    {
+      "uniprot_id": "P06129",
+      "label": 1,
+      "sequence_length": 614,
+      "protein_class": "membrane protein",
+      "mw_kda": 68.41
+    },
+    {
+      "uniprot_id": "O75717",
+      "label": 1,
+      "sequence_length": 1129,
+      "protein_class": "protein",
+      "mw_kda": 125.97
+    },
+    {
+      "uniprot_id": "P01009",
+      "label": 1,
+      "sequence_length": 418,
+      "protein_class": "protein",
+      "mw_kda": 46.74
+    },
+    {
+      "uniprot_id": "P23497",
+      "label": 1,
+      "sequence_length": 879,
+      "protein_class": "viral capsid",
+      "mw_kda": 100.42
+    },
+    {
+      "uniprot_id": "P02721",
+      "label": 1,
+      "sequence_length": 108,
+      "protein_class": "membrane protein",
+      "mw_kda": 12.53
+    },
+    {
+      "uniprot_id": "P19483",
+      "label": 1,
+      "sequence_length": 553,
+      "protein_class": "membrane protein",
+      "mw_kda": 59.72
+    },
+    {
+      "uniprot_id": "P00829",
+      "label": 1,
+      "sequence_length": 528,
+      "protein_class": "membrane protein",
+      "mw_kda": 56.28
+    },
+    {
+      "uniprot_id": "P01096",
+      "label": 1,
+      "sequence_length": 109,
+      "protein_class": "protein",
+      "mw_kda": 12.3
+    },
+    {
+      "uniprot_id": "P13621",
+      "label": 1,
+      "sequence_length": 213,
+      "protein_class": "membrane protein",
+      "mw_kda": 23.32
+    },
+    {
+      "uniprot_id": "Q6P2Q9",
+      "label": 1,
+      "sequence_length": 2335,
+      "protein_class": "protein",
+      "mw_kda": 273.6
+    },
+    {
+      "uniprot_id": "P83876",
+      "label": 1,
+      "sequence_length": 142,
+      "protein_class": "protein",
+      "mw_kda": 16.79
+    },
+    {
+      "uniprot_id": "P55081",
+      "label": 1,
+      "sequence_length": 439,
+      "protein_class": "protein",
+      "mw_kda": 51.96
+    },
+    {
+      "uniprot_id": "Q2TAY7",
+      "label": 1,
+      "sequence_length": 513,
+      "protein_class": "viral capsid",
+      "mw_kda": 57.54
+    },
+    {
+      "uniprot_id": "O43447",
+      "label": 1,
+      "sequence_length": 177,
+      "protein_class": "chaperone",
+      "mw_kda": 19.21
+    },
+    {
+      "uniprot_id": "Q96NC0",
+      "label": 1,
+      "sequence_length": 199,
+      "protein_class": "protein",
+      "mw_kda": 23.61
+    },
+    {
+      "uniprot_id": "P55769",
+      "label": 1,
+      "sequence_length": 128,
+      "protein_class": "protein",
+      "mw_kda": 14.17
+    },
+    {
+      "uniprot_id": "O43290",
+      "label": 1,
+      "sequence_length": 800,
+      "protein_class": "protein",
+      "mw_kda": 90.25
+    },
+    {
+      "uniprot_id": "O75554",
+      "label": 1,
+      "sequence_length": 376,
+      "protein_class": "protein",
+      "mw_kda": 42.51
+    },
+    {
+      "uniprot_id": "Q13123",
+      "label": 1,
+      "sequence_length": 557,
+      "protein_class": "viral capsid",
+      "mw_kda": 65.6
+    },
+    {
+      "uniprot_id": "P62316",
+      "label": 1,
+      "sequence_length": 118,
+      "protein_class": "protein",
+      "mw_kda": 13.53
+    },
+    {
+      "uniprot_id": "Q15029",
+      "label": 1,
+      "sequence_length": 972,
+      "protein_class": "protein",
+      "mw_kda": 109.44
+    },
+    {
+      "uniprot_id": "P62306",
+      "label": 1,
+      "sequence_length": 86,
+      "protein_class": "protein",
+      "mw_kda": 9.72
+    },
+    {
+      "uniprot_id": "P62304",
+      "label": 1,
+      "sequence_length": 92,
+      "protein_class": "protein",
+      "mw_kda": 10.8
+    },
+    {
+      "uniprot_id": "P62308",
+      "label": 1,
+      "sequence_length": 76,
+      "protein_class": "protein",
+      "mw_kda": 8.5
+    },
+    {
+      "uniprot_id": "P62318",
+      "label": 1,
+      "sequence_length": 126,
+      "protein_class": "protein",
+      "mw_kda": 13.92
+    },
+    {
+      "uniprot_id": "P14678",
+      "label": 1,
+      "sequence_length": 240,
+      "protein_class": "protein",
+      "mw_kda": 24.61
+    },
+    {
+      "uniprot_id": "P62314",
+      "label": 1,
+      "sequence_length": 119,
+      "protein_class": "protein",
+      "mw_kda": 13.28
+    },
+    {
+      "uniprot_id": "Q9Y333",
+      "label": 1,
+      "sequence_length": 95,
+      "protein_class": "protein",
+      "mw_kda": 10.84
+    },
+    {
+      "uniprot_id": "P62310",
+      "label": 1,
+      "sequence_length": 102,
+      "protein_class": "protein",
+      "mw_kda": 11.85
+    },
+    {
+      "uniprot_id": "Q9Y4Z0",
+      "label": 1,
+      "sequence_length": 139,
+      "protein_class": "protein",
+      "mw_kda": 15.35
+    },
+    {
+      "uniprot_id": "Q9Y4Y9",
+      "label": 1,
+      "sequence_length": 91,
+      "protein_class": "protein",
+      "mw_kda": 9.94
+    },
+    {
+      "uniprot_id": "O75643",
+      "label": 1,
+      "sequence_length": 2136,
+      "protein_class": "enzyme",
+      "mw_kda": 244.51
+    },
+    {
+      "uniprot_id": "P62312",
+      "label": 1,
+      "sequence_length": 80,
+      "protein_class": "protein",
+      "mw_kda": 9.13
+    },
+    {
+      "uniprot_id": "Q9UK45",
+      "label": 1,
+      "sequence_length": 103,
+      "protein_class": "protein",
+      "mw_kda": 11.6
+    },
+    {
+      "uniprot_id": "O95777",
+      "label": 1,
+      "sequence_length": 96,
+      "protein_class": "protein",
+      "mw_kda": 10.4
+    },
+    {
+      "uniprot_id": "O75533",
+      "label": 1,
+      "sequence_length": 1304,
+      "protein_class": "protein",
+      "mw_kda": 145.83
+    },
+    {
+      "uniprot_id": "Q15393",
+      "label": 1,
+      "sequence_length": 1217,
+      "protein_class": "protein",
+      "mw_kda": 135.58
+    },
+    {
+      "uniprot_id": "Q9BWJ5",
+      "label": 1,
+      "sequence_length": 86,
+      "protein_class": "protein",
+      "mw_kda": 10.13
+    },
+    {
+      "uniprot_id": "Q7RTV0",
+      "label": 1,
+      "sequence_length": 110,
+      "protein_class": "protein",
+      "mw_kda": 12.4
+    },
+    {
+      "uniprot_id": "P09661",
+      "label": 1,
+      "sequence_length": 255,
+      "protein_class": "protein",
+      "mw_kda": 28.42
+    },
+    {
+      "uniprot_id": "P08579",
+      "label": 1,
+      "sequence_length": 225,
+      "protein_class": "protein",
+      "mw_kda": 25.49
+    },
+    {
+      "uniprot_id": "Q96DI7",
+      "label": 1,
+      "sequence_length": 357,
+      "protein_class": "protein",
+      "mw_kda": 39.31
+    },
+    {
+      "uniprot_id": "O43395",
+      "label": 1,
+      "sequence_length": 683,
+      "protein_class": "protein",
+      "mw_kda": 77.53
+    },
+    {
+      "uniprot_id": "O43172",
+      "label": 1,
+      "sequence_length": 522,
+      "protein_class": "protein",
+      "mw_kda": 58.45
+    },
+    {
+      "uniprot_id": "O94906",
+      "label": 1,
+      "sequence_length": 941,
+      "protein_class": "protein",
+      "mw_kda": 106.92
+    },
+    {
+      "uniprot_id": "Q8WWY3",
+      "label": 1,
+      "sequence_length": 499,
+      "protein_class": "protein",
+      "mw_kda": 55.46
+    },
+    {
+      "uniprot_id": "Q8NAV1",
+      "label": 1,
+      "sequence_length": 312,
+      "protein_class": "protein",
+      "mw_kda": 37.48
+    },
+    {
+      "uniprot_id": "P16113",
+      "label": 1,
+      "sequence_length": 125,
+      "protein_class": "protein",
+      "mw_kda": 13.87
+    },
+    {
+      "uniprot_id": "C4NV37",
+      "label": 1,
+      "sequence_length": 278,
+      "protein_class": "enzyme",
+      "mw_kda": 30.58
+    },
+    {
+      "uniprot_id": "P62593",
+      "label": 1,
+      "sequence_length": 286,
+      "protein_class": "enzyme",
+      "mw_kda": 31.52
+    },
+    {
+      "uniprot_id": "P22498",
+      "label": 1,
+      "sequence_length": 489,
+      "protein_class": "enzyme",
+      "mw_kda": 56.69
+    },
+    {
+      "uniprot_id": "P51813",
+      "label": 1,
+      "sequence_length": 675,
+      "protein_class": "kinase",
+      "mw_kda": 78.01
+    },
+    {
+      "uniprot_id": "O43924",
+      "label": 1,
+      "sequence_length": 150,
+      "protein_class": "membrane protein",
+      "mw_kda": 17.42
+    },
+    {
+      "uniprot_id": "A2QHE5",
+      "label": 1,
+      "sequence_length": 500,
+      "protein_class": "enzyme",
+      "mw_kda": 55.2
+    },
+    {
+      "uniprot_id": "P43235",
+      "label": 1,
+      "sequence_length": 329,
+      "protein_class": "membrane protein",
+      "mw_kda": 36.97
+    },
+    {
+      "uniprot_id": "Q9H7B4",
+      "label": 1,
+      "sequence_length": 428,
+      "protein_class": "enzyme",
+      "mw_kda": 49.1
+    },
+    {
+      "uniprot_id": "P22862",
+      "label": 1,
+      "sequence_length": 272,
+      "protein_class": "enzyme",
+      "mw_kda": 30.09
+    },
+    {
+      "uniprot_id": "Q96FZ2",
+      "label": 1,
+      "sequence_length": 354,
+      "protein_class": "enzyme",
+      "mw_kda": 40.58
+    },
+    {
+      "uniprot_id": "I6Y9J2",
+      "label": 1,
+      "sequence_length": 408,
+      "protein_class": "membrane protein",
+      "mw_kda": 43.37
+    },
+    {
+      "uniprot_id": "Q96DC9",
+      "label": 1,
+      "sequence_length": 234,
+      "protein_class": "enzyme",
+      "mw_kda": 27.21
+    },
+    {
+      "uniprot_id": "D9IEF7",
+      "label": 1,
+      "sequence_length": 164,
+      "protein_class": "viral capsid",
+      "mw_kda": 18.64
+    },
+    {
+      "uniprot_id": "P22455",
+      "label": 1,
+      "sequence_length": 802,
+      "protein_class": "antibody",
+      "mw_kda": 87.95
+    },
+    {
+      "uniprot_id": "P25774",
+      "label": 1,
+      "sequence_length": 331,
+      "protein_class": "enzyme",
+      "mw_kda": 37.5
+    },
+    {
+      "uniprot_id": "P05164",
+      "label": 1,
+      "sequence_length": 745,
+      "protein_class": "enzyme",
+      "mw_kda": 83.87
+    },
+    {
+      "uniprot_id": "P22734",
+      "label": 1,
+      "sequence_length": 264,
+      "protein_class": "membrane protein",
+      "mw_kda": 29.6
+    },
+    {
+      "uniprot_id": "O00255",
+      "label": 1,
+      "sequence_length": 610,
+      "protein_class": "protein",
+      "mw_kda": 67.5
+    },
+    {
+      "uniprot_id": "O14733",
+      "label": 1,
+      "sequence_length": 419,
+      "protein_class": "kinase",
+      "mw_kda": 47.48
+    },
+    {
+      "uniprot_id": "P28347",
+      "label": 1,
+      "sequence_length": 426,
+      "protein_class": "protein",
+      "mw_kda": 47.95
+    },
+    {
+      "uniprot_id": "A0A3A6VNK6",
+      "label": 1,
+      "sequence_length": 373,
+      "protein_class": "protein",
+      "mw_kda": 42.71
+    },
+    {
+      "uniprot_id": "Q0H8B9",
+      "label": 1,
+      "sequence_length": 207,
+      "protein_class": "membrane protein",
+      "mw_kda": 23.54
+    },
+    {
+      "uniprot_id": "A4KWA1",
+      "label": 1,
+      "sequence_length": 223,
+      "protein_class": "membrane protein",
+      "mw_kda": 24.77
+    },
+    {
+      "uniprot_id": "O14965",
+      "label": 1,
+      "sequence_length": 403,
+      "protein_class": "kinase",
+      "mw_kda": 45.82
+    },
+    {
+      "uniprot_id": "P61964",
+      "label": 1,
+      "sequence_length": 334,
+      "protein_class": "viral capsid",
+      "mw_kda": 36.59
+    },
+    {
+      "uniprot_id": "Q92835",
+      "label": 1,
+      "sequence_length": 1189,
+      "protein_class": "membrane protein",
+      "mw_kda": 133.29
+    },
+    {
+      "uniprot_id": "P37231",
+      "label": 1,
+      "sequence_length": 505,
+      "protein_class": "protein",
+      "mw_kda": 57.62
+    },
+    {
+      "uniprot_id": "Q7KTX7",
+      "label": 1,
+      "sequence_length": 482,
+      "protein_class": "enzyme",
+      "mw_kda": 54.1
+    },
+    {
+      "uniprot_id": "Q04771",
+      "label": 1,
+      "sequence_length": 509,
+      "protein_class": "kinase",
+      "mw_kda": 57.15
+    },
+    {
+      "uniprot_id": "P11362",
+      "label": 1,
+      "sequence_length": 822,
+      "protein_class": "antibody",
+      "mw_kda": 91.87
+    },
+    {
+      "uniprot_id": "Q06187",
+      "label": 1,
+      "sequence_length": 659,
+      "protein_class": "kinase",
+      "mw_kda": 76.28
+    },
+    {
+      "uniprot_id": "O00571",
+      "label": 1,
+      "sequence_length": 662,
+      "protein_class": "membrane protein",
+      "mw_kda": 73.24
+    },
+    {
+      "uniprot_id": "P12931",
+      "label": 1,
+      "sequence_length": 536,
+      "protein_class": "kinase",
+      "mw_kda": 59.84
+    },
+    {
+      "uniprot_id": "Q8IXJ6",
+      "label": 1,
+      "sequence_length": 389,
+      "protein_class": "membrane protein",
+      "mw_kda": 43.18
+    },
+    {
+      "uniprot_id": "P21802",
+      "label": 1,
+      "sequence_length": 821,
+      "protein_class": "antibody",
+      "mw_kda": 92.03
+    },
+    {
+      "uniprot_id": "P13053",
+      "label": 1,
+      "sequence_length": 423,
+      "protein_class": "protein",
+      "mw_kda": 47.81
+    },
+    {
+      "uniprot_id": "Q15648",
+      "label": 1,
+      "sequence_length": 1581,
+      "protein_class": "protein",
+      "mw_kda": 168.48
+    },
+    {
+      "uniprot_id": "Q99497",
+      "label": 1,
+      "sequence_length": 189,
+      "protein_class": "membrane protein",
+      "mw_kda": 19.89
+    },
+    {
+      "uniprot_id": "A0A143BHS7",
+      "label": 1,
+      "sequence_length": 71,
+      "protein_class": "membrane protein",
+      "mw_kda": 7.69
+    },
+    {
+      "uniprot_id": "A0A143BHS8",
+      "label": 1,
+      "sequence_length": 44,
+      "protein_class": "membrane protein",
+      "mw_kda": 5.08
+    },
+    {
+      "uniprot_id": "A0A143BHR6",
+      "label": 1,
+      "sequence_length": 354,
+      "protein_class": "protein",
+      "mw_kda": 38.42
+    },
+    {
+      "uniprot_id": "A0A143BK87",
+      "label": 1,
+      "sequence_length": 125,
+      "protein_class": "protein",
+      "mw_kda": 13.64
+    },
+    {
+      "uniprot_id": "A0A143BJ28",
+      "label": 1,
+      "sequence_length": 67,
+      "protein_class": "membrane protein",
+      "mw_kda": 7.82
+    },
+    {
+      "uniprot_id": "A0A143BHR2",
+      "label": 1,
+      "sequence_length": 274,
+      "protein_class": "membrane protein",
+      "mw_kda": 30.56
+    },
+    {
+      "uniprot_id": "Q97W73",
+      "label": 1,
+      "sequence_length": 148,
+      "protein_class": "protein",
+      "mw_kda": 16.138
+    },
+    {
+      "uniprot_id": "P01317",
+      "label": 0,
+      "sequence_length": 105,
+      "protein_class": "protein",
+      "mw_kda": 11.393
+    },
+    {
+      "uniprot_id": "P17931",
+      "label": 1,
+      "sequence_length": 250,
+      "protein_class": "protein",
+      "mw_kda": 26.152
+    },
+    {
+      "uniprot_id": "P61823",
+      "label": 1,
+      "sequence_length": 150,
+      "protein_class": "enzyme",
+      "mw_kda": 16.461
+    },
+    {
+      "uniprot_id": "P14283",
+      "label": 1,
+      "sequence_length": 910,
+      "protein_class": "membrane protein",
+      "mw_kda": 93.453
+    },
+    {
+      "uniprot_id": "P69681",
+      "label": 1,
+      "sequence_length": 428,
+      "protein_class": "membrane protein",
+      "mw_kda": 44.515
+    },
+    {
+      "uniprot_id": "P38507",
+      "label": 1,
+      "sequence_length": 508,
+      "protein_class": "antibody",
+      "mw_kda": 55.439
+    },
+    {
+      "uniprot_id": "P08637",
+      "label": 1,
+      "sequence_length": 254,
+      "protein_class": "antibody",
+      "mw_kda": 29.089
+    },
+    {
+      "uniprot_id": "P60844",
+      "label": 1,
+      "sequence_length": 231,
+      "protein_class": "membrane protein",
+      "mw_kda": 23.703
+    },
+    {
+      "uniprot_id": "Q9KUY7",
+      "label": 1,
+      "sequence_length": 468,
+      "protein_class": "enzyme",
+      "mw_kda": 52.049
+    },
+    {
+      "uniprot_id": "Q9KPH3",
+      "label": 1,
+      "sequence_length": 157,
+      "protein_class": "protein",
+      "mw_kda": 17.542
+    },
+    {
+      "uniprot_id": "P40763",
+      "label": 1,
+      "sequence_length": 770,
+      "protein_class": "protein",
+      "mw_kda": 88.068
+    },
+    {
+      "uniprot_id": "P0AE98",
+      "label": 1,
+      "sequence_length": 138,
+      "protein_class": "membrane protein",
+      "mw_kda": 15.056
+    },
+    {
+      "uniprot_id": "P52107",
+      "label": 1,
+      "sequence_length": 110,
+      "protein_class": "chaperone",
+      "mw_kda": 11.967
+    },
+    {
+      "uniprot_id": "P42212",
+      "label": 1,
+      "sequence_length": 238,
+      "protein_class": "protein",
+      "mw_kda": 26.886
+    },
+    {
+      "uniprot_id": "P00690",
+      "label": 1,
+      "sequence_length": 511,
+      "protein_class": "enzyme",
+      "mw_kda": 57.086
+    },
+    {
+      "uniprot_id": "Q86TI2",
+      "label": 1,
+      "sequence_length": 863,
+      "protein_class": "enzyme",
+      "mw_kda": 98.263
+    },
+    {
+      "uniprot_id": "O70131",
+      "label": 1,
+      "sequence_length": 152,
+      "protein_class": "membrane protein",
+      "mw_kda": 16.555
+    },
+    {
+      "uniprot_id": "P07674",
+      "label": 1,
+      "sequence_length": 358,
+      "protein_class": "protein",
+      "mw_kda": 39.011
+    },
+    {
+      "uniprot_id": "P03052",
+      "label": 1,
+      "sequence_length": 101,
+      "protein_class": "protein",
+      "mw_kda": 11.306
+    },
+    {
+      "uniprot_id": "P00747",
+      "label": 1,
+      "sequence_length": 810,
+      "protein_class": "enzyme",
+      "mw_kda": 90.569
+    },
+    {
+      "uniprot_id": "P42898",
+      "label": 1,
+      "sequence_length": 656,
+      "protein_class": "enzyme",
+      "mw_kda": 74.597
+    },
+    {
+      "uniprot_id": "Q8IVB4",
+      "label": 1,
+      "sequence_length": 645,
+      "protein_class": "membrane protein",
+      "mw_kda": 72.565
+    },
+    {
+      "uniprot_id": "P31554",
+      "label": 1,
+      "sequence_length": 784,
+      "protein_class": "membrane protein",
+      "mw_kda": 89.671
+    },
+    {
+      "uniprot_id": "P0ADC1",
+      "label": 1,
+      "sequence_length": 193,
+      "protein_class": "membrane protein",
+      "mw_kda": 21.357
+    },
+    {
+      "uniprot_id": "P0ADN6",
+      "label": 1,
+      "sequence_length": 67,
+      "protein_class": "membrane protein",
+      "mw_kda": 7.177
+    },
+    {
+      "uniprot_id": "P60880",
+      "label": 1,
+      "sequence_length": 206,
+      "protein_class": "membrane protein",
+      "mw_kda": 23.315
+    },
+    {
+      "uniprot_id": "Q16623",
+      "label": 1,
+      "sequence_length": 288,
+      "protein_class": "membrane protein",
+      "mw_kda": 33.023
+    },
+    {
+      "uniprot_id": "P63041",
+      "label": 1,
+      "sequence_length": 134,
+      "protein_class": "protein",
+      "mw_kda": 15.122
+    },
+    {
+      "uniprot_id": "P18239",
+      "label": 1,
+      "sequence_length": 318,
+      "protein_class": "membrane protein",
+      "mw_kda": 34.426
+    },
+    {
+      "uniprot_id": "Q15084",
+      "label": 1,
+      "sequence_length": 440,
+      "protein_class": "membrane protein",
+      "mw_kda": 48.121
+    },
+    {
+      "uniprot_id": "P35077",
+      "label": 1,
+      "sequence_length": 584,
+      "protein_class": "membrane protein",
+      "mw_kda": 64.446
+    },
+    {
+      "uniprot_id": "P01574",
+      "label": 1,
+      "sequence_length": 187,
+      "protein_class": "protein",
+      "mw_kda": 22.294
+    },
+    {
+      "uniprot_id": "P01375",
+      "label": 1,
+      "sequence_length": 233,
+      "protein_class": "membrane protein",
+      "mw_kda": 25.644
+    },
+    {
+      "uniprot_id": "P01391",
+      "label": 1,
+      "sequence_length": 71,
+      "protein_class": "ion channel",
+      "mw_kda": 7.831
+    },
+    {
+      "uniprot_id": "P60615",
+      "label": 1,
+      "sequence_length": 95,
+      "protein_class": "ion channel",
+      "mw_kda": 10.285
+    },
+    {
+      "uniprot_id": "P0DTC1",
+      "label": 1,
+      "sequence_length": 4405,
+      "protein_class": "membrane protein",
+      "mw_kda": 489.989
+    },
+    {
+      "uniprot_id": "P61769",
+      "label": 1,
+      "sequence_length": 119,
+      "protein_class": "protein",
+      "mw_kda": 13.715
+    },
+    {
+      "uniprot_id": "P00738",
+      "label": 1,
+      "sequence_length": 406,
+      "protein_class": "protein",
+      "mw_kda": 45.205
+    },
+    {
+      "uniprot_id": "P25156",
+      "label": 1,
+      "sequence_length": 233,
+      "protein_class": "complex",
+      "mw_kda": 25.799
+    },
+    {
+      "uniprot_id": "Q14654",
+      "label": 1,
+      "sequence_length": 390,
+      "protein_class": "ion channel",
+      "mw_kda": 43.526
+    },
+    {
+      "uniprot_id": "P17987",
+      "label": 1,
+      "sequence_length": 556,
+      "protein_class": "chaperone",
+      "mw_kda": 60.344
+    },
+    {
+      "uniprot_id": "P48643",
+      "label": 1,
+      "sequence_length": 541,
+      "protein_class": "chaperone",
+      "mw_kda": 59.671
+    },
+    {
+      "uniprot_id": "Q8JQF8",
+      "label": 0,
+      "sequence_length": 738,
+      "protein_class": "viral capsid",
+      "mw_kda": 81.756
+    }
+  ],
+  "embedding_dim": 1280,
+  "n_proteins": 634,
+  "model": "facebook/esm2_t33_650M_UR50D",
+  "max_seq_len": 1022,
+  "n_truncated": 68,
+  "truncated_uids": [
+    "P0DTC2",
+    "P01133",
+    "P00533",
+    "P04626",
+    "P00722",
+    "A6H8Y1",
+    "A6NKB5",
+    "O00507",
+    "O14497",
+    "O15078",
+    "O15230",
+    "O60281",
+    "O60469",
+    "O75369",
+    "O75376",
+    "O75443",
+    "O95714",
+    "O95996",
+    "P04275",
+    "P08519",
+    "A6BM72",
+    "A6QL63",
+    "A0JNW5",
+    "A3KN83",
+    "P03366",
+    "P15941",
+    "Q02817",
+    "P98088",
+    "Q9HC84",
+    "Q8WXI7",
+    "P11532",
+    "Q8WZ42",
+    "P02549",
+    "Q15149",
+    "P27816",
+    "P78527",
+    "P98164",
+    "Q9Y6V0",
+    "P21817",
+    "P38398",
+    "P42858",
+    "P54259",
+    "Q9UM47",
+    "P35658",
+    "Q8N3C0",
+    "P49792",
+    "P35828",
+    "I0DF35",
+    "C4N415",
+    "Q5W0Q7",
+    "Q96RT7",
+    "Q9RRB6",
+    "P24821",
+    "Q96RT8",
+    "P0DTD1",
+    "P0A8V2",
+    "P0A8T7",
+    "Q924T7",
+    "Q8TEK3",
+    "Q8R418",
+    "O75717",
+    "Q6P2Q9",
+    "O75643",
+    "O75533",
+    "Q15393",
+    "Q92835",
+    "Q15648",
+    "P0DTC1"
+  ]
+}

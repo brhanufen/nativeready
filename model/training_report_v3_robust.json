@@ -1,0 +1,196 @@
+{
+  "dataset": "/Users/bfentaw2/startup/nativeready/data/dataset_combined_v4_2026-05-02.json",
+  "n_proteins": 634,
+  "n_positives": 538,
+  "n_negatives": 96,
+  "esm_model": "facebook/esm2_t33_650M_UR50D",
+  "clustering": {
+    "method": "AgglomerativeClustering with cosine linkage",
+    "n_clusters_target": 80,
+    "n_clusters_actual": 80,
+    "largest_cluster_size": 293,
+    "median_cluster_size": 1,
+    "n_singletons": 44
+  },
+  "cv_strategy": "GroupKFold(n_splits=5, groups=ESM-2-similarity-cluster)",
+  "variants_cluster_aware": [
+    {
+      "name": "v1_biopython_only_clustered",
+      "n_features": 36,
+      "cv_auc_mean": 0.8515623283677936,
+      "cv_auc_std": 0.07371929989228038,
+      "cv_acc_mean": 0.8588123663994592,
+      "cv_brier_mean": 0.10684259288221394,
+      "cv_average_precision_mean": 0.9543148081408935,
+      "fold_aucs": [
+        0.8704851752021563,
+        0.7847290640394088,
+        0.8249999999999998,
+        0.985930735930736,
+        0.7916666666666666
+      ],
+      "confusion_matrix_overall": [
+        [
+          19,
+          77
+        ],
+        [
+          6,
+          532
+        ]
+      ]
+    },
+    {
+      "name": "v2_esm2_linear_probe_clustered",
+      "n_features": 1280,
+      "cv_auc_mean": 0.8423043352223573,
+      "cv_auc_std": 0.039675542531303495,
+      "cv_acc_mean": 0.8495152633228816,
+      "cv_brier_mean": 0.10874825010705087,
+      "cv_average_precision_mean": 0.9537332379725662,
+      "fold_aucs": [
+        0.8712938005390836,
+        0.8623973727422003,
+        0.8038461538461539,
+        0.8874458874458875,
+        0.7865384615384616
+      ],
+      "confusion_matrix_overall": [
+        [
+          9,
+          87
+        ],
+        [
+          1,
+          537
+        ]
+      ]
+    },
+    {
+      "name": "v3_esm2_pca256_rf_clustered",
+      "n_features": 256,
+      "cv_auc_mean": 0.820885913045965,
+      "cv_auc_std": 0.05702517396739007,
+      "cv_acc_mean": 0.8358390899566116,
+      "cv_brier_mean": 0.11792040790289368,
+      "cv_average_precision_mean": 0.9517760036007921,
+      "fold_aucs": [
+        0.7795148247978437,
+        0.7983579638752052,
+        0.7525641025641026,
+        0.9047619047619048,
+        0.8692307692307693
+      ],
+      "confusion_matrix_overall": [
+        [
+          11,
+          85
+        ],
+        [
+          10,
+          528
+        ]
+      ]
+    },
+    {
+      "name": "v4_combined_clustered",
+      "n_features": 292,
+      "cv_auc_mean": 0.8694228066446674,
+      "cv_auc_std": 0.03634324691902857,
+      "cv_acc_mean": 0.8452798243926516,
+      "cv_brier_mean": 0.10552021920475474,
+      "cv_average_precision_mean": 0.9662334054985141,
+      "fold_aucs": [
+        0.8890835579514825,
+        0.8389162561576354,
+        0.8217948717948719,
+        0.9242424242424242,
+        0.8730769230769231
+      ],
+      "confusion_matrix_overall": [
+        [
+          9,
+          87
+        ],
+        [
+          3,
+          535
+        ]
+      ],
+      "per_class_accuracy": {
+        "ion channel": {
+          "n": 7,
+          "n_pos": 7,
+          "accuracy": 1.0
+        },
+        "O-glycosylated mucin": {
+          "n": 5,
+          "n_pos": 0,
+          "accuracy": 0.6
+        },
+        "proxy negative (Swiss-Prot sample)": {
+          "n": 64,
+          "n_pos": 0,
+          "accuracy": 0.0625
+        },
+        "protein": {
+          "n": 146,
+          "n_pos": 145,
+          "accuracy": 0.9794520547945206
+        },
+        "kinase": {
+          "n": 17,
+          "n_pos": 17,
+          "accuracy": 1.0
+        },
+        "chaperone": {
+          "n": 10,
+          "n_pos": 10,
+          "accuracy": 1.0
+        },
+        "enzyme": {
+          "n": 68,
+          "n_pos": 68,
+          "accuracy": 0.9852941176470589
+        },
+        "small peptide": {
+          "n": 13,
+          "n_pos": 13,
+          "accuracy": 1.0
+        },
+        "GPCR": {
+          "n": 5,
+          "n_pos": 5,
+          "accuracy": 1.0
+        },
+        "membrane protein": {
+          "n": 140,
+          "n_pos": 140,
+          "accuracy": 1.0
+        },
+        "viral capsid": {
+          "n": 23,
+          "n_pos": 22,
+          "accuracy": 0.9565217391304348
+        },
+        "antibody": {
+          "n": 18,
+          "n_pos": 18,
+          "accuracy": 1.0
+        }
+      }
+    }
+  ],
+  "wilcoxon_v4_v1_cluster_aware_p": 0.3125,
+  "ood_detector_v3": {
+    "threshold_95pct": 6.751817458498616,
+    "feature_space": "biopython_36_standardized",
+    "k": 5,
+    "metric": "euclidean"
+  },
+  "honest_caveats": [
+    "Clusters were defined by ESM-2 cosine distance at threshold 0.10, which is a proxy for sequence identity (not the same as MMseqs2 30 percent identity clustering, but conceptually similar in grouping homologs).",
+    "GroupKFold produced 80 clusters across 5 folds; this prevents close ESM-2-neighbors from splitting across train/test.",
+    "AUC drops relative to standard StratifiedKFold are the expected and honest cost of removing homology leakage."
+  ]
+}

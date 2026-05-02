@@ -20,7 +20,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from predictor_v2 import predict as run_prediction
+from predictor_v3 import predict as run_prediction
 
 _HERE = Path(__file__).resolve().parent
 FEEDBACK_LOG = Path(
@@ -40,7 +40,7 @@ app = FastAPI(
         "Predicts whether a protein sequence is likely to give usable native "
         "mass spectrometry data."
     ),
-    version="0.1.0",
+    version="0.3.0",
 )
 
 app.add_middleware(

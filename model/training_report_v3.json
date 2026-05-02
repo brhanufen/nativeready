@@ -1,0 +1,376 @@
+{
+  "dataset": "/Users/bfentaw2/startup/nativeready/data/dataset_combined_v4_2026-05-02.json",
+  "n_proteins": 634,
+  "n_positives": 538,
+  "n_negatives": 96,
+  "esm_model": "facebook/esm2_t33_650M_UR50D",
+  "cv_strategy": "StratifiedKFold(n_splits=5, random_state=42)",
+  "variants": [
+    {
+      "name": "v1_biopython_only",
+      "n_features": 36,
+      "cv_auc_mean": 0.8519030442148987,
+      "cv_auc_std": 0.031025844033428934,
+      "cv_acc_mean": 0.8643669541307336,
+      "cv_acc_std": 0.023492594915687007,
+      "cv_brier_mean": 0.09907021292374704,
+      "cv_average_precision_mean": 0.9675359563392087,
+      "fold_aucs": [
+        0.9100877192982456,
+        0.8289473684210527,
+        0.8296783625730995,
+        0.8327102803738318,
+        0.8580914904082637
+      ],
+      "confusion_matrix_overall": [
+        [
+          19,
+          77
+        ],
+        [
+          9,
+          529
+        ]
+      ],
+      "per_class_accuracy": {
+        "GPCR": {
+          "n": 5,
+          "accuracy": 1.0,
+          "n_pos": 5
+        },
+        "O-glycosylated mucin": {
+          "n": 5,
+          "accuracy": 0.4,
+          "n_pos": 0
+        },
+        "antibody": {
+          "n": 18,
+          "accuracy": 1.0,
+          "n_pos": 18
+        },
+        "chaperone": {
+          "n": 10,
+          "accuracy": 1.0,
+          "n_pos": 10
+        },
+        "enzyme": {
+          "n": 68,
+          "accuracy": 0.9558823529411765,
+          "n_pos": 68
+        },
+        "ion channel": {
+          "n": 7,
+          "accuracy": 1.0,
+          "n_pos": 7
+        },
+        "kinase": {
+          "n": 17,
+          "accuracy": 1.0,
+          "n_pos": 17
+        },
+        "membrane protein": {
+          "n": 140,
+          "accuracy": 1.0,
+          "n_pos": 140
+        },
+        "protein": {
+          "n": 146,
+          "accuracy": 0.9794520547945206,
+          "n_pos": 145
+        },
+        "proxy negative (Swiss-Prot sample)": {
+          "n": 64,
+          "accuracy": 0.125,
+          "n_pos": 0
+        },
+        "small peptide": {
+          "n": 13,
+          "accuracy": 1.0,
+          "n_pos": 13
+        },
+        "viral capsid": {
+          "n": 23,
+          "accuracy": 0.8695652173913043,
+          "n_pos": 22
+        }
+      }
+    },
+    {
+      "name": "v2_esm2_linear_probe",
+      "n_features": 1280,
+      "cv_auc_mean": 0.8663950374378313,
+      "cv_auc_std": 0.02925928071343688,
+      "cv_acc_mean": 0.8659167604049494,
+      "cv_acc_std": 0.007303794412035069,
+      "cv_brier_mean": 0.09447501612581087,
+      "cv_average_precision_mean": 0.9669328017107425,
+      "fold_aucs": [
+        0.8460038986354776,
+        0.894980506822612,
+        0.8350389863547758,
+        0.9079439252336449,
+        0.8480078701426463
+      ],
+      "confusion_matrix_overall": [
+        [
+          14,
+          82
+        ],
+        [
+          3,
+          535
+        ]
+      ],
+      "per_class_accuracy": {
+        "GPCR": {
+          "n": 5,
+          "accuracy": 1.0,
+          "n_pos": 5
+        },
+        "O-glycosylated mucin": {
+          "n": 5,
+          "accuracy": 0.4,
+          "n_pos": 0
+        },
+        "antibody": {
+          "n": 18,
+          "accuracy": 1.0,
+          "n_pos": 18
+        },
+        "chaperone": {
+          "n": 10,
+          "accuracy": 1.0,
+          "n_pos": 10
+        },
+        "enzyme": {
+          "n": 68,
+          "accuracy": 0.9852941176470589,
+          "n_pos": 68
+        },
+        "ion channel": {
+          "n": 7,
+          "accuracy": 1.0,
+          "n_pos": 7
+        },
+        "kinase": {
+          "n": 17,
+          "accuracy": 1.0,
+          "n_pos": 17
+        },
+        "membrane protein": {
+          "n": 140,
+          "accuracy": 1.0,
+          "n_pos": 140
+        },
+        "protein": {
+          "n": 146,
+          "accuracy": 0.9931506849315068,
+          "n_pos": 145
+        },
+        "proxy negative (Swiss-Prot sample)": {
+          "n": 64,
+          "accuracy": 0.09375,
+          "n_pos": 0
+        },
+        "small peptide": {
+          "n": 13,
+          "accuracy": 1.0,
+          "n_pos": 13
+        },
+        "viral capsid": {
+          "n": 23,
+          "accuracy": 0.9565217391304348,
+          "n_pos": 22
+        }
+      }
+    },
+    {
+      "name": "v3_esm2_pca256_rf",
+      "n_features": 256,
+      "cv_auc_mean": 0.8667487384088466,
+      "cv_auc_std": 0.04258858799160481,
+      "cv_acc_mean": 0.8612298462692163,
+      "cv_acc_std": 0.011460569871620413,
+      "cv_brier_mean": 0.09638727855526255,
+      "cv_average_precision_mean": 0.9670174112291159,
+      "fold_aucs": [
+        0.8160331384015596,
+        0.89766081871345,
+        0.8625730994152047,
+        0.8275700934579439,
+        0.9299065420560747
+      ],
+      "confusion_matrix_overall": [
+        [
+          16,
+          80
+        ],
+        [
+          8,
+          530
+        ]
+      ],
+      "per_class_accuracy": {
+        "GPCR": {
+          "n": 5,
+          "accuracy": 1.0,
+          "n_pos": 5
+        },
+        "O-glycosylated mucin": {
+          "n": 5,
+          "accuracy": 0.6,
+          "n_pos": 0
+        },
+        "antibody": {
+          "n": 18,
+          "accuracy": 1.0,
+          "n_pos": 18
+        },
+        "chaperone": {
+          "n": 10,
+          "accuracy": 1.0,
+          "n_pos": 10
+        },
+        "enzyme": {
+          "n": 68,
+          "accuracy": 0.9705882352941176,
+          "n_pos": 68
+        },
+        "ion channel": {
+          "n": 7,
+          "accuracy": 1.0,
+          "n_pos": 7
+        },
+        "kinase": {
+          "n": 17,
+          "accuracy": 1.0,
+          "n_pos": 17
+        },
+        "membrane protein": {
+          "n": 140,
+          "accuracy": 1.0,
+          "n_pos": 140
+        },
+        "protein": {
+          "n": 146,
+          "accuracy": 0.9794520547945206,
+          "n_pos": 145
+        },
+        "proxy negative (Swiss-Prot sample)": {
+          "n": 64,
+          "accuracy": 0.140625,
+          "n_pos": 0
+        },
+        "small peptide": {
+          "n": 13,
+          "accuracy": 1.0,
+          "n_pos": 13
+        },
+        "viral capsid": {
+          "n": 23,
+          "accuracy": 0.8695652173913043,
+          "n_pos": 22
+        }
+      }
+    },
+    {
+      "name": "v4_combined",
+      "n_features": 292,
+      "cv_auc_mean": 0.8725065129073982,
+      "cv_auc_std": 0.04453918466190961,
+      "cv_acc_mean": 0.87700287464067,
+      "cv_acc_std": 0.016767034986595836,
+      "cv_brier_mean": 0.09279367077051075,
+      "cv_average_precision_mean": 0.9729069821298534,
+      "fold_aucs": [
+        0.9100877192982456,
+        0.8691520467836257,
+        0.7889863547758286,
+        0.8848130841121494,
+        0.9094933595671421
+      ],
+      "confusion_matrix_overall": [
+        [
+          25,
+          71
+        ],
+        [
+          7,
+          531
+        ]
+      ],
+      "per_class_accuracy": {
+        "GPCR": {
+          "n": 5,
+          "accuracy": 1.0,
+          "n_pos": 5
+        },
+        "O-glycosylated mucin": {
+          "n": 5,
+          "accuracy": 0.6,
+          "n_pos": 0
+        },
+        "antibody": {
+          "n": 18,
+          "accuracy": 0.9444444444444444,
+          "n_pos": 18
+        },
+        "chaperone": {
+          "n": 10,
+          "accuracy": 1.0,
+          "n_pos": 10
+        },
+        "enzyme": {
+          "n": 68,
+          "accuracy": 0.9705882352941176,
+          "n_pos": 68
+        },
+        "ion channel": {
+          "n": 7,
+          "accuracy": 1.0,
+          "n_pos": 7
+        },
+        "kinase": {
+          "n": 17,
+          "accuracy": 1.0,
+          "n_pos": 17
+        },
+        "membrane protein": {
+          "n": 140,
+          "accuracy": 1.0,
+          "n_pos": 140
+        },
+        "protein": {
+          "n": 146,
+          "accuracy": 0.9863013698630136,
+          "n_pos": 145
+        },
+        "proxy negative (Swiss-Prot sample)": {
+          "n": 64,
+          "accuracy": 0.171875,
+          "n_pos": 0
+        },
+        "small peptide": {
+          "n": 13,
+          "accuracy": 1.0,
+          "n_pos": 13
+        },
+        "viral capsid": {
+          "n": 23,
+          "accuracy": 0.8695652173913043,
+          "n_pos": 22
+        }
+      }
+    }
+  ],
+  "winner": "v4_combined",
+  "winner_auc": 0.8725065129073982,
+  "delta_vs_baseline_auc": 0.020603468692499516,
+  "honest_caveats": [
+    "Negatives include only 2 evidence-based real failures; the other 94 are proxy negatives sampled from Swiss-Prot. Performance on the failure-prediction subtask is not statistically meaningful at this scale.",
+    "68 of 634 proteins (10.7%) had sequences truncated to 1022 aa (mostly viral polyproteins, large complexes). ESM-2 features for these reflect only the N-terminal 1022 residues.",
+    "Class imbalance ~5.6:1 (positives:negatives); class_weight=balanced applied throughout.",
+    "Per-class accuracy reported per protein_class for classes with n>=5.",
+    "Random seed 42; same splits across all variants for fair comparison."
+  ]
+}

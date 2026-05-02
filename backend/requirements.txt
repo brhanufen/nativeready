@@ -6,3 +6,8 @@ biopython==1.85
 scikit-learn==1.6.1
 joblib==1.5.3
 numpy==2.0.2
+# v0.3 ESM-2 inference dependencies (CPU-only torch keeps image lighter).
+# These add ~1.5 GB to the deployed image.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.8.0+cpu
+transformers==4.57.6
