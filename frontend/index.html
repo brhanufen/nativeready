@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NativeReady — Will your protein survive native MS?</title>
-  <meta name="description" content="Predict whether a protein will give usable native mass spectrometry data. Paste a sequence, get a suitability score in 30 seconds." />
+  <meta name="description" content="Predict whether a protein will give usable native mass spectrometry data. Paste a sequence, get a calibrated suitability score in seconds. Open benchmark of 634 proteins, ESM-2 + BioPython model." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,7 +24,7 @@
   <div class="wrap">
     <span class="eyebrow">Free during beta</span>
     <h1>Will your protein survive <span class="accent">native MS</span>?</h1>
-    <p class="lead">Paste a sequence. Get a prediction in 30 seconds. Save days of failed experiments.</p>
+    <p class="lead">Paste a sequence. Get a calibrated suitability score in seconds. Save days of failed experiments.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#predict">Predict suitability &rarr;</a>
       <a class="btn btn-ghost" href="#how">How it works</a>
@@ -136,8 +136,8 @@
       </div>
       <div class="card">
         <span class="step">02 ANALYZE</span>
-        <h3>Score it against known native MS data</h3>
-        <p>The model checks length, charge profile, hydrophobic patches, disorder, and other features known to predict whether a protein survives native ionization.</p>
+        <h3>Score it with a foundation model</h3>
+        <p>The v0.3 model combines 36 hand-engineered physicochemical features (length, charge, hydrophobicity, disorder, secondary structure) with mean-pooled ESM-2 protein-language embeddings, trained on 634 proteins from PDB and EuropePMC.</p>
       </div>
       <div class="card">
         <span class="step">03 DELIVER</span>
@@ -151,12 +151,12 @@
 <section id="about">
   <div class="wrap">
     <h2>About</h2>
-    <p class="section-lead">Built solo as a weekend project. Trained on public datasets from the PDB and UniProt. Honest about limitations: this is a v1, validate critical experiments yourself.</p>
+    <p class="section-lead">Open benchmark and triage model for native MS suitability. Trained on 634 proteins from public datasets (PDB, UniProt, EuropePMC). Code, dataset, and trained model on <a href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener" class="link">GitHub</a>. Methodology preprint forthcoming on bioRxiv.</p>
     <div class="disclaimer">
-      <strong>What this is.</strong> A first-pass screening tool. Useful for ranking candidates before committing instrument time. Not a substitute for empirical optimization, and not a guarantee of success.
+      <strong>What this is.</strong> A first-pass triage tool. Useful for ranking candidates before committing instrument time. Not a substitute for empirical optimization, and not a guarantee of success.
     </div>
     <div class="disclaimer" style="margin-top: 12px;">
-      <strong>Known limitations.</strong> Trained on ~133 proteins (69 native MS validated + 64 proxy negatives from Swiss-Prot). The model under-predicts for sequences shorter than 50 amino acids and is less reliable for very large complexes (&gt;1000 aa). Cross-validated AUC ≈ 0.87 on the training distribution; generalization to unusual sequences is uncertain. Treat scores as guidance, not as definitive predictions.
+      <strong>Known limitations.</strong> Trained on 634 proteins (538 positives plus 96 negatives, of which only 2 are evidence-based real failures and 94 are proxy / property-targeted records). v0.3 cluster-aware cross-validated AUC = 0.869. Failure-detection performance is not yet statistically validated. Sequences over 1,022 amino acids are truncated for the ESM-2 component. The model is most reliable as a positive-suitability triage tool: high-confidence positive predictions can be trusted; low-confidence predictions should be treated as a flag for manual review, not a verdict. Treat scores as guidance, not as definitive predictions.
     </div>
   </div>
 </section>
