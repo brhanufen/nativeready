@@ -5,7 +5,23 @@
 A sequence-based triage model and open benchmark for native MS suitability. Sequence in, calibrated probability out, in seconds.
 
 Live tool: https://nativeready.netlify.app
+Python SDK: `pip install nativeready` ([PyPI](https://pypi.org/project/nativeready/))
 Preprint: see `NativeReady_preprint_v1.docx` (bioRxiv submission pending)
+
+## Install (Python SDK)
+
+```bash
+pip install nativeready
+```
+
+```python
+from nativeready import predict
+
+result = predict("MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG")
+print(result.score, result.label)  # 97 Excellent
+```
+
+For batch predictions, FASTA file support, and CLI usage, see [`python-sdk/README.md`](python-sdk/README.md).
 
 ---
 
