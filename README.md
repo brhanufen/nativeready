@@ -6,7 +6,7 @@ A sequence-based triage model and open benchmark for native MS suitability. Sequ
 
 Live tool: https://nativeready.netlify.app
 Python SDK: `pip install nativeready` ([PyPI](https://pypi.org/project/nativeready/))
-Preprint: see `NativeReady_preprint_v1.docx` (bioRxiv submission pending)
+Preprint: [bioRxiv 2026.05.03.722506](https://doi.org/10.64898/2026.05.03.722506) (CC-BY 4.0)
 
 ## Install (Python SDK)
 
@@ -171,6 +171,7 @@ Reports are saved to `training_report_v3.json` and `training_report_v3_robust.js
 ```
 Znabu BFZ, Atif Z. NativeReady: an open benchmark and sequence-based triage
 model for native mass spectrometry suitability. bioRxiv, 2026.
+https://doi.org/10.64898/2026.05.03.722506
 ```
 
 The dataset (`data/dataset_combined_v4_2026-05-02.json`) is released under CC-BY 4.0. The code is released under MIT (see `LICENSE`).
