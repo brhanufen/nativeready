@@ -1,14 +1,13 @@
 """Build dataset_combined_v6_2026-05-11.json from v5 + CB2 (P34972).
 
 CB2 = cannabinoid receptor 2 (human), 360 aa, 7-TM membrane protein.
-Added as the 4th evidence-based real failure following Marty's email
-feedback (UT Austin, UniDec author, personal communication 2026-05).
+Added as a real-failure record from a personal communication with a
+domain expert in native MS (2026-05).
 
-Marty's report: CB2 fails native MS in his lab — none of the tested
-detergents preserve the intact complex. Current model scores it 84
-(Good), which is wrong, because GRAVY underweights TM-helix
-hydrophobicity for membrane proteins. This record is the seed for
-the membrane-protein failure mode.
+Reported failure: none of the tested detergents preserve the intact
+complex. Current model scored it 84 (Good), which is wrong, because
+GRAVY underweights TM-helix hydrophobicity for membrane proteins.
+This record is the seed for the membrane-protein failure mode.
 """
 import json
 from pathlib import Path
@@ -33,11 +32,11 @@ cb2_record = {
     "protein_class": "membrane protein (7-TM GPCR)",
     "mw_kda": 39.7,
     "notes": (
-        "Source: Michael Marty (UT Austin), personal communication 2026-05. "
-        "Failure mode: none of the tested detergents preserve the intact "
-        "complex in native MS; GPCR/7-TM membrane proteins remain a hard "
-        "case for detergent screening. Surfaced model weakness: current "
-        "v0.3 scores P34972 at 84 (Good) because GRAVY is a poor proxy "
+        "Source: personal communication from a domain expert in native MS, "
+        "2026-05. Failure mode: none of the tested detergents preserve the "
+        "intact complex in native MS; GPCR/7-TM membrane proteins remain a "
+        "hard case for detergent screening. Surfaced model weakness: prior "
+        "v0.3 scored P34972 at 84 (Good) because GRAVY is a poor proxy "
         "for membrane-helix hydrophobicity. Seed record for the "
         "detergent-incompatible / membrane failure mode."
     ),
@@ -48,10 +47,10 @@ cb2_record = {
     "outcome_label": 5,
     "failure_mode": "detergent_incompatible",
     "evidence_paragraph": (
-        "Personal communication from Michael Marty (UT Austin), 2026-05: "
-        "CB2 has been tested in native MS but no detergent screen preserves "
-        "the intact complex. Reported as a representative case of the "
-        "broader detergent-affinity prediction problem for membrane proteins."
+        "Personal communication from a domain expert in native MS, 2026-05: "
+        "CB2 has been tested but no detergent screen preserves the intact "
+        "complex. Reported as a representative case of the broader "
+        "detergent-affinity prediction problem for membrane proteins."
     ),
     "source_pmcid": None,
     "source_doi": None,
