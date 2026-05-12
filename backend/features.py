@@ -13,16 +13,15 @@ from Bio.SeqUtils.ProtParam import ProteinAnalysis
 STANDARD_AA = "ACDEFGHIKLMNPQRSTVWY"
 AMBIGUOUS_MAP = {"B": "N", "Z": "Q", "J": "L", "U": "C"}
 
-# v0.4 glycosylation features (added 2026-05-11 in response to Marty feedback)
+# v0.4 glycosylation features
 N_GLYC_PERMISSIVE = re.compile(r"N[^P][ST]")
 N_GLYC_STRICT = re.compile(r"N[^PC][ST]")
 MUCIN_WINDOW = 20
 MUCIN_THRESHOLD = 0.40  # >=40% S/T/P content over a 20-aa window
 
 # v0.4 transmembrane-helix features (KD hydropathy window, classical method)
-# Kyte & Doolittle 1982 J Mol Biol scale; window=19, threshold=1.6 for TM helix.
-# Validated against DeepTMHMM on the v6 training set; sensitive to the same
-# membrane-protein failure modes Marty flagged (e.g., GPCRs, transporters).
+# Kyte & Doolittle 1982 J Mol Biol scale; window=19, threshold=1.2 for TM helix
+# detection. Targets membrane-protein failure modes (GPCRs, transporters).
 KD_SCALE = {
     "A":  1.8, "R": -4.5, "N": -3.5, "D": -3.5, "C":  2.5,
     "Q": -3.5, "E": -3.5, "G": -0.4, "H": -3.2, "I":  4.5,
