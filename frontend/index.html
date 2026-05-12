@@ -137,7 +137,7 @@
       <div class="card">
         <span class="step">02 ANALYZE</span>
         <h3>Score it with a foundation model</h3>
-        <p>The v0.4 model combines 47 hand-engineered features (physicochemical + N-glycosylation sequon counts + transmembrane-helix prediction) with mean-pooled ESM-2 protein-language embeddings, trained on 636 proteins from PDB and EuropePMC.</p>
+        <p>The v0.4 model combines 47 hand-engineered features (physicochemical + N-glycosylation sequon counts + transmembrane-helix prediction) with mean-pooled ESM-2 protein-language embeddings, trained on 635 proteins from PDB and EuropePMC.</p>
       </div>
       <div class="card">
         <span class="step">03 DELIVER</span>
@@ -151,12 +151,12 @@
 <section id="about">
   <div class="wrap">
     <h2>About</h2>
-    <p class="section-lead">Open benchmark and triage model for native MS suitability. v0.4 trained on 636 proteins from public datasets (PDB, UniProt, EuropePMC), with explicit N-glycosylation sequon and transmembrane-helix features added in response to community feedback. Code, dataset, and trained model on <a href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener" class="link">GitHub</a>. Methodology and benchmarks: <a href="https://www.biorxiv.org/content/10.64898/2026.05.03.722506v1" target="_blank" rel="noopener" class="link">bioRxiv preprint (DOI 10.64898/2026.05.03.722506)</a>.</p>
+    <p class="section-lead">Open benchmark and triage model for native MS suitability. v0.4 trained on 635 proteins from public datasets (PDB, UniProt, EuropePMC), with explicit N-glycosylation sequon and transmembrane-helix features. The risk panel surfaces membrane-topology and glycosylation signals with targeted experimental recommendations (nanodiscs / amphipols / SMA for membrane proteins; PNGase F deglycosylation for glycoproteins). Code, dataset, and trained model on <a href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener" class="link">GitHub</a>. Methodology and benchmarks: <a href="https://www.biorxiv.org/content/10.64898/2026.05.03.722506v1" target="_blank" rel="noopener" class="link">bioRxiv preprint (DOI 10.64898/2026.05.03.722506)</a>.</p>
     <div class="disclaimer">
       <strong>What this is.</strong> A first-pass triage tool. Useful for ranking candidates before committing instrument time. Not a substitute for empirical optimization, and not a guarantee of success.
     </div>
     <div class="disclaimer" style="margin-top: 12px;">
-      <strong>Known limitations.</strong> Trained on 636 proteins (538 positives plus 98 negatives, of which 4 are evidence-based real failures and 94 are proxy / property-targeted records). v0.4 stratified cross-validated AUC = 0.883 +/- 0.017, cluster-aware AUC = 0.839 +/- 0.049. Failure-detection performance is not yet statistically validated. Sequences over 1,022 amino acids are truncated for the ESM-2 component. The model is most reliable as a positive-suitability triage tool: high-confidence positive predictions can be trusted; low-confidence predictions should be treated as a flag for manual review, not a verdict. Treat scores as guidance, not as definitive predictions.
+      <strong>Known limitations.</strong> Trained on 635 proteins (538 positives plus 97 negatives, of which 3 are evidence-based real failures and 94 are proxy / property-targeted records). v0.4.1 stratified cross-validated AUC = 0.870 +/- 0.037, cluster-aware AUC = 0.835 +/- 0.029. Failure-detection performance is not yet statistically validated. Sequences over 1,022 amino acids are truncated for the ESM-2 component. The model is most reliable as a positive-suitability triage tool: high-confidence positive predictions can be trusted; low-confidence predictions should be treated as a flag for manual review, not a verdict. The membrane-topology and glycosylation risk rows are model-aware signals to consider alongside the score, especially when the score itself looks high but topology indicates special handling is needed. Treat scores as guidance, not as definitive predictions.
     </div>
   </div>
 </section>

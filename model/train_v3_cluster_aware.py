@@ -32,8 +32,8 @@ ROOT = Path("/Users/bfentaw2/startup/nativeready")
 DATA = ROOT / "data"
 MODEL = ROOT / "model"
 
-DATASET = DATA / "dataset_combined_v6_2026-05-11.json"
-ESM_NPY = MODEL / "esm2_embeddings_636.npy"
+DATASET = DATA / "dataset_combined_v7_2026-05-11.json"
+ESM_NPY = MODEL / "esm2_embeddings_635.npy"
 ESM_META = MODEL / "esm2_embeddings_metadata.json"
 
 STANDARD_AA = "ACDEFGHIKLMNPQRSTVWY"

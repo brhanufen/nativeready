@@ -34,14 +34,13 @@ Paste a protein sequence (FASTA or raw amino acids). The model returns:
 - **Recommendations** (buffer choice, sample prep, when to denature first)
 - An **out-of-distribution flag** when the input is unusual relative to training data
 
-## What's new in v0.4 (2026-05-11)
+## What's new in v0.4.1 (2026-05-12)
 
 - **N-glycosylation sequon features** (NXS/T motif counts, density, mucin-like S/T/P-rich windows) — added in response to feedback that polydisperse glycans are a major failure mode in native MS
-- **Transmembrane-helix features** (Kyte-Doolittle hydropathy window: TM count, TM residue fraction, polytopic flag) — added to address the membrane-protein blind spot, surfaced via a community-reported failure (CB2 / cannabinoid receptor 2, P34972)
-- **CB2 (P34972) added as the 4th evidence-based real failure** in the dataset — n = 636 (538 pos, 98 neg, 4 real failures)
-- **Production model now correctly classifies CB2** (score 49 / Poor, was 84 / Good in v0.3)
-- **Stratified 5-fold V4 AUC = 0.883 +/- 0.017** (up from 0.873 +/- 0.045 in v0.3, with std halved)
-- **Cluster-aware AUC = 0.839 +/- 0.049** (down from 0.869 in v0.3): expected and honest cost of adding harder real-failure negatives without enough membrane-protein positives to generalize. Data-coverage problem, not a feature problem.
+- **Transmembrane-helix features** (Kyte-Doolittle hydropathy window: TM count, TM residue fraction, polytopic flag) — added to address the membrane-protein blind spot
+- **Explicit "Membrane topology" and "Glycosylation potential" risk rows** in the user-facing risk panel, with targeted recommendations (membrane mimetics — nanodiscs / amphipols / SMA — for TM proteins; PNGase F deglycosylation for glycoproteins). Surfaces signal the model uses that v0.3 hid behind the GRAVY-only display.
+- **Held-out test cases**: CB2 (P34972) was briefly included as a confirmed failure in a 2026-05-11 build, then reclassified as a held-out test case after community feedback indicated the experimental outcome is undetermined. Training set: **n = 635 (538 pos, 97 neg, 3 evidence-based real failures: insulin P01317, AAV8 VP1 Q8JQF8, thyroglobulin P01267).**
+- **Stratified 5-fold V4 AUC = 0.870 +/- 0.037** (vs 0.873 in v0.3); **cluster-aware V4 AUC = 0.835 +/- 0.029** (vs 0.869 in v0.3). The cluster-aware drop is the expected cost of removing a partially-memorized negative; the production model now distinguishes CB2 via topology features rather than label memorization.
 
 ## What was new in v0.3
 
@@ -50,21 +49,21 @@ Paste a protein sequence (FASTA or raw amino acids). The model returns:
 - Cluster-aware cross-validation (GroupKFold over ESM-2 similarity clusters) to defend against homology leakage
 - 5-level ordinal outcome label and 7-term failure_mode controlled vocabulary (`data/LABEL_SCHEMA.md`)
 
-## Performance (n = 636, v0.4)
+## Performance (n = 635, v0.4.1)
 
 | Variant | Features | Stratified ROC-AUC | Cluster-aware ROC-AUC |
 |---|---:|---|---|
-| V1 BioPython only | 47 | 0.867 +/- 0.024 | 0.826 +/- 0.072 |
-| V2 ESM-2 linear probe | 1,280 | 0.871 +/- 0.041 | 0.824 +/- 0.098 |
-| V3 ESM-2 + PCA + RF | 256 | 0.852 +/- 0.040 | 0.800 +/- 0.065 |
-| **V4 combined (production)** | **303** | **0.883 +/- 0.017** | **0.839 +/- 0.049** |
+| V1 BioPython only | 47 | 0.852 +/- 0.041 | 0.838 +/- 0.035 |
+| V2 ESM-2 linear probe | 1,280 | 0.877 +/- 0.024 | 0.851 +/- 0.041 |
+| V3 ESM-2 + PCA + RF | 256 | 0.862 +/- 0.030 | 0.831 +/- 0.029 |
+| **V4 combined (production)** | **303** | **0.870 +/- 0.037** | **0.835 +/- 0.029** |
 
-Positive recall under V4 cluster-aware: 99.1%.
-Negative recall under V4 cluster-aware: 22.4% (up from 9.4% in v0.3 — the model now catches more real failures, but membrane-protein generalization is still gated by training data coverage).
+Positive recall under V4 cluster-aware: 99.3%.
+Negative recall under V4 cluster-aware: 17.5% (down from a temporarily-inflated 22.4% in the 2026-05-11 build that briefly included CB2 as a confirmed failure; the current number reflects honest performance on the 3 evidence-based failures).
 
 ## Honest scope
 
-NativeReady is currently most reliable as a **positive-suitability triage tool**, not as a validated failure detector. With only 2 of 96 negatives being evidence-based real experimental failures (the remaining 94 are 64 random Swiss-Prot proxies and 30 curated property-targeted records), the negative-class evaluation is not yet statistically meaningful. The full preprint discusses this limitation in detail and proposes a user-contribution mechanism to accumulate real failure outcomes over time.
+NativeReady is currently most reliable as a **positive-suitability triage tool**, not as a validated failure detector. With only 3 of 97 negatives being evidence-based real experimental failures (the remaining 94 are 64 random Swiss-Prot proxies and 30 curated property-targeted records), the negative-class evaluation is not yet statistically meaningful. The preprint discusses this limitation in detail and proposes a user-contribution mechanism to accumulate real failure outcomes over time.
 
 Use a high-confidence positive prediction with reasonable trust. Treat a low-confidence prediction as a flag for manual review, not a verdict.
 

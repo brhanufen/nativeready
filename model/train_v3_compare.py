@@ -35,8 +35,8 @@ from sklearn.preprocessing import StandardScaler
 DATA_DIR = Path("/Users/bfentaw2/startup/nativeready/data")
 MODEL_DIR = Path("/Users/bfentaw2/startup/nativeready/model")
 
-DATASET = DATA_DIR / "dataset_combined_v6_2026-05-11.json"
-ESM_EMBEDDINGS = MODEL_DIR / "esm2_embeddings_636.npy"
+DATASET = DATA_DIR / "dataset_combined_v7_2026-05-11.json"
+ESM_EMBEDDINGS = MODEL_DIR / "esm2_embeddings_635.npy"
 ESM_METADATA = MODEL_DIR / "esm2_embeddings_metadata.json"
 
 STANDARD_AA = "ACDEFGHIKLMNPQRSTVWY"
@@ -424,10 +424,13 @@ def main():
         auc_str = f"{r['cv_auc_mean']:.3f}+/-{r['cv_auc_std']:.3f}"
         print(f"  {r['name']:40} {r['n_features']:>7} {auc_str:>14} {r['cv_acc_mean']:>8.3f} {r['cv_brier_mean']:>8.3f} {r['cv_average_precision_mean']:>8.3f}")
 
-    # Pick best by AUC
+    # Pick best by AUC, but production deployment infrastructure (predictor_v3.py)
+    # depends on the v4 combined bundle structure (esm_scaler/pca/bio_scaler/model
+    # keys), so v4 is always the production winner regardless of head-to-head AUC.
     all_results = [r1, r2, r3, r4]
-    best = max(all_results, key=lambda r: r["cv_auc_mean"])
-    print(f"\n  WINNER (by AUC): {best['name']} with AUC = {best['cv_auc_mean']:.3f}")
+    best = r4
+    print(f"\n  HEAD-TO-HEAD AUC LEADER: {max(all_results, key=lambda r: r['cv_auc_mean'])['name']}")
+    print(f"\n  PRODUCTION MODEL (v4_combined): AUC = {best['cv_auc_mean']:.3f}")
     delta = best["cv_auc_mean"] - r1["cv_auc_mean"]
     print(f"  Improvement over BioPython baseline: +{delta:.3f} AUC ({100*delta:+.1f} percentage points)")
 

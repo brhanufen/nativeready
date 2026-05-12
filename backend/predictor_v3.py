@@ -146,7 +146,7 @@ def _risk_level(value: float, low_ok, medium_ok) -> str:
 
 
 def _build_risk_factors(features: Dict[str, float]) -> List[Dict[str, str]]:
-    return [
+    rows: List[Dict[str, str]] = [
         {"name": "Sequence length", "value": f"{int(features['length'])} amino acids",
          "risk_level": _risk_level(features['length'], (50, 800), (20, 1500))},
         {"name": "Molecular weight", "value": f"{features['molecular_weight_kda']:.1f} kDa",
@@ -160,6 +160,38 @@ def _build_risk_factors(features: Dict[str, float]) -> List[Dict[str, str]]:
         {"name": "Cysteine content", "value": f"{features['pct_cysteine']:.1f}%",
          "risk_level": "low" if features['pct_cysteine'] >= 1.0 else "medium"},
     ]
+
+    # Membrane topology row — surface TM-helix signal that the v0.4 model uses.
+    tm_polytopic = features.get("tm_polytopic_flag", 0)
+    tm_helix_count = features.get("tm_helix_count", 0)
+    tm_residue_fraction = features.get("tm_residue_fraction", 0)
+    if tm_polytopic == 1.0 or tm_helix_count >= 1 or tm_residue_fraction >= 0.10:
+        if tm_polytopic == 1 or tm_residue_fraction >= 0.20:
+            tm_level = "high"
+        else:
+            tm_level = "medium"
+        rows.append({
+            "name": "Membrane topology",
+            "value": f"{int(features['tm_helix_count'])} predicted TM helices, {features['tm_residue_fraction']*100:.1f}% TM residues",
+            "risk_level": tm_level,
+        })
+
+    # Glycosylation potential row — require sequon evidence to fire; mucin
+    # windows alone produce too many false positives on soluble proteins.
+    n_glyc_sequon_count = features.get("n_glyc_sequon_count", 0)
+    mucin_like_window_count = features.get("mucin_like_window_count", 0)
+    if n_glyc_sequon_count >= 3:
+        if n_glyc_sequon_count >= 8:
+            glyco_level = "high"
+        else:
+            glyco_level = "medium"
+        rows.append({
+            "name": "Glycosylation potential",
+            "value": f"{int(features['n_glyc_sequon_count'])} N-glyc sequons (NXS/T), {int(features['mucin_like_window_count'])} mucin-like windows",
+            "risk_level": glyco_level,
+        })
+
+    return rows
 
 
 def _recommendations(features: Dict[str, float], score: int, ood: bool) -> List[str]:
@@ -195,6 +227,17 @@ def _recommendations(features: Dict[str, float], score: int, ood: bool) -> List[
         recs.append("Low predicted suitability — consider construct optimization, removing flexible termini, or chaperone co-expression.")
     if score >= 80:
         recs.append("Standard native MS conditions should work. Start with the recommended buffer and standard collision energy ramps.")
+    # Targeted recommendations for membrane proteins and glycoproteins.
+    tm_polytopic = features.get("tm_polytopic_flag", 0)
+    tm_helix_count = features.get("tm_helix_count", 0)
+    if tm_polytopic == 1 or tm_helix_count >= 1:
+        recs.append("Membrane protein detected — standard detergent screens often fail. Consider nanodiscs, amphipols, or SMA copolymer (membrane mimetics) as alternatives. Detergent screening may not converge for polytopic targets.")
+    # Require actual N-glycosylation sequon evidence before suggesting PNGase F —
+    # mucin-like S/T/P windows alone are too noisy (e.g., many soluble enzymes
+    # have S/T/P-rich regions without being glycoproteins).
+    n_glyc_sequon_count = features.get("n_glyc_sequon_count", 0)
+    if n_glyc_sequon_count >= 3:
+        recs.append("Heavy glycosylation predicted — polydisperse glycans are a common source of unresolved charge state distributions. Consider PNGase F deglycosylation before native MS analysis.")
     return recs
 
 

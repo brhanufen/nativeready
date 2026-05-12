@@ -1,14 +1,14 @@
 {
-  "dataset": "/Users/bfentaw2/startup/nativeready/data/dataset_combined_v6_2026-05-11.json",
-  "n_proteins": 636,
+  "dataset": "/Users/bfentaw2/startup/nativeready/data/dataset_combined_v7_2026-05-11.json",
+  "n_proteins": 635,
   "n_positives": 538,
-  "n_negatives": 98,
+  "n_negatives": 97,
   "esm_model": "facebook/esm2_t33_650M_UR50D",
   "clustering": {
     "method": "AgglomerativeClustering with cosine linkage",
     "n_clusters_target": 80,
     "n_clusters_actual": 80,
-    "largest_cluster_size": 334,
+    "largest_cluster_size": 293,
     "median_cluster_size": 1,
     "n_singletons": 44
   },
@@ -17,74 +17,74 @@
     {
       "name": "v1_biopython_only_clustered",
       "n_features": 47,
-      "cv_auc_mean": 0.8262998244176663,
-      "cv_auc_std": 0.03384252190565604,
-      "cv_acc_mean": 0.8763422734363205,
-      "cv_brier_mean": 0.09890211095617876,
-      "cv_average_precision_mean": 0.9547197788210118,
+      "cv_auc_mean": 0.8384149997485653,
+      "cv_auc_std": 0.03521352895053692,
+      "cv_acc_mean": 0.8643775179628461,
+      "cv_brier_mean": 0.10259382233281023,
+      "cv_average_precision_mean": 0.9493502619245984,
       "fold_aucs": [
-        0.8722684279191127,
-        0.8525641025641026,
-        0.7860576923076923,
-        0.7903981264637002,
-        0.8302107728337237
+        0.8754716981132075,
+        0.8018837803320562,
+        0.8704600484261502,
+        0.8532338308457712,
+        0.791025641025641
       ],
       "confusion_matrix_overall": [
         [
-          30,
-          68
+          26,
+          71
         ],
         [
-          7,
-          531
+          9,
+          529
         ]
       ]
     },
     {
       "name": "v2_esm2_linear_probe_clustered",
       "n_features": 1280,
-      "cv_auc_mean": 0.8243826358847132,
-      "cv_auc_std": 0.09845786918424004,
-      "cv_acc_mean": 0.8558198129551222,
-      "cv_brier_mean": 0.10896291379189656,
-      "cv_average_precision_mean": 0.9497655559917471,
+      "cv_auc_mean": 0.8508821885975604,
+      "cv_auc_std": 0.04084153504467871,
+      "cv_acc_mean": 0.849915103386856,
+      "cv_brier_mean": 0.10771226752084925,
+      "cv_average_precision_mean": 0.9556964788807225,
       "fold_aucs": [
-        0.8754892367906068,
-        0.8424145299145299,
-        0.7283653846153846,
-        0.7037470725995316,
-        0.9718969555035128
+        0.8767520215633423,
+        0.8659003831417624,
+        0.8468523002421309,
+        0.890547263681592,
+        0.7743589743589743
       ],
       "confusion_matrix_overall": [
         [
-          14,
-          84
+          10,
+          87
         ],
         [
-          3,
-          535
+          1,
+          537
         ]
       ]
     },
     {
       "name": "v3_esm2_pca256_rf_clustered",
       "n_features": 256,
-      "cv_auc_mean": 0.8004232181861729,
-      "cv_auc_std": 0.06524177483203081,
-      "cv_acc_mean": 0.8429761126007289,
-      "cv_brier_mean": 0.1171054030368707,
-      "cv_average_precision_mean": 0.944758904226223,
+      "cv_auc_mean": 0.8306570997686942,
+      "cv_auc_std": 0.02912505147814887,
+      "cv_acc_mean": 0.8374192797984833,
+      "cv_brier_mean": 0.11712361529442764,
+      "cv_average_precision_mean": 0.9535564412663756,
       "fold_aucs": [
-        0.7704256360078278,
-        0.764957264957265,
-        0.7313701923076923,
-        0.81615925058548,
-        0.9192037470725996
+        0.8214959568733153,
+        0.7907088122605364,
+        0.8147699757869249,
+        0.8532338308457711,
+        0.8730769230769231
       ],
       "confusion_matrix_overall": [
         [
-          5,
-          93
+          3,
+          94
         ],
         [
           1,
@@ -95,37 +95,52 @@
     {
       "name": "v4_combined_clustered",
       "n_features": 303,
-      "cv_auc_mean": 0.8386253791465166,
-      "cv_auc_std": 0.03971592227650837,
-      "cv_acc_mean": 0.8608546412577006,
-      "cv_brier_mean": 0.1035748175800808,
-      "cv_average_precision_mean": 0.9560859133405625,
+      "cv_auc_mean": 0.8348143607235595,
+      "cv_auc_std": 0.028734214095825793,
+      "cv_acc_mean": 0.8534186138532572,
+      "cv_brier_mean": 0.10793109707129875,
+      "cv_average_precision_mean": 0.9574329225348123,
       "fold_aucs": [
-        0.8743476842791911,
-        0.8418803418803419,
-        0.8305288461538463,
-        0.7681498829039812,
-        0.8782201405152225
+        0.8728436657681939,
+        0.8006066411238825,
+        0.8535108958837773,
+        0.8022388059701492,
+        0.8448717948717948
       ],
       "confusion_matrix_overall": [
         [
-          22,
-          76
+          17,
+          80
         ],
         [
-          5,
-          533
+          4,
+          534
         ]
       ],
       "per_class_accuracy": {
+        "kinase": {
+          "n": 17,
+          "n_pos": 17,
+          "accuracy": 1.0
+        },
+        "proxy negative (Swiss-Prot sample)": {
+          "n": 64,
+          "n_pos": 0,
+          "accuracy": 0.125
+        },
+        "chaperone": {
+          "n": 10,
+          "n_pos": 10,
+          "accuracy": 1.0
+        },
         "GPCR": {
           "n": 5,
           "n_pos": 5,
           "accuracy": 1.0
         },
-        "kinase": {
-          "n": 17,
-          "n_pos": 17,
+        "membrane protein": {
+          "n": 140,
+          "n_pos": 140,
           "accuracy": 1.0
         },
         "ion channel": {
@@ -133,14 +148,24 @@
           "n_pos": 7,
           "accuracy": 1.0
         },
-        "protein": {
-          "n": 146,
-          "n_pos": 145,
-          "accuracy": 0.9794520547945206
+        "enzyme": {
+          "n": 68,
+          "n_pos": 68,
+          "accuracy": 0.9852941176470589
         },
-        "membrane protein": {
-          "n": 140,
-          "n_pos": 140,
+        "O-glycosylated mucin": {
+          "n": 5,
+          "n_pos": 0,
+          "accuracy": 0.6
+        },
+        "small peptide": {
+          "n": 13,
+          "n_pos": 13,
+          "accuracy": 1.0
+        },
+        "antibody": {
+          "n": 18,
+          "n_pos": 18,
           "accuracy": 1.0
         },
         "viral capsid": {
@@ -148,42 +173,17 @@
           "n_pos": 22,
           "accuracy": 0.9565217391304348
         },
-        "enzyme": {
-          "n": 68,
-          "n_pos": 68,
-          "accuracy": 0.9852941176470589
-        },
-        "proxy negative (Swiss-Prot sample)": {
-          "n": 64,
-          "n_pos": 0,
-          "accuracy": 0.171875
-        },
-        "small peptide": {
-          "n": 13,
-          "n_pos": 13,
-          "accuracy": 1.0
-        },
-        "chaperone": {
-          "n": 10,
-          "n_pos": 10,
-          "accuracy": 1.0
-        },
-        "O-glycosylated mucin": {
-          "n": 5,
-          "n_pos": 0,
-          "accuracy": 0.6
-        },
-        "antibody": {
-          "n": 18,
-          "n_pos": 18,
-          "accuracy": 0.9444444444444444
+        "protein": {
+          "n": 146,
+          "n_pos": 145,
+          "accuracy": 0.9794520547945206
         }
       }
     }
   ],
-  "wilcoxon_v4_v1_cluster_aware_p": 0.3125,
+  "wilcoxon_v4_v1_cluster_aware_p": 0.78125,
   "ood_detector_v3": {
-    "threshold_95pct": 7.285444684448746,
+    "threshold_95pct": 7.2871278265713135,
     "feature_space": "biopython_36_standardized",
     "k": 5,
     "metric": "euclidean"
