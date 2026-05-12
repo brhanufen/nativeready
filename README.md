@@ -185,8 +185,8 @@ The dataset (`data/dataset_combined_v4_2026-05-02.json`) is released under CC-BY
 
 ## Honest caveats (read this)
 
-- **Small dataset (n = 634).** Performance estimates have meaningful variance.
-- **Negatives are mostly proxy.** 94 of 96 negatives are random or property-targeted Swiss-Prot proteins; only 2 are evidence-based real failures. The model's failure-detection capability is not yet statistically validated.
+- **Small dataset (n = 635).** Performance estimates have meaningful variance.
+- **Negatives are mostly proxy.** 94 of 97 negatives are random or property-targeted Swiss-Prot proteins; 3 are evidence-based real failures (insulin, AAV8 VP1, thyroglobulin). The model's failure-detection capability is not yet statistically validated.
 - **OOD detection** flags sequences very different from training. Trust scores less when this warning appears.
 - **Sequences over 1,022 aa are truncated** for ESM-2 inference. 68 proteins (10.7 percent) in the training set were truncated; the model's representation for these reflects only the N-terminal 1,022 residues.
 - **No FDA path**: this is a research tool, not a clinical diagnostic.
