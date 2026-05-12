@@ -31,7 +31,7 @@ MODEL_DIR = Path("/Users/bfentaw2/startup/nativeready/model")
 EMB_DIR = MODEL_DIR / "esm2_embeddings"
 EMB_DIR.mkdir(exist_ok=True)
 
-DATASET = DATA / "dataset_combined_v4_2026-05-02.json"
+DATASET = DATA / "dataset_combined_v6_2026-05-11.json"
 ESM_MODEL_NAME = "facebook/esm2_t33_650M_UR50D"
 MAX_LEN = 1022  # 1024 model max minus 2 special tokens
 
@@ -166,7 +166,7 @@ labels = np.array(labels)
 print(f"  Combined matrix shape: {emb_matrix.shape}")
 print(f"  Label counts: positives={int((labels==1).sum())}  negatives={int((labels==0).sum())}")
 
-np.save(MODEL_DIR / "esm2_embeddings_634.npy", emb_matrix)
+np.save(MODEL_DIR / "esm2_embeddings_636.npy", emb_matrix)
 with open(MODEL_DIR / "esm2_embeddings_metadata.json", "w") as f:
     json.dump({
         "uids": uids,
@@ -179,5 +179,5 @@ with open(MODEL_DIR / "esm2_embeddings_metadata.json", "w") as f:
         "truncated_uids": [u for u, _ in truncated_uids],
     }, f, indent=2)
 
-print(f"  Saved: {MODEL_DIR / 'esm2_embeddings_634.npy'}")
+print(f"  Saved: {MODEL_DIR / 'esm2_embeddings_636.npy'}")
 print(f"  Saved: {MODEL_DIR / 'esm2_embeddings_metadata.json'}")

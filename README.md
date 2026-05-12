@@ -34,25 +34,33 @@ Paste a protein sequence (FASTA or raw amino acids). The model returns:
 - **Recommendations** (buffer choice, sample prep, when to denature first)
 - An **out-of-distribution flag** when the input is unusual relative to training data
 
-## What's new in v0.3
+## What's new in v0.4 (2026-05-11)
 
-- **634 unique proteins** in the training set (up from 232 in v0.2), drawn from a hand-curated literature base, RCSB PDB full-text searches for native MS terms, and EuropePMC supplementary mining
-- **ESM-2 protein-language embeddings** (facebook/esm2_t33_650M_UR50D) added as a feature representation alongside the original 36 BioPython physicochemical features
-- **Cluster-aware cross-validation** (GroupKFold over ESM-2 embedding-similarity clusters) to defend against homology leakage between train and test folds
-- **OOD detector retrained** on the v0.3 feature distribution
-- **Schema released** (`data/LABEL_SCHEMA.md`) with a 5-level ordinal outcome label and a 7-term failure_mode controlled vocabulary
+- **N-glycosylation sequon features** (NXS/T motif counts, density, mucin-like S/T/P-rich windows) — added in response to feedback that polydisperse glycans are a major failure mode in native MS
+- **Transmembrane-helix features** (Kyte-Doolittle hydropathy window: TM count, TM residue fraction, polytopic flag) — added to address the membrane-protein blind spot, surfaced via a community-reported failure (CB2 / cannabinoid receptor 2, P34972)
+- **CB2 (P34972) added as the 4th evidence-based real failure** in the dataset — n = 636 (538 pos, 98 neg, 4 real failures)
+- **Production model now correctly classifies CB2** (score 49 / Poor, was 84 / Good in v0.3)
+- **Stratified 5-fold V4 AUC = 0.883 +/- 0.017** (up from 0.873 +/- 0.045 in v0.3, with std halved)
+- **Cluster-aware AUC = 0.839 +/- 0.049** (down from 0.869 in v0.3): expected and honest cost of adding harder real-failure negatives without enough membrane-protein positives to generalize. Data-coverage problem, not a feature problem.
 
-## Performance (cluster-aware 5-fold CV, n = 634)
+## What was new in v0.3
 
-| Variant | Features | ROC-AUC |
-|---|---:|---|
-| V1 BioPython only (baseline) | 36 | 0.852 +/- 0.074 |
-| V2 ESM-2 linear probe | 1,280 | 0.842 +/- 0.040 |
-| V3 ESM-2 + PCA + RF | up to 256 | 0.821 +/- 0.057 |
-| **V4 combined (production)** | **up to 292** | **0.869 +/- 0.036** |
+- 634 unique proteins from a hand-curated literature base + PDB native MS searches + EuropePMC mining
+- ESM-2 (facebook/esm2_t33_650M_UR50D) protein-language embeddings as a feature representation
+- Cluster-aware cross-validation (GroupKFold over ESM-2 similarity clusters) to defend against homology leakage
+- 5-level ordinal outcome label and 7-term failure_mode controlled vocabulary (`data/LABEL_SCHEMA.md`)
 
-Positive recall under V4 cluster-aware: **99.4%**.
-Negative recall under V4 cluster-aware: **9.4%** (limited by scarcity of evidence-based real-failure data; see preprint Section 4.2).
+## Performance (n = 636, v0.4)
+
+| Variant | Features | Stratified ROC-AUC | Cluster-aware ROC-AUC |
+|---|---:|---|---|
+| V1 BioPython only | 47 | 0.867 +/- 0.024 | 0.826 +/- 0.072 |
+| V2 ESM-2 linear probe | 1,280 | 0.871 +/- 0.041 | 0.824 +/- 0.098 |
+| V3 ESM-2 + PCA + RF | 256 | 0.852 +/- 0.040 | 0.800 +/- 0.065 |
+| **V4 combined (production)** | **303** | **0.883 +/- 0.017** | **0.839 +/- 0.049** |
+
+Positive recall under V4 cluster-aware: 99.1%.
+Negative recall under V4 cluster-aware: 22.4% (up from 9.4% in v0.3 — the model now catches more real failures, but membrane-protein generalization is still gated by training data coverage).
 
 ## Honest scope
 

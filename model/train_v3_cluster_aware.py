@@ -10,6 +10,7 @@ for the figures.
 """
 import json
 import os
+import re
 from pathlib import Path
 from collections import Counter
 
@@ -31,13 +32,48 @@ ROOT = Path("/Users/bfentaw2/startup/nativeready")
 DATA = ROOT / "data"
 MODEL = ROOT / "model"
 
-DATASET = DATA / "dataset_combined_v4_2026-05-02.json"
-ESM_NPY = MODEL / "esm2_embeddings_634.npy"
+DATASET = DATA / "dataset_combined_v6_2026-05-11.json"
+ESM_NPY = MODEL / "esm2_embeddings_636.npy"
 ESM_META = MODEL / "esm2_embeddings_metadata.json"
 
 STANDARD_AA = "ACDEFGHIKLMNPQRSTVWY"
 RANDOM_STATE = 42
 CV_SPLITS = 5
+
+# v0.4 glycosylation features
+N_GLYC_PERMISSIVE = re.compile(r"N[^P][ST]")
+N_GLYC_STRICT = re.compile(r"N[^PC][ST]")
+MUCIN_WINDOW = 20
+MUCIN_THRESHOLD = 0.40
+
+# v0.4 TM-helix features (Kyte-Doolittle hydropathy window, classical method)
+KD_SCALE = {"A":1.8,"R":-4.5,"N":-3.5,"D":-3.5,"C":2.5,"Q":-3.5,"E":-3.5,
+            "G":-0.4,"H":-3.2,"I":4.5,"L":3.8,"K":-3.9,"M":1.9,"F":2.8,
+            "P":-1.6,"S":-0.8,"T":-0.7,"W":-0.9,"Y":-1.3,"V":4.2}
+TM_WINDOW = 19
+TM_THRESHOLD = 1.2
+TM_MIN_HELIX_LEN = 12
+
+def _tm_segments(seq):
+    n = len(seq)
+    if n < TM_WINDOW:
+        return []
+    half = TM_WINDOW // 2
+    kd = [KD_SCALE.get(c, 0.0) for c in seq]
+    ws = [0.0]*n
+    for i in range(half, n-half):
+        ws[i] = sum(kd[i-half:i+half+1])/TM_WINDOW
+    segs, in_seg, st = [], False, 0
+    for i, s in enumerate(ws):
+        if s >= TM_THRESHOLD and not in_seg:
+            in_seg, st = True, i
+        elif s < TM_THRESHOLD and in_seg:
+            in_seg = False
+            if i - st >= TM_MIN_HELIX_LEN:
+                segs.append((st, i-1))
+    if in_seg and n - st >= TM_MIN_HELIX_LEN:
+        segs.append((st, n-1))
+    return segs
 
 # Clustering: AgglomerativeClustering with fixed n_clusters target.
 # Tuned so each fold has ~16 clusters on average and the largest cluster cannot
@@ -73,6 +109,32 @@ def biopython_features(sequence):
               sum(aap.get(c,0.0) for c in "AVILMFW"),
               sum(aap.get(c,0.0) for c in "FWY"),
               sum(aap.get(c,0.0) for c in "STNQ")]
+    # v0.4 glycosylation features (must match backend/features.py exactly)
+    n_seq = len(N_GLYC_PERMISSIVE.findall(seq))
+    n_seq_strict = len(N_GLYC_STRICT.findall(seq))
+    feats += [float(n_seq), float(n_seq_strict), 100.0 * n_seq / len(seq)]
+    if len(seq) >= MUCIN_WINDOW:
+        n_windows = len(seq) - MUCIN_WINDOW + 1
+        threshold_count = int(MUCIN_THRESHOLD * MUCIN_WINDOW)
+        mucin_windows = sum(
+            1 for i in range(n_windows)
+            if sum(1 for c in seq[i:i + MUCIN_WINDOW] if c in "STP") >= threshold_count
+        )
+        feats += [float(mucin_windows), float(mucin_windows / n_windows)]
+    else:
+        feats += [0.0, 0.0]
+    feats.append(sum(aap.get(c, 0.0) for c in "STP"))
+    # v0.4 TM features
+    segs = _tm_segments(seq)
+    lens = [e - s + 1 for s, e in segs]
+    total = sum(lens)
+    feats += [
+        float(len(segs)),
+        float(total),
+        float(total / len(seq)),
+        float(max(lens) if lens else 0),
+        1.0 if len(segs) >= 2 else 0.0,
+    ]
     return feats
 
 def make_rf():

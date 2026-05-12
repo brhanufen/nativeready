@@ -33,7 +33,7 @@ _MODEL_DIR = os.environ.get(
 MODEL_PATH_V3 = os.path.join(_MODEL_DIR, "model_v3.joblib")
 OOD_PATH_V3 = os.path.join(_MODEL_DIR, "ood_detector_v3.joblib")
 MODEL_PATH_V2 = os.path.join(_MODEL_DIR, "model_v2.joblib")  # graceful fallback
-TRAINED_VERSION_V3 = "0.3-esm2-combined"
+TRAINED_VERSION_V3 = "0.4-esm2-glyco-tm"
 FALLBACK_VERSION_V2 = "0.2-calibrated"
 
 ESM_MODEL_NAME = "facebook/esm2_t33_650M_UR50D"
@@ -210,7 +210,11 @@ def _v3_score(features: Dict[str, float], sequence: str) -> Dict[str, Any]:
         "secondary_structure_helix", "secondary_structure_turn", "secondary_structure_sheet",
         *[f"pct_{aa}" for aa in STANDARD_AA],
         "pct_cysteine", "pct_proline", "pct_charged", "pct_hydrophobic",
-        "pct_aromatic", "pct_polar"
+        "pct_aromatic", "pct_polar",
+        "n_glyc_sequon_count", "n_glyc_sequon_strict_count", "n_glyc_sequon_density_per_100",
+        "mucin_like_window_count", "mucin_like_fraction", "pct_stp",
+        "tm_helix_count", "tm_residues_total", "tm_residue_fraction",
+        "tm_longest_helix_len", "tm_polytopic_flag",
     ]]], dtype=float)
     esm_vec = _esm_embed(sequence).reshape(1, -1)
     # Apply saved transforms

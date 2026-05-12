@@ -13,7 +13,7 @@ from nativeready import predict
 
 result = predict("MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQKESTLHLVLRLRGG")
 print(result)
-# PredictionResult(score=97, label='Excellent', ci=[88-100], model='0.3-esm2-combined')
+# PredictionResult(score=97, label='Excellent', ci=[88-100], model='0.4-esm2-glyco-tm')
 
 print(result.score)         # 97
 print(result.label)         # 'Excellent'
@@ -111,7 +111,7 @@ Each `PredictionResult` contains:
 - `is_ood` — `True` if the sequence is unusual relative to training data; trust the score with extra caution
 - `risk_factors` — per-feature risk levels (length, MW, hydrophobicity, pI, instability, cysteine content)
 - `recommendations` — buffer choice, sample-prep guidance, and instrument-mode notes
-- `model_version` — server-side model identifier (e.g., `0.3-esm2-combined`)
+- `model_version` — server-side model identifier (e.g., `0.4-esm2-glyco-tm`)
 
 ## API server
 
@@ -124,13 +124,14 @@ client = Client(base_url="http://localhost:8000")
 
 ## Honest scope
 
-NativeReady is currently most reliable as a **positive-suitability triage tool**, not a validated failure detector. With only two evidence-based real-failure records in the training set, the negative-class performance is not yet statistically meaningful. High-confidence positive predictions can be trusted; low-confidence predictions should be treated as a flag for manual review, not a verdict. See the [bioRxiv preprint](https://github.com/brhanufen/nativeready) for full methodology and limitations.
+NativeReady is currently most reliable as a **positive-suitability triage tool**, not a validated failure detector. With only two evidence-based real-failure records in the training set, the negative-class performance is not yet statistically meaningful. High-confidence positive predictions can be trusted; low-confidence predictions should be treated as a flag for manual review, not a verdict. See the [bioRxiv preprint](https://www.biorxiv.org/content/10.64898/2026.05.03.722506v1) for full methodology and limitations.
 
 ## Citing
 
 ```
 Znabu BFZ, Atif Z. NativeReady: an open benchmark and sequence-based triage
 model for native mass spectrometry suitability. bioRxiv, 2026.
+https://doi.org/10.64898/2026.05.03.722506
 ```
 
 ## License

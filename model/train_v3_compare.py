@@ -35,13 +35,47 @@ from sklearn.preprocessing import StandardScaler
 DATA_DIR = Path("/Users/bfentaw2/startup/nativeready/data")
 MODEL_DIR = Path("/Users/bfentaw2/startup/nativeready/model")
 
-DATASET = DATA_DIR / "dataset_combined_v4_2026-05-02.json"
-ESM_EMBEDDINGS = MODEL_DIR / "esm2_embeddings_634.npy"
+DATASET = DATA_DIR / "dataset_combined_v6_2026-05-11.json"
+ESM_EMBEDDINGS = MODEL_DIR / "esm2_embeddings_636.npy"
 ESM_METADATA = MODEL_DIR / "esm2_embeddings_metadata.json"
 
 STANDARD_AA = "ACDEFGHIKLMNPQRSTVWY"
 RANDOM_STATE = 42
 CV_SPLITS = 5
+
+import re
+N_GLYC_PERMISSIVE = re.compile(r"N[^P][ST]")
+N_GLYC_STRICT = re.compile(r"N[^PC][ST]")
+MUCIN_WINDOW = 20
+MUCIN_THRESHOLD = 0.40
+
+KD_SCALE = {"A":1.8,"R":-4.5,"N":-3.5,"D":-3.5,"C":2.5,"Q":-3.5,"E":-3.5,
+            "G":-0.4,"H":-3.2,"I":4.5,"L":3.8,"K":-3.9,"M":1.9,"F":2.8,
+            "P":-1.6,"S":-0.8,"T":-0.7,"W":-0.9,"Y":-1.3,"V":4.2}
+TM_WINDOW = 19
+TM_THRESHOLD = 1.2
+TM_MIN_HELIX_LEN = 12
+
+def _tm_segments(seq):
+    n = len(seq)
+    if n < TM_WINDOW:
+        return []
+    half = TM_WINDOW // 2
+    kd = [KD_SCALE.get(c, 0.0) for c in seq]
+    ws = [0.0]*n
+    for i in range(half, n-half):
+        ws[i] = sum(kd[i-half:i+half+1])/TM_WINDOW
+    segs, in_seg, st = [], False, 0
+    for i, s in enumerate(ws):
+        if s >= TM_THRESHOLD and not in_seg:
+            in_seg, st = True, i
+        elif s < TM_THRESHOLD and in_seg:
+            in_seg = False
+            if i - st >= TM_MIN_HELIX_LEN:
+                segs.append((st, i-1))
+    if in_seg and n - st >= TM_MIN_HELIX_LEN:
+        segs.append((st, n-1))
+    return segs
 
 
 def clean_sequence(seq: str) -> str:
@@ -82,6 +116,34 @@ def biopython_features(sequence: str) -> dict:
     feats["pct_hydrophobic"] = sum(aa_pct.get(c, 0.0) for c in "AVILMFW")
     feats["pct_aromatic"] = sum(aa_pct.get(c, 0.0) for c in "FWY")
     feats["pct_polar"] = sum(aa_pct.get(c, 0.0) for c in "STNQ")
+    # v0.4 glycosylation features (must match backend/features.py exactly)
+    n_seq = len(N_GLYC_PERMISSIVE.findall(seq))
+    n_seq_strict = len(N_GLYC_STRICT.findall(seq))
+    feats["n_glyc_sequon_count"] = float(n_seq)
+    feats["n_glyc_sequon_strict_count"] = float(n_seq_strict)
+    feats["n_glyc_sequon_density_per_100"] = 100.0 * n_seq / len(seq)
+    if len(seq) >= MUCIN_WINDOW:
+        n_windows = len(seq) - MUCIN_WINDOW + 1
+        threshold_count = int(MUCIN_THRESHOLD * MUCIN_WINDOW)
+        mucin_windows = sum(
+            1 for i in range(n_windows)
+            if sum(1 for c in seq[i:i + MUCIN_WINDOW] if c in "STP") >= threshold_count
+        )
+        feats["mucin_like_window_count"] = float(mucin_windows)
+        feats["mucin_like_fraction"] = mucin_windows / n_windows
+    else:
+        feats["mucin_like_window_count"] = 0.0
+        feats["mucin_like_fraction"] = 0.0
+    feats["pct_stp"] = sum(aa_pct.get(c, 0.0) for c in "STP")
+    # v0.4 TM features
+    segs = _tm_segments(seq)
+    lens = [e - s + 1 for s, e in segs]
+    total = sum(lens)
+    feats["tm_helix_count"] = float(len(segs))
+    feats["tm_residues_total"] = float(total)
+    feats["tm_residue_fraction"] = total / len(seq)
+    feats["tm_longest_helix_len"] = float(max(lens) if lens else 0)
+    feats["tm_polytopic_flag"] = 1.0 if len(segs) >= 2 else 0.0
     return feats
 
 

@@ -34,5 +34,16 @@
   "pct_charged",
   "pct_hydrophobic",
   "pct_aromatic",
-  "pct_polar"
+  "pct_polar",
+  "n_glyc_sequon_count",
+  "n_glyc_sequon_strict_count",
+  "n_glyc_sequon_density_per_100",
+  "mucin_like_window_count",
+  "mucin_like_fraction",
+  "pct_stp",
+  "tm_helix_count",
+  "tm_residues_total",
+  "tm_residue_fraction",
+  "tm_longest_helix_len",
+  "tm_polytopic_flag"
 ]
