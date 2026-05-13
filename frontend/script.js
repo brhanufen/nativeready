@@ -288,6 +288,10 @@ feedbackBtns.forEach(btn => {
     const outcome = btn.dataset.outcome;
     feedbackBtns.forEach(b => b.disabled = true);
     try {
+      const emailEl = document.getElementById('feedback-email');
+      const noteEl  = document.getElementById('feedback-note');
+      const email = emailEl ? emailEl.value.trim() : '';
+      const note  = noteEl ? noteEl.value.trim() : '';
       const resp = await fetch(API_BASE + '/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -296,6 +300,8 @@ feedbackBtns.forEach(btn => {
           predicted_score: currentPrediction.suitability_score || 0,
           user_outcome: outcome,
           model_version: currentPrediction.model_version || null,
+          email_for_followup: email || null,
+          note: note || null,
         }),
       });
       if (!resp.ok) {

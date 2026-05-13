@@ -29,6 +29,14 @@ FEEDBACK_LOG = Path(
         str(_HERE.parent / "data" / "feedback.jsonl"),
     )
 )
+PREDICTION_LOG = Path(
+    os.environ.get(
+        "NATIVEREADY_PREDICTION_LOG",
+        str(_HERE.parent / "data" / "predictions.jsonl"),
+    )
+)
+# Shared-secret token for /admin/stats. Set NATIVEREADY_ADMIN_TOKEN in Railway env.
+ADMIN_TOKEN = os.environ.get("NATIVEREADY_ADMIN_TOKEN", "")
 
 ALLOWED_AA = set("ACDEFGHIKLMNPQRSTVWYXBZ")
 MIN_LEN = 10
@@ -122,13 +130,32 @@ def predict_endpoint(req: PredictRequest) -> Dict[str, Any]:
     seq = _clean_sequence(req.sequence)
     _validate_sequence(seq)
     try:
-        return run_prediction(seq)
+        result = run_prediction(seq)
     except HTTPException:
         raise
     except Exception as exc:  # pragma: no cover - defensive
         raise HTTPException(
             status_code=500, detail=f"Prediction failed: {exc}"
         )
+    # Append-only prediction log for private usage dashboard.
+    # Stores hashed sequence only — no raw protein data persisted.
+    try:
+        PREDICTION_LOG.parent.mkdir(parents=True, exist_ok=True)
+        seq_hash = hashlib.sha256(seq.encode("utf-8")).hexdigest()[:16]
+        log_record = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "sequence_hash": seq_hash,
+            "sequence_length": len(seq),
+            "suitability_score": result.get("suitability_score"),
+            "suitability_label": result.get("suitability_label"),
+            "model_version": result.get("model_version"),
+            "ood": bool(result.get("ood", False)),
+        }
+        with open(PREDICTION_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(log_record) + "\n")
+    except OSError:
+        pass  # logging never blocks the response
+    return result
 
 
 # --------------------------------------------------------------------------
@@ -144,6 +171,11 @@ class FeedbackRequest(BaseModel):
     )
     note: Optional[str] = Field(None, max_length=500, description="Optional context (e.g., conditions used).")
     model_version: Optional[str] = Field(None, max_length=64)
+    email_for_followup: Optional[str] = Field(
+        None,
+        max_length=200,
+        description="Optional email — opts user in to a single follow-up message in 2-4 weeks asking how the experiment went.",
+    )
 
 
 @app.post("/feedback")
@@ -168,6 +200,7 @@ def feedback_endpoint(req: FeedbackRequest, request: Request) -> Dict[str, Any]:
         "user_outcome": req.user_outcome,
         "note": (req.note or "").strip()[:500] or None,
         "model_version": req.model_version,
+        "email_for_followup": (req.email_for_followup or "").strip()[:200] or None,
     }
     # Append-only JSONL log
     try:
@@ -204,3 +237,92 @@ def feedback_stats() -> Dict[str, Any]:
     except OSError:
         pass
     return {"total_feedback": total, "outcomes": counts}
+
+
+# --------------------------------------------------------------------------
+# Admin stats — private dashboard for the founder. Token-protected.
+# Set NATIVEREADY_ADMIN_TOKEN in the Railway environment to enable.
+# --------------------------------------------------------------------------
+
+def _read_jsonl(path: Path):
+    if not path.exists():
+        return
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            for line in f:
+                try:
+                    yield json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+    except OSError:
+        return
+
+
+@app.get("/admin/stats")
+def admin_stats(token: str = "") -> Dict[str, Any]:
+    """Private usage dashboard. Requires ?token=... matching NATIVEREADY_ADMIN_TOKEN."""
+    if not ADMIN_TOKEN or token != ADMIN_TOKEN:
+        raise HTTPException(status_code=403, detail="forbidden")
+
+    # ---- Predictions
+    pred_total = 0
+    per_day: Dict[str, int] = {}
+    score_buckets = {"0-34": 0, "35-49": 0, "50-64": 0, "65-79": 0, "80-100": 0}
+    ood_count = 0
+    model_versions: Dict[str, int] = {}
+    for rec in _read_jsonl(PREDICTION_LOG):
+        pred_total += 1
+        ts = rec.get("timestamp", "")[:10]
+        if ts:
+            per_day[ts] = per_day.get(ts, 0) + 1
+        score = rec.get("suitability_score")
+        if isinstance(score, int):
+            if score < 35: score_buckets["0-34"] += 1
+            elif score < 50: score_buckets["35-49"] += 1
+            elif score < 65: score_buckets["50-64"] += 1
+            elif score < 80: score_buckets["65-79"] += 1
+            else: score_buckets["80-100"] += 1
+        if rec.get("ood"):
+            ood_count += 1
+        mv = rec.get("model_version") or "unknown"
+        model_versions[mv] = model_versions.get(mv, 0) + 1
+
+    # Last 30 days of activity, oldest -> newest
+    sorted_days = sorted(per_day.items())[-30:]
+
+    # ---- Feedback
+    fb_total = 0
+    fb_outcomes = {"worked": 0, "failed": 0, "not_tested": 0}
+    recent_notes = []
+    emails_collected = 0
+    for rec in _read_jsonl(FEEDBACK_LOG):
+        fb_total += 1
+        out = rec.get("user_outcome")
+        if out in fb_outcomes:
+            fb_outcomes[out] += 1
+        if rec.get("email_for_followup"):
+            emails_collected += 1
+        note = rec.get("note")
+        if note:
+            recent_notes.append({
+                "timestamp": rec.get("timestamp"),
+                "outcome": out,
+                "predicted_score": rec.get("predicted_score"),
+                "note": note,
+            })
+
+    return {
+        "predictions": {
+            "total": pred_total,
+            "per_day_last_30": sorted_days,
+            "score_distribution": score_buckets,
+            "ood_count": ood_count,
+            "model_versions": model_versions,
+        },
+        "feedback": {
+            "total": fb_total,
+            "outcomes": fb_outcomes,
+            "emails_collected_for_followup": emails_collected,
+            "recent_notes": recent_notes[-20:],
+        },
+    }

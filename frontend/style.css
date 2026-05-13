@@ -207,6 +207,43 @@ textarea#sequence:focus { border-color: var(--accent); }
   border-radius: 10px;
   padding: 22px 26px;
 }
+/* Prominent variant: stronger left accent + warmer background to draw the eye. */
+.feedback-card.feedback-card-prominent {
+  background: rgba(245, 184, 107, 0.05);
+  border: 1px solid rgba(245, 184, 107, 0.25);
+  border-left: 4px solid #f5b86b;
+}
+.feedback-extras {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+.feedback-email-label,
+.feedback-note-label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  margin-top: 10px;
+}
+.feedback-extras input[type="email"],
+.feedback-extras textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+.feedback-extras input[type="email"]:focus,
+.feedback-extras textarea:focus {
+  outline: none;
+  border-color: var(--accent, #6dd9b1);
+}
 .feedback-head strong {
   display: block;
   font-size: 16px;

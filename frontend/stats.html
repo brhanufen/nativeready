@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NativeReady — Private Usage Dashboard</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { padding: 24px; }
+    .stats-wrap { max-width: 980px; margin: 0 auto; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 18px 0 28px;
+    }
+    .stat-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .stat-card h4 { margin: 0 0 6px; font-size: 12px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500; }
+    .stat-card .num { font-size: 28px; font-weight: 600; color: var(--text); }
+    .stat-card .sub { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 13px; }
+    th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+    th { font-weight: 500; color: var(--text-faint); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .day-row td:first-child { font-family: ui-monospace, monospace; color: var(--text-dim); }
+    .day-bar { display: inline-block; height: 8px; background: var(--accent, #6dd9b1); border-radius: 2px; vertical-align: middle; }
+    .login-card { max-width: 360px; margin: 80px auto 0; }
+    .login-card label { display: block; font-size: 13px; color: var(--text-dim); margin: 0 0 6px; }
+    .login-card input { width: 100%; box-sizing: border-box; padding: 9px 12px; font-family: inherit; font-size: 14px; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; }
+    .login-card .btn { width: 100%; margin-top: 12px; }
+    .err { color: #f17b7b; font-size: 13px; margin-top: 10px; }
+    .note-row td.note-cell { font-size: 13px; color: var(--text); }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 500; }
+    .pill.worked { background: rgba(109, 217, 177, 0.15); color: #6dd9b1; }
+    .pill.failed { background: rgba(241, 123, 123, 0.15); color: #f17b7b; }
+    .pill.not_tested { background: rgba(245, 184, 107, 0.15); color: #f5b86b; }
+    h2 { margin-top: 36px; font-size: 18px; color: var(--text); }
+    .meta-line { font-size: 12px; color: var(--text-faint); }
+  </style>
+</head>
+<body>
+
+<div class="stats-wrap">
+
+  <div id="login" class="login-card">
+    <h2>NativeReady — Private Dashboard</h2>
+    <p class="meta-line">Token-protected. Set NATIVEREADY_ADMIN_TOKEN in your Railway env, then paste it here.</p>
+    <label for="token">Admin token</label>
+    <input type="password" id="token" autocomplete="off" />
+    <button class="btn btn-primary" id="login-btn" type="button">View dashboard</button>
+    <div id="login-err" class="err" hidden></div>
+  </div>
+
+  <div id="dashboard" hidden>
+    <div style="display: flex; align-items: baseline; justify-content: space-between;">
+      <h1 style="margin: 0;">Usage Dashboard</h1>
+      <button class="btn btn-ghost" id="logout-btn" type="button" style="font-size: 12px;">Sign out</button>
+    </div>
+    <p class="meta-line" id="api-base-line"></p>
+
+    <h2>Predictions</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><h4>Total predictions</h4><div class="num" id="pred-total">—</div><div class="sub" id="pred-ood-sub"></div></div>
+      <div class="stat-card"><h4>This week</h4><div class="num" id="pred-week">—</div><div class="sub">last 7 days</div></div>
+      <div class="stat-card"><h4>Today</h4><div class="num" id="pred-today">—</div><div class="sub" id="pred-today-date"></div></div>
+      <div class="stat-card"><h4>Model versions seen</h4><div class="num" id="pred-versions">—</div><div class="sub" id="pred-versions-list"></div></div>
+    </div>
+
+    <h2>Predictions per day (last 30)</h2>
+    <table id="per-day-table"><thead><tr><th>Date</th><th>Count</th><th>Bar</th></tr></thead><tbody></tbody></table>
+
+    <h2>Score distribution</h2>
+    <table id="score-table"><thead><tr><th>Bucket</th><th>Count</th><th>Bar</th></tr></thead><tbody></tbody></table>
+
+    <h2>Feedback (real-world outcomes)</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><h4>Total feedback</h4><div class="num" id="fb-total">—</div></div>
+      <div class="stat-card"><h4>Worked</h4><div class="num" id="fb-worked">—</div></div>
+      <div class="stat-card"><h4>Failed</h4><div class="num" id="fb-failed">—</div></div>
+      <div class="stat-card"><h4>Not yet tested</h4><div class="num" id="fb-not_tested">—</div></div>
+    </div>
+    <p class="meta-line" id="emails-line"></p>
+
+    <h2>Recent feedback notes</h2>
+    <table id="notes-table"><thead><tr><th>Date</th><th>Outcome</th><th>Score</th><th>Note</th></tr></thead><tbody></tbody></table>
+  </div>
+
+</div>
+
+<script>
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+  ? 'http://localhost:8000'
+  : 'https://nativeready-production.up.railway.app';
+
+const STORAGE_KEY = 'nr_admin_token';
+
+const loginEl   = document.getElementById('login');
+const loginBtn  = document.getElementById('login-btn');
+const loginErr  = document.getElementById('login-err');
+const tokenIn   = document.getElementById('token');
+const dashEl    = document.getElementById('dashboard');
+const apiLine   = document.getElementById('api-base-line');
+const logoutBtn = document.getElementById('logout-btn');
+
+apiLine.textContent = 'API: ' + API_BASE;
+
+function fmt(n) { return new Intl.NumberFormat().format(n); }
+
+async function loadDashboard(token) {
+  loginErr.hidden = true;
+  try {
+    const resp = await fetch(API_BASE + '/admin/stats?token=' + encodeURIComponent(token));
+    if (resp.status === 403) {
+      loginErr.textContent = 'Token rejected.';
+      loginErr.hidden = false;
+      return;
+    }
+    if (!resp.ok) {
+      loginErr.textContent = 'Server error: HTTP ' + resp.status;
+      loginErr.hidden = false;
+      return;
+    }
+    const data = await resp.json();
+    localStorage.setItem(STORAGE_KEY, token);
+    render(data);
+    loginEl.hidden = true;
+    dashEl.hidden = false;
+  } catch (err) {
+    loginErr.textContent = 'Network error: ' + err.message;
+    loginErr.hidden = false;
+  }
+}
+
+function render(data) {
+  const p = data.predictions || {};
+  const f = data.feedback || {};
+
+  document.getElementById('pred-total').textContent = fmt(p.total || 0);
+  document.getElementById('pred-ood-sub').textContent = (p.ood_count || 0) + ' OOD';
+
+  const today = new Date().toISOString().slice(0, 10);
+  document.getElementById('pred-today-date').textContent = today;
+  let todayCount = 0, weekCount = 0;
+  const days = p.per_day_last_30 || [];
+  const last7 = days.slice(-7);
+  for (const [d, c] of last7) weekCount += c;
+  for (const [d, c] of days) if (d === today) todayCount = c;
+  document.getElementById('pred-today').textContent = fmt(todayCount);
+  document.getElementById('pred-week').textContent = fmt(weekCount);
+
+  const mvs = p.model_versions || {};
+  const mvKeys = Object.keys(mvs);
+  document.getElementById('pred-versions').textContent = mvKeys.length;
+  document.getElementById('pred-versions-list').textContent = mvKeys.map(k => `${k}: ${fmt(mvs[k])}`).join(' · ');
+
+  const dayTbody = document.querySelector('#per-day-table tbody');
+  dayTbody.innerHTML = '';
+  const maxCount = Math.max(1, ...days.map(([_, c]) => c));
+  for (const [d, c] of days) {
+    const tr = document.createElement('tr');
+    tr.className = 'day-row';
+    const widthPct = Math.round(100 * c / maxCount);
+    tr.innerHTML = `<td>${d}</td><td>${fmt(c)}</td><td><span class="day-bar" style="width:${widthPct * 1.5}px;"></span></td>`;
+    dayTbody.appendChild(tr);
+  }
+
+  const scoreTbody = document.querySelector('#score-table tbody');
+  scoreTbody.innerHTML = '';
+  const sd = p.score_distribution || {};
+  const sdKeys = ['0-34','35-49','50-64','65-79','80-100'];
+  const sdMax = Math.max(1, ...sdKeys.map(k => sd[k] || 0));
+  for (const k of sdKeys) {
+    const c = sd[k] || 0;
+    const widthPct = Math.round(100 * c / sdMax);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${k}</td><td>${fmt(c)}</td><td><span class="day-bar" style="width:${widthPct * 1.5}px;"></span></td>`;
+    scoreTbody.appendChild(tr);
+  }
+
+  document.getElementById('fb-total').textContent      = fmt(f.total || 0);
+  document.getElementById('fb-worked').textContent     = fmt((f.outcomes || {}).worked || 0);
+  document.getElementById('fb-failed').textContent     = fmt((f.outcomes || {}).failed || 0);
+  document.getElementById('fb-not_tested').textContent = fmt((f.outcomes || {}).not_tested || 0);
+  document.getElementById('emails-line').textContent   = (f.emails_collected_for_followup || 0) + ' emails opted in for follow-up';
+
+  const notesTbody = document.querySelector('#notes-table tbody');
+  notesTbody.innerHTML = '';
+  const notes = f.recent_notes || [];
+  if (!notes.length) {
+    notesTbody.innerHTML = '<tr><td colspan="4" style="color: var(--text-faint); font-style: italic;">No notes yet.</td></tr>';
+  } else {
+    for (const n of notes.slice().reverse()) {
+      const tr = document.createElement('tr');
+      tr.className = 'note-row';
+      const date = (n.timestamp || '').slice(0, 10);
+      const pill = `<span class="pill ${n.outcome || ''}">${n.outcome || ''}</span>`;
+      tr.innerHTML = `<td>${date}</td><td>${pill}</td><td>${n.predicted_score ?? ''}</td><td class="note-cell">${(n.note || '').replace(/&/g,'&amp;').replace(/</g,'&lt;')}</td>`;
+      notesTbody.appendChild(tr);
+    }
+  }
+}
+
+loginBtn.addEventListener('click', () => loadDashboard(tokenIn.value.trim()));
+tokenIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') loginBtn.click(); });
+logoutBtn.addEventListener('click', () => {
+  localStorage.removeItem(STORAGE_KEY);
+  dashEl.hidden = true;
+  loginEl.hidden = false;
+  tokenIn.value = '';
+  tokenIn.focus();
+});
+
+const stored = localStorage.getItem(STORAGE_KEY);
+if (stored) loadDashboard(stored);
+</script>
+</body>
+</html>

@@ -94,27 +94,37 @@
 
       <p id="model-version" class="model-version"></p>
 
-      <div id="feedback-card" class="feedback-card">
+      <div id="feedback-card" class="feedback-card feedback-card-prominent">
         <div class="feedback-head">
-          <strong>Help improve NativeReady</strong>
-          <p>Did this protein actually give usable native MS data in your hands?</p>
+          <strong>One favor — help train the next model</strong>
+          <p>Real outcomes are the bottleneck. Tell us what actually happened — even if you haven't run it yet, the planned outcome and a 2-week follow-up still help.</p>
         </div>
         <div class="feedback-actions">
           <button type="button" class="feedback-btn worked" data-outcome="worked">
-            <span class="fb-icon">✓</span> Yes, it worked
+            <span class="fb-icon">✓</span> Worked
           </button>
           <button type="button" class="feedback-btn failed" data-outcome="failed">
-            <span class="fb-icon">✗</span> No, it failed
+            <span class="fb-icon">✗</span> Failed
           </button>
           <button type="button" class="feedback-btn skip" data-outcome="not_tested">
-            Haven&rsquo;t tested
+            Not yet tested
           </button>
         </div>
-        <p class="feedback-meta">Anonymous. Sequence is hashed before storage. No login required.</p>
+        <div class="feedback-extras">
+          <label class="feedback-email-label" for="feedback-email">
+            Optional email for a single follow-up in 2-4 weeks (we'll never share or spam):
+          </label>
+          <input type="email" id="feedback-email" placeholder="you@lab.edu" autocomplete="email" />
+          <label class="feedback-note-label" for="feedback-note">
+            Optional context (buffer, instrument, conditions tried):
+          </label>
+          <textarea id="feedback-note" rows="2" maxlength="500" placeholder="e.g., 200 mM AmAc pH 7.5, Q Exactive UHMR, intense glycan heterogeneity"></textarea>
+        </div>
+        <p class="feedback-meta">Anonymous by default. Sequence is hashed before storage. Email and note only sent if you provide them.</p>
       </div>
 
       <div id="feedback-thanks" class="feedback-thanks" hidden>
-        <strong>Thanks.</strong> Your input goes straight into the next training cycle.
+        <strong>Thanks.</strong> Your input goes straight into the next training cycle. If you left an email, expect one follow-up in 2-4 weeks.
       </div>
 
       <div class="form-actions">
