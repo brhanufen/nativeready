@@ -36,7 +36,8 @@ PREDICTION_LOG = Path(
     )
 )
 # Shared-secret token for /admin/stats. Set NATIVEREADY_ADMIN_TOKEN in Railway env.
-ADMIN_TOKEN = os.environ.get("NATIVEREADY_ADMIN_TOKEN", "")
+# Strip whitespace defensively — env var systems sometimes append newlines.
+ADMIN_TOKEN = os.environ.get("NATIVEREADY_ADMIN_TOKEN", "").strip()
 
 ALLOWED_AA = set("ACDEFGHIKLMNPQRSTVWYXBZ")
 MIN_LEN = 10
@@ -261,7 +262,10 @@ def _read_jsonl(path: Path):
 @app.get("/admin/stats")
 def admin_stats(token: str = "") -> Dict[str, Any]:
     """Private usage dashboard. Requires ?token=... matching NATIVEREADY_ADMIN_TOKEN."""
-    if not ADMIN_TOKEN or token != ADMIN_TOKEN:
+    if not ADMIN_TOKEN:
+        # Diagnostic: env var not loaded by container at all.
+        raise HTTPException(status_code=503, detail="admin_token_not_configured_on_server")
+    if token.strip() != ADMIN_TOKEN:
         raise HTTPException(status_code=403, detail="forbidden")
 
     # ---- Predictions
