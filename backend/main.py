@@ -126,8 +126,32 @@ def health() -> Dict[str, str]:
     return {"status": "ok", "service": "nativeready"}
 
 
+def _visitor_id(request: Optional[Request]) -> str:
+    """Privacy-preserving distinct-user signal.
+
+    Hashes client IP + User-Agent into a short, non-reversible token so we can
+    count *distinct* users without storing any personal data. Respects the
+    X-Forwarded-For header set by Railway's proxy. An SDK caller may also send
+    an explicit X-NativeReady-Client header to identify itself consistently.
+    """
+    if request is None:
+        return "unknown"
+    # Explicit client id (SDK can set this) takes precedence.
+    client_hdr = request.headers.get("x-nativeready-client", "").strip()
+    if client_hdr:
+        basis = "client:" + client_hdr
+    else:
+        xff = request.headers.get("x-forwarded-for", "")
+        ip = xff.split(",")[0].strip() if xff else (
+            request.client.host if request.client else "?"
+        )
+        ua = request.headers.get("user-agent", "")
+        basis = f"{ip}|{ua}"
+    return hashlib.sha256(basis.encode("utf-8")).hexdigest()[:16]
+
+
 @app.post("/predict")
-def predict_endpoint(req: PredictRequest) -> Dict[str, Any]:
+def predict_endpoint(req: PredictRequest, request: Request = None) -> Dict[str, Any]:
     seq = _clean_sequence(req.sequence)
     _validate_sequence(seq)
     try:
@@ -139,13 +163,15 @@ def predict_endpoint(req: PredictRequest) -> Dict[str, Any]:
             status_code=500, detail=f"Prediction failed: {exc}"
         )
     # Append-only prediction log for private usage dashboard.
-    # Stores hashed sequence only — no raw protein data persisted.
+    # Stores hashed sequence + hashed visitor id only — no raw protein data,
+    # no IPs, no personal data persisted.
     try:
         PREDICTION_LOG.parent.mkdir(parents=True, exist_ok=True)
         seq_hash = hashlib.sha256(seq.encode("utf-8")).hexdigest()[:16]
         log_record = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "sequence_hash": seq_hash,
+            "visitor_id": _visitor_id(request),
             "sequence_length": len(seq),
             "suitability_score": result.get("suitability_score"),
             "suitability_label": result.get("suitability_label"),
@@ -274,11 +300,27 @@ def admin_stats(token: str = "") -> Dict[str, Any]:
     score_buckets = {"0-34": 0, "35-49": 0, "50-64": 0, "65-79": 0, "80-100": 0}
     ood_count = 0
     model_versions: Dict[str, int] = {}
+    visitors_all: set = set()          # distinct users (hashed), all-time
+    visitors_30d: set = set()          # distinct users in the last 30 days
+    users_per_day: Dict[str, set] = {}  # distinct users seen each day
+    sequences_all: set = set()          # distinct sequences ever scored
+    # 30-day cutoff (YYYY-MM-DD string compare is fine for ISO dates)
+    from datetime import timedelta
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
     for rec in _read_jsonl(PREDICTION_LOG):
         pred_total += 1
         ts = rec.get("timestamp", "")[:10]
         if ts:
             per_day[ts] = per_day.get(ts, 0) + 1
+        vid = rec.get("visitor_id")
+        if vid:
+            visitors_all.add(vid)
+            users_per_day.setdefault(ts, set()).add(vid)
+            if ts and ts >= cutoff:
+                visitors_30d.add(vid)
+        sh = rec.get("sequence_hash")
+        if sh:
+            sequences_all.add(sh)
         score = rec.get("suitability_score")
         if isinstance(score, int):
             if score < 35: score_buckets["0-34"] += 1
@@ -291,8 +333,9 @@ def admin_stats(token: str = "") -> Dict[str, Any]:
         mv = rec.get("model_version") or "unknown"
         model_versions[mv] = model_versions.get(mv, 0) + 1
 
-    # Last 30 days of activity, oldest -> newest
+    # Last 30 days of activity, oldest -> newest (predictions + distinct users)
     sorted_days = sorted(per_day.items())[-30:]
+    users_by_day = [(d, len(users_per_day.get(d, ()))) for d, _ in sorted_days]
 
     # ---- Feedback
     fb_total = 0
@@ -318,7 +361,11 @@ def admin_stats(token: str = "") -> Dict[str, Any]:
     return {
         "predictions": {
             "total": pred_total,
+            "distinct_users_all_time": len(visitors_all),
+            "distinct_users_last_30d": len(visitors_30d),
+            "distinct_sequences_all_time": len(sequences_all),
             "per_day_last_30": sorted_days,
+            "distinct_users_per_day_last_30": users_by_day,
             "score_distribution": score_buckets,
             "ood_count": ood_count,
             "model_versions": model_versions,
