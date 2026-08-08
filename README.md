@@ -4,7 +4,7 @@
 
 A sequence-based triage model and open benchmark for native MS suitability. Sequence in, calibrated probability out, in seconds.
 
-Live tool: https://nativeready.netlify.app
+Live tool: https://nativeready.bio
 Python SDK: `pip install nativeready` ([PyPI](https://pypi.org/project/nativeready/))
 Preprint: [bioRxiv 2026.05.03.722506](https://doi.org/10.64898/2026.05.03.722506) (CC-BY 4.0)
 
@@ -58,8 +58,11 @@ Paste a protein sequence (FASTA or raw amino acids). The model returns:
 | V3 ESM-2 + PCA + RF | 256 | 0.862 +/- 0.030 | 0.831 +/- 0.029 |
 | **V4 combined (production)** | **303** | **0.870 +/- 0.037** | **0.835 +/- 0.029** |
 
+**Read the AUC with this caveat.** The proxy negatives are drawn from longer Swiss-Prot proteins (median length 777 vs 288 amino acids for positives), so much of the apparent discrimination reflects a size confound in the negative sampling rather than learned native-MS physics. On the same pooled out-of-fold predictions, sequence length alone reaches ROC-AUC 0.769 and molecular weight alone 0.773, versus the combined model's 0.847. The trained model adds relatively little over a one-feature size rule on this dataset.
+
 Positive recall under V4 cluster-aware: 99.3%.
-Negative recall under V4 cluster-aware: 17.5% (down from a temporarily-inflated 22.4% in the 2026-05-11 build that briefly included CB2 as a confirmed failure; the current number reflects honest performance on the 3 evidence-based failures).
+
+We deliberately do **not** report a single "negative recall" number. 64 of the 97 negatives are Swiss-Prot proteins that were never experimentally tested, so counting them as ground-truth failures assumes a 100% failure rate among untested proteins, which is almost certainly false. Under any plausible true failure rate at or below 30%, the model already flags as many proxy negatives as a perfect classifier could (20 of the 64 proxies fall below the "Good" threshold; a perfect oracle at a 30% failure rate would flag ~19). The true native-MS failure rate on the deployment distribution is not identifiable from these data and remains to be measured. Failure-detection performance is therefore reported as **not yet established**, not as a percentage.
 
 ## Honest scope
 
@@ -136,7 +139,7 @@ nativeready/
 
 Example request:
 ```bash
-curl -X POST https://nativeready.netlify.app/api/predict \
+curl -X POST https://nativeready-production.up.railway.app/predict \
   -H "Content-Type: application/json" \
   -d '{"sequence": "MSHHWGYG..."}'
 ```
