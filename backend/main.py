@@ -22,6 +22,15 @@ from pydantic import BaseModel, Field
 
 from predictor_v3 import predict as run_prediction
 
+# Method 1 heterogeneity forward-simulator. Imported defensively: this is a
+# purely additive annotation on /predict, so a problem loading it must never
+# stop the API from serving model scores.
+try:
+    from heterogeneity import heterogeneity_report
+except Exception as _exc:  # pragma: no cover - defensive
+    heterogeneity_report = None
+    print(f"[main] heterogeneity module unavailable, annotations disabled: {_exc}")
+
 _HERE = Path(__file__).resolve().parent
 FEEDBACK_LOG = Path(
     os.environ.get(
@@ -162,6 +171,37 @@ def predict_endpoint(req: PredictRequest, request: Request = None) -> Dict[str, 
         raise HTTPException(
             status_code=500, detail=f"Prediction failed: {exc}"
         )
+
+    # --- Method 1: heterogeneity forward-simulator (ADDITIVE ANNOTATION) ------
+    # Computed, not predicted: arithmetic over published glycan masses and the
+    # definition of resolving power. It annotates the score, it never changes
+    # it, and no existing response field is touched. The field is omitted
+    # entirely for proteins where heterogeneity does not apply (no sequons), so
+    # their responses are byte-identical to before. Any failure here is
+    # swallowed -- an annotation must never cost the caller their prediction.
+    if heterogeneity_report is not None:
+        try:
+            het = heterogeneity_report(seq)
+            if het.get("applies"):
+                result["heterogeneity_risk"] = {
+                    "level": het["level"],
+                    "reason": het["reason"],
+                    "computed": True,
+                    "mode": het.get("mode"),
+                    "n_sites": het.get("n_sites"),
+                    "n_proteoforms": het.get("n_proteoforms"),
+                    "envelope_width_da": het.get("predicted_envelope_width_da"),
+                    "resolved_at_resolution": het.get("resolved_at_resolution"),
+                    "resolution": het.get("resolution"),
+                    "min_resolution_required": het.get("min_resolution_required"),
+                    # Assumptions travel with the number, always. A computed
+                    # claim is only honest if its premises ship alongside it.
+                    "assumptions": het.get("assumptions", []),
+                    "model_assumptions": het.get("model_assumptions", {}),
+                }
+        except Exception as exc:  # pragma: no cover - defensive
+            print(f"[main] heterogeneity annotation skipped: {exc}")
+
     # Append-only prediction log for private usage dashboard.
     # Stores hashed sequence + hashed visitor id only — no raw protein data,
     # no IPs, no personal data persisted.
