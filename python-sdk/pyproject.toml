@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "nativeready"
-version = "0.4.0"
+version = "0.4.1"
 description = "Python SDK for the NativeReady API: predict native mass spectrometry suitability from a protein sequence."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -36,7 +36,7 @@ progress = ["tqdm>=4.0"]
 all = ["pandas>=1.3", "tqdm>=4.0"]
 
 [project.urls]
-Homepage = "https://nativeready.netlify.app"
+Homepage = "https://nativeready.bio"
 Repository = "https://github.com/brhanufen/nativeready"
 Issues = "https://github.com/brhanufen/nativeready/issues"
 

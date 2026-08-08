@@ -138,7 +138,7 @@ class Client:
         self.timeout = timeout
         self.retries = retries
         self.session = session or requests.Session()
-        self.session.headers.setdefault("User-Agent", f"nativeready-python/0.3.0")
+        self.session.headers.setdefault("User-Agent", f"nativeready-python/0.4.1")
         self.session.headers.setdefault("Content-Type", "application/json")
 
     # ------------------------------------------------------------------
@@ -257,6 +257,79 @@ class Client:
     def feedback_stats(self) -> Dict[str, Any]:
         """Public aggregate counts of community-submitted experimental outcomes."""
         return self._request("GET", "/feedback/stats")
+
+    def report_outcome(
+        self,
+        sequence: str,
+        predicted_score: int,
+        outcome: str,
+        note: Optional[str] = None,
+        model_version: Optional[str] = None,
+        email_for_followup: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """Report what actually happened when you ran a protein on the instrument.
+
+        Real experimental outcomes are the data the model cannot get any other
+        way, since the literature almost never reports native-MS failures. Every
+        outcome you send back (success or failure) becomes a training label and
+        makes the model better for everyone. This is the one call that closes the
+        loop from prediction to reality.
+
+        Parameters
+        ----------
+        sequence : str
+            The sequence you tested. Hashed before storage; the raw protein is
+            never stored server-side.
+        predicted_score : int
+            The 0-100 score the model returned for this sequence (use
+            ``result.score`` from a PredictionResult).
+        outcome : str
+            What happened in the lab: ``"worked"``, ``"failed"``, or
+            ``"not_tested"`` (planned but not yet run).
+        note : str, optional
+            Free-text context, e.g. buffer, instrument, observed failure mode.
+        model_version : str, optional
+            The model version the prediction came from (use
+            ``result.model_version``) so the outcome is tied to the right model.
+        email_for_followup : str, optional
+            If given, opts you in to a single follow-up message in 2-4 weeks.
+
+        Returns
+        -------
+        dict
+            The API acknowledgement (``{"status": "received", ...}``).
+
+        Examples
+        --------
+        >>> client = NativeReady()
+        >>> r = client.predict("MKT...")
+        >>> # ...you run it on the instrument...
+        >>> client.report_outcome(
+        ...     "MKT...", r.score, "failed",
+        ...     note="200 mM AmAc pH 7.5, Q Exactive UHMR, no resolvable signal",
+        ...     model_version=r.model_version,
+        ... )
+        """
+        valid = ("worked", "failed", "not_tested")
+        if outcome not in valid:
+            raise ValueError(f"outcome must be one of {valid}, got {outcome!r}")
+        cleaned = _clean_sequence(sequence)
+        if len(cleaned) < 10:
+            raise SequenceError(
+                f"Sequence too short ({len(cleaned)} aa, minimum 10)"
+            )
+        payload: Dict[str, Any] = {
+            "sequence": cleaned,
+            "predicted_score": int(predicted_score),
+            "user_outcome": outcome,
+        }
+        if note is not None:
+            payload["note"] = note
+        if model_version is not None:
+            payload["model_version"] = model_version
+        if email_for_followup is not None:
+            payload["email_for_followup"] = email_for_followup
+        return self._request("POST", "/feedback", json=payload)
 
     # ------------------------------------------------------------------
     # Internal HTTP plumbing

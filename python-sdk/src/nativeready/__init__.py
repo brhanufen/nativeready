@@ -23,7 +23,7 @@ the open dataset, and the trained model.
 from .client import Client, PredictionResult
 from .fasta import parse_fasta
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"
 
 # Module-level convenience function for the simplest possible API.
 _default_client = None
@@ -59,10 +59,30 @@ def predict(sequence, **kwargs):
     return _default_client.predict(sequence, **kwargs)
 
 
+def report_outcome(sequence, predicted_score, outcome, **kwargs):
+    """Report what actually happened when you ran a protein (closes the loop).
+
+    Convenience wrapper around Client().report_outcome(). Real outcomes,
+    especially failures, are the data the model cannot get any other way.
+
+    Examples
+    --------
+    >>> from nativeready import predict, report_outcome
+    >>> r = predict("MKT...")
+    >>> # ...run it on the instrument...
+    >>> report_outcome("MKT...", r.score, "failed", note="no resolvable signal")
+    """
+    global _default_client
+    if _default_client is None:
+        _default_client = Client()
+    return _default_client.report_outcome(sequence, predicted_score, outcome, **kwargs)
+
+
 __all__ = [
     "Client",
     "PredictionResult",
     "parse_fasta",
     "predict",
+    "report_outcome",
     "__version__",
 ]

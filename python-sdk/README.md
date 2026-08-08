@@ -1,6 +1,6 @@
 # nativeready
 
-Python SDK for the [NativeReady](https://nativeready.netlify.app) API. Predict whether a protein sequence is likely to give usable native mass spectrometry data, in seconds.
+Python SDK for the [NativeReady](https://nativeready.bio) API. Predict whether a protein sequence is likely to give usable native mass spectrometry data, in seconds.
 
 ```bash
 pip install nativeready
@@ -57,6 +57,33 @@ sequences = [
 ]
 results = client.predict_batch(sequences)  # tqdm progress bar if installed
 ```
+
+### Report a real outcome (close the loop)
+
+Predictions are only half the story. When you actually run a protein on the
+instrument, report back what happened. Real outcomes, especially failures, are
+the data the model cannot get from the literature, and every one you send makes
+the model better for the whole community.
+
+```python
+from nativeready import Client
+
+client = Client()
+r = client.predict("MQIFVKTLTGKTITLEV...")
+
+# ...you run it on the instrument, and it fails to give resolvable signal...
+client.report_outcome(
+    "MQIFVKTLTGKTITLEV...",
+    r.score,
+    "failed",                       # "worked" | "failed" | "not_tested"
+    note="200 mM AmAc pH 7.5, Q Exactive UHMR, no resolvable charge series",
+    model_version=r.model_version,  # ties the outcome to the model that predicted it
+)
+```
+
+The sequence is hashed before storage; the raw protein is never stored
+server-side. Aggregate community outcomes are visible via
+`client.feedback_stats()`.
 
 ### Pandas DataFrame output (with `pandas` extra)
 
@@ -141,6 +168,6 @@ MIT. See `LICENSE`.
 ## Links
 
 - API server source: https://github.com/brhanufen/nativeready
-- Web tool: https://nativeready.netlify.app
+- Web tool: https://nativeready.bio
 - Open dataset (634 proteins, CC-BY 4.0): in the `data/` folder of the main repository
 - Issues: https://github.com/brhanufen/nativeready/issues
