@@ -70,6 +70,28 @@ app.add_middleware(
 )
 
 
+@app.on_event("startup")
+def _warm_model() -> None:
+    """Warm the model at container startup so the first real request is fast.
+
+    The predictor lazy-loads ESM-2 (~2.5 GB) and the classifier bundle on the
+    first prediction, which adds ~60-70s of cold-start latency to whichever
+    user happens to hit /predict first. Running one throwaway prediction here
+    pays that cost during boot instead. Wrapped defensively: if warm-up fails
+    for any reason, the app still starts and the lazy path handles the first
+    real request as before.
+    """
+    import time as _time
+
+    warm_seq = "MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQ"
+    try:
+        _t0 = _time.time()
+        run_prediction(warm_seq)
+        print(f"[startup] model warm-up complete in {_time.time() - _t0:.1f}s")
+    except Exception as exc:  # noqa: BLE001 - never block startup on warm-up
+        print(f"[startup] model warm-up skipped ({exc!r}); lazy path will load on first request")
+
+
 class PredictRequest(BaseModel):
     sequence: str = Field(
         ...,
