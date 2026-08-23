@@ -23,7 +23,7 @@ the open dataset, and the trained model.
 from .client import Client, PredictionResult
 from .fasta import parse_fasta
 
-__version__ = "0.4.1"
+__version__ = "0.4.2"
 
 # Module-level convenience function for the simplest possible API.
 _default_client = None

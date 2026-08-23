@@ -119,6 +119,21 @@
             Optional context (buffer, instrument, conditions tried):
           </label>
           <textarea id="feedback-note" rows="2" maxlength="500" placeholder="e.g., 200 mM AmAc pH 7.5, Q Exactive UHMR, intense glycan heterogeneity"></textarea>
+          <details class="feedback-conditions">
+            <summary>Add structured conditions (optional, helps the dataset)</summary>
+            <label for="feedback-buffer">Buffer / pH</label>
+            <input type="text" id="feedback-buffer" maxlength="200" placeholder="200 mM ammonium acetate, pH 7.5" />
+            <label for="feedback-construct">Construct</label>
+            <input type="text" id="feedback-construct" maxlength="200" placeholder="full-length / residues 1-256 ectodomain" />
+            <label for="feedback-expr">Expression system</label>
+            <input type="text" id="feedback-expr" maxlength="120" placeholder="E. coli / HEK293 / Sf9" />
+            <label for="feedback-instrument">Instrument</label>
+            <input type="text" id="feedback-instrument" maxlength="200" placeholder="Waters Synapt G2-S" />
+            <label for="feedback-resolution">Resolution</label>
+            <input type="text" id="feedback-resolution" maxlength="40" placeholder="30000" />
+            <label for="feedback-failuremode">Failure mode (if it failed)</label>
+            <input type="text" id="feedback-failuremode" maxlength="200" placeholder="no ionization / unresolved heterogeneity / salt adducts" />
+          </details>
         </div>
         <p class="feedback-meta">Anonymous by default. Sequence is hashed before storage. Email and note only sent if you provide them.</p>
       </div>

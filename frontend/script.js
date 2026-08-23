@@ -292,6 +292,13 @@ feedbackBtns.forEach(btn => {
       const noteEl  = document.getElementById('feedback-note');
       const email = emailEl ? emailEl.value.trim() : '';
       const note  = noteEl ? noteEl.value.trim() : '';
+      const val = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      const buffer      = val('feedback-buffer');
+      const construct   = val('feedback-construct');
+      const expr        = val('feedback-expr');
+      const instrument  = val('feedback-instrument');
+      const resolution  = val('feedback-resolution');
+      const failureMode = val('feedback-failuremode');
       const resp = await fetch(API_BASE + '/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -302,6 +309,12 @@ feedbackBtns.forEach(btn => {
           model_version: currentPrediction.model_version || null,
           email_for_followup: email || null,
           note: note || null,
+          buffer: buffer || null,
+          construct: construct || null,
+          expression_system: expr || null,
+          instrument: instrument || null,
+          resolution: resolution || null,
+          failure_mode: failureMode || null,
         }),
       });
       if (!resp.ok) {

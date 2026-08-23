@@ -259,6 +259,16 @@ class FeedbackRequest(BaseModel):
         ..., description="What actually happened in the lab."
     )
     note: Optional[str] = Field(None, max_length=500, description="Optional context (e.g., conditions used).")
+    # Structured experimental conditions (all optional). A native-MS outcome is
+    # only meaningful with its conditions, so we capture them as their own fields
+    # rather than relying on free-text `note`. None of these block a worked/failed
+    # report; they enrich it when the user is willing to provide them.
+    buffer: Optional[str] = Field(None, max_length=200, description="Buffer/pH used, e.g. '200 mM ammonium acetate, pH 7.5'.")
+    construct: Optional[str] = Field(None, max_length=200, description="Construct, e.g. 'full-length' or 'residues 1-256 ectodomain'.")
+    expression_system: Optional[str] = Field(None, max_length=120, description="Expression system, e.g. 'E. coli', 'HEK293'.")
+    instrument: Optional[str] = Field(None, max_length=200, description="Instrument, e.g. 'Waters Synapt G2-S'.")
+    resolution: Optional[str] = Field(None, max_length=40, description="Resolving power, e.g. '30000'.")
+    failure_mode: Optional[str] = Field(None, max_length=200, description="Observed failure mode (only when outcome=failed).")
     model_version: Optional[str] = Field(None, max_length=64)
     email_for_followup: Optional[str] = Field(
         None,
@@ -288,6 +298,12 @@ def feedback_endpoint(req: FeedbackRequest, request: Request) -> Dict[str, Any]:
         "predicted_score": req.predicted_score,
         "user_outcome": req.user_outcome,
         "note": (req.note or "").strip()[:500] or None,
+        "buffer": (req.buffer or "").strip()[:200] or None,
+        "construct": (req.construct or "").strip()[:200] or None,
+        "expression_system": (req.expression_system or "").strip()[:120] or None,
+        "instrument": (req.instrument or "").strip()[:200] or None,
+        "resolution": (req.resolution or "").strip()[:40] or None,
+        "failure_mode": (req.failure_mode or "").strip()[:200] or None,
         "model_version": req.model_version,
         "email_for_followup": (req.email_for_followup or "").strip()[:200] or None,
     }

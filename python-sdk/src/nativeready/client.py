@@ -264,6 +264,12 @@ class Client:
         predicted_score: int,
         outcome: str,
         note: Optional[str] = None,
+        buffer: Optional[str] = None,
+        construct: Optional[str] = None,
+        expression_system: Optional[str] = None,
+        instrument: Optional[str] = None,
+        resolution: Optional[str] = None,
+        failure_mode: Optional[str] = None,
         model_version: Optional[str] = None,
         email_for_followup: Optional[str] = None,
     ) -> Dict[str, Any]:
@@ -306,9 +312,18 @@ class Client:
         >>> # ...you run it on the instrument...
         >>> client.report_outcome(
         ...     "MKT...", r.score, "failed",
-        ...     note="200 mM AmAc pH 7.5, Q Exactive UHMR, no resolvable signal",
+        ...     buffer="200 mM ammonium acetate, pH 7.5",
+        ...     construct="residues 1-256 ectodomain",
+        ...     instrument="Thermo Q Exactive UHMR",
+        ...     failure_mode="no resolvable signal",
         ...     model_version=r.model_version,
         ... )
+
+        The condition fields (buffer, construct, expression_system, instrument,
+        resolution, failure_mode) are all optional. Providing them turns each
+        outcome into a conditioned observation, which is what makes a "failed"
+        result meaningful: the same protein can fail in one buffer and work in
+        another.
         """
         valid = ("worked", "failed", "not_tested")
         if outcome not in valid:
@@ -325,6 +340,17 @@ class Client:
         }
         if note is not None:
             payload["note"] = note
+        # Structured conditions: send only what the caller provided.
+        for _k, _v in (
+            ("buffer", buffer),
+            ("construct", construct),
+            ("expression_system", expression_system),
+            ("instrument", instrument),
+            ("resolution", resolution),
+            ("failure_mode", failure_mode),
+        ):
+            if _v is not None:
+                payload[_k] = _v
         if model_version is not None:
             payload["model_version"] = model_version
         if email_for_followup is not None:
