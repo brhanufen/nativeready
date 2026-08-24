@@ -253,6 +253,11 @@ def predict_endpoint(req: PredictRequest, request: Request = None) -> Dict[str, 
 # --------------------------------------------------------------------------
 
 class FeedbackRequest(BaseModel):
+    # Accept both the wire alias ("construct") and the Python field name
+    # ("construct_desc"), so the JSON contract is unchanged while the attribute
+    # name avoids shadowing BaseModel.construct.
+    model_config = {"populate_by_name": True}
+
     sequence: str = Field(..., description="Sequence the user tested (will be hashed for privacy).")
     predicted_score: int = Field(..., ge=0, le=100, description="Score the model returned.")
     user_outcome: Literal["worked", "failed", "not_tested"] = Field(
@@ -264,7 +269,7 @@ class FeedbackRequest(BaseModel):
     # rather than relying on free-text `note`. None of these block a worked/failed
     # report; they enrich it when the user is willing to provide them.
     buffer: Optional[str] = Field(None, max_length=200, description="Buffer/pH used, e.g. '200 mM ammonium acetate, pH 7.5'.")
-    construct: Optional[str] = Field(None, max_length=200, description="Construct, e.g. 'full-length' or 'residues 1-256 ectodomain'.")
+    construct_desc: Optional[str] = Field(None, alias="construct", max_length=200, description="Construct, e.g. 'full-length' or 'residues 1-256 ectodomain'.")
     expression_system: Optional[str] = Field(None, max_length=120, description="Expression system, e.g. 'E. coli', 'HEK293'.")
     instrument: Optional[str] = Field(None, max_length=200, description="Instrument, e.g. 'Waters Synapt G2-S'.")
     resolution: Optional[str] = Field(None, max_length=40, description="Resolving power, e.g. '30000'.")
@@ -299,7 +304,7 @@ def feedback_endpoint(req: FeedbackRequest, request: Request) -> Dict[str, Any]:
         "user_outcome": req.user_outcome,
         "note": (req.note or "").strip()[:500] or None,
         "buffer": (req.buffer or "").strip()[:200] or None,
-        "construct": (req.construct or "").strip()[:200] or None,
+        "construct": (req.construct_desc or "").strip()[:200] or None,
         "expression_system": (req.expression_system or "").strip()[:120] or None,
         "instrument": (req.instrument or "").strip()[:200] or None,
         "resolution": (req.resolution or "").strip()[:40] or None,
