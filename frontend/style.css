@@ -167,6 +167,12 @@ nav{position:sticky; top:0; z-index:30; background:color-mix(in srgb, var(--grou
 .feedback-btn.failed:hover{border-color:var(--bad); background:var(--bad-soft); color:var(--bad-ink)}
 .feedback-btn.skip:hover{border-color:var(--ink-faint)}
 .feedback-btn:disabled{opacity:.5; cursor:default}
+.fe-email{background:var(--accent-soft); border:1px solid color-mix(in srgb,var(--accent) 34%, transparent); border-radius:12px; padding:14px 16px; margin:16px 0 6px}
+.fe-email label{display:block; font-size:13.5px; color:var(--ink-soft); margin:0 0 10px}
+.fe-email label strong{color:var(--ink); font-weight:600}
+.fe-email input{width:100%; font-family:var(--sans); font-size:14.5px; color:var(--ink); background:var(--surface); border:1px solid var(--line-strong); border-radius:9px; padding:11px 13px}
+.fe-email input::placeholder{color:var(--ink-faint)}
+.fe-email input:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%, transparent)}
 .feedback-extras{margin-top:14px}
 .feedback-extras label{display:block; font-size:12.5px; color:var(--ink-soft); margin:12px 0 5px}
 .feedback-extras input[type=email],.feedback-extras textarea,.cond-field input{
