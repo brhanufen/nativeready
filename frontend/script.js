@@ -134,7 +134,7 @@ function renderResults(data) {
     oodEl = document.createElement('div');
     oodEl.id = 'ood-warning';
     oodEl.className = 'ood-warning';
-    oodEl.innerHTML = '<strong>Low confidence — out of distribution.</strong> ' +
+    oodEl.innerHTML = '<strong>Low confidence: out of distribution.</strong> ' +
       escapeHtml(data.warning_message || 'This sequence is unusual relative to training data. Treat the score with extra caution.');
     resultsBox.insertBefore(oodEl, resultsBox.firstChild);
   }
@@ -144,7 +144,7 @@ function renderResults(data) {
       data.confidence_interval.upper != null) {
     const lo = Math.round(data.confidence_interval.lower);
     const hi = Math.round(data.confidence_interval.upper);
-    ciEl.textContent = '95% confidence interval: ' + lo + '–' + hi;
+    ciEl.textContent = '95% confidence interval: ' + lo + '-' + hi;
     ciEl.hidden = false;
   } else {
     ciEl.textContent = '';
@@ -171,7 +171,7 @@ function renderResults(data) {
       card.className = 'risk-card';
       card.innerHTML =
         '<div class="rname">' + escapeHtml(r.name || 'Factor') + '</div>' +
-        '<div class="rval">' + escapeHtml(r.value != null ? r.value : '—') + '</div>' +
+        '<div class="rval">' + escapeHtml(r.value != null ? r.value : '·') + '</div>' +
         '<span class="risk-pill ' + escapeHtml(lvl) + '">' + escapeHtml(lvl) + ' risk</span>';
       risksEl.appendChild(card);
     });
