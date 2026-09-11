@@ -170,11 +170,76 @@
     }, 4200);
   }
 
+  // On brand hero motion: a faint, living native mass spectrum behind the headline.
+  // Peaks breathe, a slow highlight sweeps left to right. Color comes from the theme
+  // accent so it adapts to light and dark. Purely decorative canvas, no DOM contract.
+  function initHeroSpectrum() {
+    var canvas = document.querySelector(".hero-spectrum");
+    if (!canvas || !canvas.getContext || typeof window.requestAnimationFrame !== "function") return;
+    var ctx = canvas.getContext("2d");
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = 0, H = 0, raf = null, t0 = 0, peaks = [], N = 0;
+
+    function accent() {
+      var c = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
+      return c || "#10935F";
+    }
+    function build() {
+      N = Math.max(30, Math.min(72, Math.floor(W / 20)));
+      peaks = [];
+      for (var i = 0; i < N; i++) {
+        var x = i / (N - 1);
+        // two gaussian humps read as the charge state / glycoform envelope of a native spectrum
+        var env = Math.exp(-Math.pow((x - 0.40) / 0.17, 2)) * 0.95
+                + Math.exp(-Math.pow((x - 0.66) / 0.11, 2)) * 0.60 + 0.05;
+        peaks.push({ x: x, base: env * (0.34 + Math.random() * 0.66),
+                     ph: Math.random() * 6.283, sp: 0.45 + Math.random() * 0.9 });
+      }
+    }
+    function resize() {
+      var r = canvas.getBoundingClientRect();
+      W = Math.max(1, r.width); H = Math.max(1, r.height);
+      canvas.width = Math.floor(W * dpr); canvas.height = Math.floor(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); build();
+    }
+    function frame(ts) {
+      if (!t0) t0 = ts;
+      var t = (ts - t0) / 1000, col = accent();
+      var baseY = H * 0.98, maxH = H * 0.80;
+      var scan = (t * 0.11) % 1.25 - 0.12; // slow highlight sweep across the envelope
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < N; i++) {
+        var p = peaks[i];
+        var breath = 0.80 + 0.20 * Math.sin(t * p.sp + p.ph);
+        var h = p.base * maxH * breath, x = p.x * W;
+        var glow = Math.max(0, 1 - Math.min(1, Math.abs(p.x - scan) / 0.10));
+        ctx.strokeStyle = col;
+        ctx.globalAlpha = 0.13 + p.base * 0.10 + glow * 0.22;
+        ctx.lineWidth = Math.max(1.1, (W / N) * 0.13);
+        ctx.beginPath(); ctx.moveTo(x, baseY); ctx.lineTo(x, baseY - h); ctx.stroke();
+        ctx.globalAlpha = 0.22 * breath + glow * 0.40; ctx.fillStyle = col;
+        ctx.beginPath(); ctx.arc(x, baseY - h, 1.5 + glow * 1.2, 0, 6.283); ctx.fill();
+      }
+      ctx.globalAlpha = 0.14; ctx.strokeStyle = col; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(0, baseY); ctx.lineTo(W, baseY); ctx.stroke();
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(frame);
+    }
+    function start() { if (!raf) { t0 = 0; raf = requestAnimationFrame(frame); } }
+    function stop() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+    resize();
+    var rt;
+    window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(resize, 150); });
+    document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else start(); });
+    start();
+  }
+
   function init() {
     var hasVideo = initHeroVideo();
     initReveals();
     initCountUp();
     initRotatingNote();
+    initHeroSpectrum();
     if (!hasVideo) initSeqField(); // canvas field is the fallback when no video
   }
 
