@@ -82,7 +82,7 @@ nativeready/
 │
 ├── data/
 │   ├── LABEL_SCHEMA.md                       ← v0.1 schema, ordinal label + failure_mode CV
-│   ├── dataset_combined_v4_2026-05-02.json   ← canonical 634-protein release
+│   ├── dataset_combined_v7_2026-05-11.json   ← canonical 635-protein release (v7)
 │   ├── positives_with_sequences.json         ← original 69-protein curated base
 │   ├── negatives_with_sequences.json         ← 64 Swiss-Prot proxies
 │   ├── expansion_with_sequences.json         ← 99 expansion records
@@ -200,4 +200,4 @@ MIT license (see `LICENSE`). Research prototype, not a medical device, not a dia
 
 ---
 
-*v0.3 released May 2026. Solo build with methodology guidance from Zohaib Atif. Public data only, scientific integrity preserved.*
+*Served model v0.4 (`0.4-esm2-glyco-tm`); SDK v0.4.2 on PyPI; dataset v7 (n=635). Solo build with methodology guidance from Zohaib Atif. Public data only, scientific integrity preserved.*
