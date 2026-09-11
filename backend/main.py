@@ -18,6 +18,7 @@ from typing import Any, Dict, Literal, Optional
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel, Field
 
 from predictor_v3 import predict as run_prediction
@@ -312,6 +313,31 @@ def feedback_endpoint(req: FeedbackRequest, request: Request) -> Dict[str, Any]:
         "model_version": req.model_version,
         "email_for_followup": (req.email_for_followup or "").strip()[:200] or None,
     }
+    # Dedup guard: a double submission (double-click, SDK retry) must not create
+    # a duplicate record. The server timestamp differs per request, so the guard
+    # keys on the record's *content* — every field except the timestamp and the
+    # optional follow-up email. An identical prior record is treated as a resend
+    # and skipped; a genuinely different report (a new outcome or new conditions
+    # for the same sequence) is still recorded. Safe by construction: it only
+    # suppresses exact duplicates, never a distinct experimental outcome.
+    def _dedup_signature(rec: Dict[str, Any]) -> tuple:
+        return tuple(
+            rec.get(k)
+            for k in (
+                "sequence_hash", "user_outcome", "predicted_score", "note",
+                "buffer", "construct", "expression_system", "instrument",
+                "resolution", "failure_mode", "model_version",
+            )
+        )
+
+    incoming_sig = _dedup_signature(record)
+    for _prior in _read_jsonl(FEEDBACK_LOG):
+        if _dedup_signature(_prior) == incoming_sig:
+            return {
+                "status": "duplicate_ignored",
+                "message": "This outcome was already recorded; duplicate skipped.",
+            }
+
     # Append-only JSONL log
     try:
         FEEDBACK_LOG.parent.mkdir(parents=True, exist_ok=True)
@@ -460,3 +486,28 @@ def admin_stats(token: str = "") -> Dict[str, Any]:
             "recent_notes": recent_notes[-20:],
         },
     }
+
+
+@app.get("/admin/export")
+def admin_export(token: str = "") -> PlainTextResponse:
+    """Full feedback-log export (JSONL) for off-Railway backup.
+
+    Requires ?token=... matching NATIVEREADY_ADMIN_TOKEN (same auth as
+    /admin/stats). Returns the raw feedback.jsonl so the entire flywheel dataset
+    can be downloaded over HTTP with no SSH or volume access. Pair with a cron/
+    scheduled `curl` to keep an off-Railway copy of the moat.
+    """
+    if not ADMIN_TOKEN:
+        raise HTTPException(status_code=503, detail="admin_token_not_configured_on_server")
+    if token.strip() != ADMIN_TOKEN:
+        raise HTTPException(status_code=403, detail="forbidden")
+    try:
+        content = FEEDBACK_LOG.read_text(encoding="utf-8") if FEEDBACK_LOG.exists() else ""
+    except OSError as exc:
+        raise HTTPException(status_code=500, detail=f"feedback log read failed: {exc}")
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    return PlainTextResponse(
+        content,
+        media_type="application/x-ndjson",
+        headers={"Content-Disposition": f'attachment; filename="feedback-{stamp}.jsonl"'},
+    )
