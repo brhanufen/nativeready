@@ -69,3 +69,15 @@ The evidence says most startups die from **no real demand, revealed when the mon
 ## How to answer an investor who asks "what is your biggest risk?"
 
 "Demand. We are capital-light, so cash is not the thing that kills us early. The real risk is proving that labs will use this in their workflow and log outcomes. That is exactly why our pre-seed milestone is landing two or three design-partner labs actively logging real data, not chasing downloads. Everything, the moat, the pricing, the next round, follows from that one proof point."
+
+---
+
+## Flywheel data durability (infra) — audited & resolved 2026-09-10
+
+The moat is the logged-outcome dataset, so "does the flywheel keep the data?" is an existential infra question. Audited via the Railway CLI:
+
+- **Durable: VERIFIED.** The live service (`carefree-benevolence` / `nativeready`, which owns `nativeready-production.up.railway.app`) writes `feedback.jsonl` to a **persistent volume** `nativeready-volume` mounted at `/app/data`. The data survived an automatic redeploy of commit `826220e` (the container was replaced; the 3 records persisted), proving the volume — not the ephemeral container — holds the data. The earlier concern that the volume lived only on a stale duplicate is now out of date.
+- **Backup: ADDRESSED.** (1) A one-time off-Railway copy was pulled to `~/nativeready_data_backups/` (3 records, incl. the 1 real "worked" from 2026-08-31); the live volume also already held `feedback.jsonl.bak-20260823-223349`. (2) A token-gated **`/admin/export`** endpoint was added (branch `fix/flywheel-backup`) so the full log can be downloaded over HTTP anytime — pair with a scheduled `curl` for an ongoing off-Railway copy. Prior state was a single unbacked JSONL = single point of failure.
+- **Dedup: ADDRESSED.** Feedback appends now skip exact-duplicate submissions (content signature, all fields except timestamp/email), so a double-click or SDK retry can't create duplicate records. Safe by construction — never suppresses a distinct outcome.
+- **Stale duplicate: RETIRED (paused).** `ravishing-adaptation` was a second running `nativeready` service with its own 150 MB volume and no domain — dead weight + split-brain risk. Inspected first (rescue-before-retire): its volume held **only `predictions.jsonl`, no `feedback.jsonl` — zero stranded outcomes**, nothing to migrate. Its deployment was then removed (paused, reversible; `activeDeployments=0`). **Open action for the founder:** delete the `ravishing-adaptation` project + volume from the Railway dashboard for the final, irreversible cleanup (a couple $/mo of idle storage until then).
+- **OPEN ITEM — storage oddity.** The live volume shows ~84 MB for only ~34 predictions; the space is consumed by `predictions.jsonl`, implying a large per-record payload (likely full feature vectors / ESM-2 embeddings logged per prediction). Investigate what `/predict` logs and trim it, so the volume doesn't balloon as usage grows.
