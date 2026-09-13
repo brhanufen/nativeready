@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NativeReady: will your protein survive native MS?</title>
-  <meta name="description" content="Predict whether a protein will give usable native mass spectrometry data. Paste a sequence, get a calibrated suitability score in seconds. Open benchmark of 635 proteins, ESM-2 + BioPython model, with membrane-topology and glycosylation risk signals." />
+  <meta name="description" content="Predict whether a protein will give usable native mass spectrometry data. Paste a sequence, get a calibrated suitability score in seconds. Open benchmark, ESM-2 + BioPython model, with membrane-topology and glycosylation risk signals." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" />
@@ -54,7 +54,7 @@
       <h1>Will your protein survive <span class="accent">native&nbsp;MS</span>?</h1>
       <p class="lead">Paste a sequence and get a calibrated suitability score in seconds. A first-pass prioritizer for ranking candidates before you commit instrument time, not a verdict.</p>
       <div class="trust-row">
-        <a class="trust-chip" href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener">Open benchmark · 635 proteins</a>
+        <a class="trust-chip" href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener">Open benchmark · MIT</a>
         <a class="trust-chip" href="https://www.biorxiv.org/content/10.64898/2026.05.03.722506v1" target="_blank" rel="noopener">bioRxiv preprint</a>
         <a class="trust-chip mono" href="https://pypi.org/project/nativeready" target="_blank" rel="noopener">pip install nativeready</a>
       </div>
@@ -230,7 +230,7 @@
       <div class="card reveal">
         <span class="step">02 · Analyze</span>
         <h3>Score it with a foundation model</h3>
-        <p>The v0.4 model combines 47 hand-engineered features (physicochemical, N-glycosylation sequon counts, transmembrane-helix prediction) with mean-pooled ESM-2 protein-language embeddings, trained on 635 proteins from PDB and EuropePMC.</p>
+        <p>The v0.4 model combines 47 hand-engineered features (physicochemical, N-glycosylation sequon counts, transmembrane-helix prediction) with mean-pooled ESM-2 protein-language embeddings, trained on curated native-MS data from PDB and EuropePMC.</p>
       </div>
       <div class="card reveal">
         <span class="step">03 · Deliver</span>
@@ -280,7 +280,7 @@
     <h2 class="reveal">Questions, answered.</h2>
     <div class="faq-list">
       <details class="faq-item reveal"><summary>Is my protein sequence stored?</summary><p>No raw sequence is kept. It is hashed before storage, with no login, no IP, and no email unless you choose to leave one.</p></details>
-      <details class="faq-item reveal"><summary>How accurate is it?</summary><p>Cluster-aware ROC-AUC 0.835 on a 635-protein benchmark. It is most reliable as a positive-suitability triage tool, not a validated failure detector: trust a high-confidence positive, and treat a low score as a flag for manual review.</p></details>
+      <details class="faq-item reveal"><summary>How accurate is it?</summary><p>Cluster-aware ROC-AUC 0.835 on an open benchmark. It is most reliable as a positive-suitability triage tool, not a validated failure detector: trust a high-confidence positive, and treat a low score as a flag for manual review.</p></details>
       <details class="faq-item reveal"><summary>What is the model?</summary><p>47 biophysical features plus ESM-2 protein-language embeddings, isotonically calibrated, with an out-of-distribution flag. Glycoproteins and ADCs also get a physics-based heterogeneity and resolvability calculation.</p></details>
       <details class="faq-item reveal"><summary>Is it free?</summary><p>Yes, free during beta: 50 predictions per month per IP, no login required.</p></details>
       <details class="faq-item reveal"><summary>Can I run it in a pipeline?</summary><p>Yes. There is a REST API, a Python SDK (pip install nativeready) and a CLI, all batch-capable for screening many candidates before you book instrument time.</p></details>
@@ -293,12 +293,12 @@
   <div class="wrap">
     <span class="eyebrow reveal">Honest scope</span>
     <h2 class="reveal">About</h2>
-    <p class="section-lead reveal">Open benchmark and triage model for native MS suitability. v0.4 trained on 635 proteins from public datasets (PDB, UniProt, EuropePMC), with explicit N-glycosylation sequon and transmembrane-helix features. The risk panel surfaces membrane-topology and glycosylation signals with targeted experimental recommendations (nanodiscs / amphipols / SMA for membrane proteins; PNGase F deglycosylation for glycoproteins). Code, dataset, and trained model on <a href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener" class="link">GitHub</a>. Methodology and benchmarks: <a href="https://www.biorxiv.org/content/10.64898/2026.05.03.722506v1" target="_blank" rel="noopener" class="link">bioRxiv preprint (DOI 10.64898/2026.05.03.722506)</a>.</p>
+    <p class="section-lead reveal">Open benchmark and triage model for native MS suitability. v0.4 trained on public datasets (PDB, UniProt, EuropePMC), with explicit N-glycosylation sequon and transmembrane-helix features. The risk panel surfaces membrane-topology and glycosylation signals with targeted experimental recommendations (nanodiscs / amphipols / SMA for membrane proteins; PNGase F deglycosylation for glycoproteins). Code, dataset, and trained model on <a href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener" class="link">GitHub</a>. Methodology and benchmarks: <a href="https://www.biorxiv.org/content/10.64898/2026.05.03.722506v1" target="_blank" rel="noopener" class="link">bioRxiv preprint (DOI 10.64898/2026.05.03.722506)</a>.</p>
     <div class="disclaimer reveal">
       <strong>What this is.</strong> A first-pass triage tool. Useful for ranking candidates before committing instrument time. Not a substitute for empirical optimization, and not a guarantee of success.
     </div>
     <div class="disclaimer reveal">
-      <strong>Known limitations.</strong> Trained on 635 proteins (538 positives plus 97 negatives, of which 3 are evidence-based real failures and 94 are proxy / property-targeted records). v0.4.1 stratified cross-validated AUC = 0.870 +/- 0.037, cluster-aware AUC = 0.835 +/- 0.029. Failure-detection performance is not yet statistically validated. Sequences over 1,022 amino acids are truncated for the ESM-2 component. The model is most reliable as a positive-suitability triage tool: high-confidence positive predictions can be trusted; low-confidence predictions should be treated as a flag for manual review, not a verdict. The membrane-topology and glycosylation risk rows are model-aware signals to consider alongside the score, especially when the score itself looks high but topology indicates special handling is needed. Treat scores as guidance, not as definitive predictions.
+      <strong>Known limitations.</strong> Trained on a small dataset whose negative class is dominated by proxy examples, with only 3 evidence-based real experimental failures. v0.4.1 stratified cross-validated AUC = 0.870 +/- 0.037, cluster-aware AUC = 0.835 +/- 0.029. Failure-detection performance is not yet statistically validated. Sequences over 1,022 amino acids are truncated for the ESM-2 component. The model is most reliable as a positive-suitability triage tool: high-confidence positive predictions can be trusted; low-confidence predictions should be treated as a flag for manual review, not a verdict. The membrane-topology and glycosylation risk rows are model-aware signals to consider alongside the score, especially when the score itself looks high but topology indicates special handling is needed. Treat scores as guidance, not as definitive predictions.
     </div>
   </div>
 </section>
