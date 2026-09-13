@@ -55,6 +55,72 @@ const feedbackBtns   = document.querySelectorAll('.feedback-btn');
 let currentPrediction = null;
 let currentSequence = null;
 const resetBtn    = document.getElementById('reset-btn');
+
+// ---- Condition dropdowns: "Other" toggle, value resolution, and remembering
+// the lab's rig so returning users barely have to touch it. Conditions are the
+// data moat, so the aim is to make giving them a couple of taps, not typing.
+const CONDITION_SELECTS = ['feedback-expr', 'feedback-instrument', 'feedback-failuremode'];
+// Fields worth remembering across visits (the rig repeats; failure mode does not).
+const REMEMBERED_CONDITIONS = ['feedback-expr', 'feedback-instrument', 'feedback-buffer'];
+const COND_STORE_KEY = 'nr_conditions_v1';
+
+// Resolve a condition field to its final string, following the "Other" input.
+function resolveCond(id) {
+  const el = document.getElementById(id);
+  if (!el) return '';
+  if (el.tagName === 'SELECT') {
+    if (el.value === '__other__') {
+      const other = document.getElementById(id + '-other');
+      return other ? other.value.trim() : '';
+    }
+    return el.value.trim();
+  }
+  return el.value.trim();
+}
+
+// Set a condition field from a stored string (picks the matching option, or
+// falls back to the "Other" input if the stored value is not in the list).
+function setCond(id, value) {
+  const el = document.getElementById(id);
+  if (!el || !value) return;
+  if (el.tagName === 'SELECT') {
+    const match = Array.from(el.options).find(o => o.value === value || o.text === value);
+    if (match) {
+      el.value = match.value || match.text;
+    } else {
+      el.value = '__other__';
+      const other = document.getElementById(id + '-other');
+      if (other) { other.value = value; other.hidden = false; }
+    }
+  } else {
+    el.value = value;
+  }
+}
+
+// Wire each dropdown to reveal its "Other" text input when needed.
+CONDITION_SELECTS.forEach(id => {
+  const sel = document.getElementById(id);
+  const other = document.getElementById(id + '-other');
+  if (!sel || !other) return;
+  sel.addEventListener('change', () => {
+    other.hidden = sel.value !== '__other__';
+    if (!other.hidden) other.focus();
+  });
+});
+
+// Pre-fill remembered conditions so a returning user's rig is already set.
+try {
+  const saved = JSON.parse(localStorage.getItem(COND_STORE_KEY) || '{}');
+  REMEMBERED_CONDITIONS.forEach(id => { if (saved[id]) setCond(id, saved[id]); });
+} catch (e) { /* private mode / disabled storage: fine, just start blank */ }
+
+function rememberConditions() {
+  try {
+    const out = {};
+    REMEMBERED_CONDITIONS.forEach(id => { const v = resolveCond(id); if (v) out[id] = v; });
+    localStorage.setItem(COND_STORE_KEY, JSON.stringify(out));
+  } catch (e) { /* ignore storage failures */ }
+}
 const errorBox    = document.getElementById('error-box');
 const resultsBox  = document.getElementById('results');
 const scoreEl     = document.getElementById('result-score');
@@ -297,10 +363,10 @@ feedbackBtns.forEach(btn => {
       const val = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
       const buffer      = val('feedback-buffer');
       const construct   = val('feedback-construct');
-      const expr        = val('feedback-expr');
-      const instrument  = val('feedback-instrument');
+      const expr        = resolveCond('feedback-expr');
+      const instrument  = resolveCond('feedback-instrument');
       const resolution  = val('feedback-resolution');
-      const failureMode = val('feedback-failuremode');
+      const failureMode = resolveCond('feedback-failuremode');
       const resp = await fetch(API_BASE + '/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -331,6 +397,7 @@ feedbackBtns.forEach(btn => {
         feedbackBtns.forEach(b => b.disabled = false);
         return;
       }
+      rememberConditions();
       feedbackCard.hidden = true;
       feedbackThanks.hidden = false;
     } catch (err) {

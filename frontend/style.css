@@ -177,12 +177,14 @@ nav{position:sticky; top:0; z-index:30; background:color-mix(in srgb, var(--grou
 .fe-email input:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%, transparent)}
 .feedback-extras{margin-top:14px}
 .feedback-extras label{display:block; font-size:12.5px; color:var(--ink-soft); margin:12px 0 5px}
-.feedback-extras input[type=email],.feedback-extras textarea,.cond-field input{
+.feedback-extras input[type=email],.feedback-extras textarea,.cond-field input,.cond-field select{
   width:100%; font-family:var(--sans); font-size:13.5px; color:var(--ink);
   background:var(--surface); border:1px solid var(--line-strong); border-radius:9px; padding:9px 11px;
 }
+.cond-field select{appearance:auto; cursor:pointer}
+.cond-field .cond-other{margin-top:6px}
 .feedback-extras textarea{font-family:var(--mono); resize:vertical}
-.feedback-extras input:focus,.feedback-extras textarea:focus,.cond-field input:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+.feedback-extras input:focus,.feedback-extras textarea:focus,.cond-field input:focus,.cond-field select:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
 .feedback-conditions{margin-top:14px; border-top:1px solid var(--line); padding-top:12px}
 .feedback-conditions summary{cursor:pointer; font-size:13px; font-weight:600; color:var(--accent-ink); list-style:none}
 .feedback-conditions summary::-webkit-details-marker{display:none}

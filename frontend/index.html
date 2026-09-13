@@ -177,17 +177,53 @@
             <summary>Structured conditions (a few fields turn "it failed" into a usable recipe)</summary>
             <div class="cond-grid">
               <div class="cond-field"><label for="feedback-buffer">Buffer / pH</label>
-              <input type="text" id="feedback-buffer" maxlength="200" placeholder="200 mM ammonium acetate, pH 7.5" /></div>
+              <input type="text" id="feedback-buffer" list="buffer-presets" maxlength="200" placeholder="200 mM ammonium acetate, pH 7.5" />
+              <datalist id="buffer-presets">
+                <option value="200 mM ammonium acetate, pH 7.5"></option>
+                <option value="150 mM ammonium acetate, pH 6.8"></option>
+                <option value="100 mM ammonium acetate, pH 7.0"></option>
+                <option value="500 mM ammonium acetate, pH 7.5"></option>
+              </datalist></div>
               <div class="cond-field"><label for="feedback-construct">Construct</label>
               <input type="text" id="feedback-construct" maxlength="200" placeholder="full-length / residues 1-256 ectodomain" /></div>
               <div class="cond-field"><label for="feedback-expr">Expression system</label>
-              <input type="text" id="feedback-expr" maxlength="120" placeholder="E. coli / HEK293 / Sf9" /></div>
+              <select id="feedback-expr" class="cond-select">
+                <option value="">Select…</option>
+                <option>E. coli</option>
+                <option>HEK293</option>
+                <option>Sf9 (insect)</option>
+                <option>CHO</option>
+                <option>Cell-free</option>
+                <option>Synthetic / commercial</option>
+                <option value="__other__">Other…</option>
+              </select>
+              <input type="text" id="feedback-expr-other" class="cond-other" maxlength="120" placeholder="Expression system" hidden /></div>
               <div class="cond-field"><label for="feedback-instrument">Instrument</label>
-              <input type="text" id="feedback-instrument" maxlength="200" placeholder="Waters Synapt G2-S" /></div>
+              <select id="feedback-instrument" class="cond-select">
+                <option value="">Select…</option>
+                <option>Thermo Q Exactive UHMR</option>
+                <option>Thermo Orbitrap Exploris</option>
+                <option>Waters Synapt G2-S</option>
+                <option>Waters Synapt G2-Si</option>
+                <option>Waters Synapt XS</option>
+                <option>Bruker timsTOF</option>
+                <option value="__other__">Other…</option>
+              </select>
+              <input type="text" id="feedback-instrument-other" class="cond-other" maxlength="200" placeholder="Instrument name" hidden /></div>
               <div class="cond-field"><label for="feedback-resolution">Resolution</label>
               <input type="text" id="feedback-resolution" maxlength="40" placeholder="30000" /></div>
               <div class="cond-field"><label for="feedback-failuremode">Failure mode (if it failed)</label>
-              <input type="text" id="feedback-failuremode" maxlength="200" placeholder="no ionization / unresolved heterogeneity / salt adducts" /></div>
+              <select id="feedback-failuremode" class="cond-select">
+                <option value="">Select…</option>
+                <option>No ionization / no signal</option>
+                <option>Unresolved heterogeneity</option>
+                <option>Salt adducts</option>
+                <option>Aggregation</option>
+                <option>Low / weak signal</option>
+                <option>Dissociation / fell apart</option>
+                <option value="__other__">Other…</option>
+              </select>
+              <input type="text" id="feedback-failuremode-other" class="cond-other" maxlength="200" placeholder="What went wrong" hidden /></div>
             </div>
           </details>
         </div>
