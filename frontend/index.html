@@ -168,24 +168,13 @@
           <input type="email" id="feedback-email" placeholder="you@lab.edu" autocomplete="email" />
         </div>
 
-        <div class="feedback-actions">
-          <button type="button" class="feedback-btn worked" data-outcome="worked">
-            <span class="fb-icon">✓</span> Worked
-          </button>
-          <button type="button" class="feedback-btn failed" data-outcome="failed">
-            <span class="fb-icon">✗</span> Failed
-          </button>
-          <button type="button" class="feedback-btn skip" data-outcome="not_tested">
-            Not yet tested
-          </button>
-        </div>
         <div class="feedback-extras">
           <label class="feedback-note-label" for="feedback-note">
-            Optional context (buffer, instrument, conditions tried):
+            First, the conditions (this is the part that trains the model):
           </label>
           <textarea id="feedback-note" rows="2" maxlength="500" placeholder="e.g., 200 mM AmAc pH 7.5, Q Exactive UHMR, intense glycan heterogeneity"></textarea>
-          <details class="feedback-conditions">
-            <summary>Add structured conditions (optional, helps the dataset)</summary>
+          <details class="feedback-conditions" open>
+            <summary>Structured conditions (a few fields turn "it failed" into a usable recipe)</summary>
             <div class="cond-grid">
               <div class="cond-field"><label for="feedback-buffer">Buffer / pH</label>
               <input type="text" id="feedback-buffer" maxlength="200" placeholder="200 mM ammonium acetate, pH 7.5" /></div>
@@ -201,6 +190,19 @@
               <input type="text" id="feedback-failuremode" maxlength="200" placeholder="no ionization / unresolved heterogeneity / salt adducts" /></div>
             </div>
           </details>
+        </div>
+
+        <p class="feedback-submit-hint">Then tell us the outcome. Picking one submits everything above.</p>
+        <div class="feedback-actions">
+          <button type="button" class="feedback-btn worked" data-outcome="worked">
+            <span class="fb-icon">✓</span> Worked
+          </button>
+          <button type="button" class="feedback-btn failed" data-outcome="failed">
+            <span class="fb-icon">✗</span> Failed
+          </button>
+          <button type="button" class="feedback-btn skip" data-outcome="not_tested">
+            Not yet tested
+          </button>
         </div>
         <p class="feedback-meta">Anonymous by default. Sequence is hashed before storage. Email and note only sent if you provide them.</p>
       </div>

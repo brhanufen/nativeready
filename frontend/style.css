@@ -160,7 +160,8 @@ nav{position:sticky; top:0; z-index:30; background:color-mix(in srgb, var(--grou
 .feedback-card-prominent{border-color:color-mix(in srgb,var(--accent) 30%, var(--line-strong))}
 .feedback-head strong{font-family:var(--disp); font-size:16px; color:var(--ink)}
 .feedback-head p{margin:6px 0 0; font-size:14px; color:var(--ink-soft)}
-.feedback-actions{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 4px}
+.feedback-submit-hint{margin:18px 0 6px; font-size:13px; font-weight:600; color:var(--accent-ink)}
+.feedback-actions{display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 4px}
 .feedback-btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-weight:600; font-size:14px; border-radius:10px; padding:10px 16px; cursor:pointer; background:var(--surface); border:1px solid var(--line-strong); color:var(--ink)}
 .feedback-btn .fb-icon{font-family:var(--mono)}
 .feedback-btn.worked:hover{border-color:var(--good); background:var(--good-soft); color:var(--good-ink)}

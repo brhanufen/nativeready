@@ -5,6 +5,9 @@ Usage examples:
     nativeready predict --uniprot P00918
     nativeready predict --fasta my_proteins.fasta --output results.csv
     nativeready predict --fasta my_proteins.fasta --output results.json
+    nativeready report-outcome -s "MQIFVKTL..." --score 72 --outcome failed \
+        --buffer "200 mM ammonium acetate, pH 7.5" --instrument "Q Exactive UHMR" \
+        --failure-mode "no resolvable signal"
     nativeready health
 """
 from __future__ import annotations
@@ -112,6 +115,39 @@ def cmd_predict(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_report_outcome(args: argparse.Namespace) -> int:
+    """Log what actually happened after running a protein on the instrument.
+
+    This is the call that closes the loop from prediction to reality. Real
+    outcomes (especially failures, which are almost never published) are the
+    data the model cannot get any other way.
+    """
+    client = Client(base_url=args.url, timeout=args.timeout)
+    try:
+        resp = client.report_outcome(
+            sequence=args.sequence,
+            predicted_score=args.score,
+            outcome=args.outcome,
+            note=args.note,
+            buffer=args.buffer,
+            construct=args.construct,
+            expression_system=args.expression_system,
+            instrument=args.instrument,
+            resolution=args.resolution,
+            failure_mode=args.failure_mode,
+            model_version=args.model_version,
+            email_for_followup=args.email,
+        )
+        print(json.dumps(resp, indent=2))
+        return 0
+    except NativeReadyError as e:
+        print(f"Report failed: {e}", file=sys.stderr)
+        return 1
+    except ValueError as e:
+        print(f"Invalid input: {e}", file=sys.stderr)
+        return 2
+
+
 def cmd_health(args: argparse.Namespace) -> int:
     client = Client(base_url=args.url, timeout=args.timeout)
     try:
@@ -155,6 +191,33 @@ def main(argv=None) -> int:
     p.add_argument("--timeout", type=int, default=120, help="Request timeout in seconds")
     p.add_argument("--quiet", action="store_true", help="Suppress progress bar")
     p.set_defaults(func=cmd_predict)
+
+    # report-outcome
+    pr = sub.add_parser(
+        "report-outcome",
+        help="Log what actually happened after you ran a protein (closes the loop)",
+    )
+    pr.add_argument("--sequence", "-s", required=True, help="Sequence you tested (hashed before storage)")
+    pr.add_argument("--score", type=int, required=True,
+                    help="The 0-100 score the model returned for this sequence")
+    pr.add_argument("--outcome", required=True, choices=["worked", "failed", "not_tested"],
+                    help="What happened in the lab")
+    pr.add_argument("--note", help="Free-text context")
+    pr.add_argument("--buffer", help="Buffer / pH, e.g. '200 mM ammonium acetate, pH 7.5'")
+    pr.add_argument("--construct", help="Construct, e.g. 'residues 1-256 ectodomain'")
+    pr.add_argument("--expression-system", dest="expression_system",
+                    help="Expression system, e.g. 'E. coli', 'HEK293'")
+    pr.add_argument("--instrument", help="Instrument, e.g. 'Waters Synapt G2-S'")
+    pr.add_argument("--resolution", help="Resolving power, e.g. '30000'")
+    pr.add_argument("--failure-mode", dest="failure_mode",
+                    help="Failure mode if it failed, e.g. 'no resolvable signal'")
+    pr.add_argument("--model-version", dest="model_version",
+                    help="Model version the prediction came from")
+    pr.add_argument("--email", help="Opt in to a single follow-up in 2-4 weeks")
+    pr.add_argument("--url", default="https://nativeready-production.up.railway.app",
+                    help="Override the API base URL")
+    pr.add_argument("--timeout", type=int, default=30, help="Request timeout in seconds")
+    pr.set_defaults(func=cmd_report_outcome)
 
     # health
     p2 = sub.add_parser("health", help="Health check the API")
