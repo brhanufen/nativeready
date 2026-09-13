@@ -236,7 +236,10 @@ html.motion .reveal.is-visible{opacity:1; transform:none}
 .builton{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--surface-2)}
 .builton-in{display:flex; flex-wrap:wrap; align-items:center; gap:12px 22px; padding:15px 0}
 .builton-lead{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint)}
-.builton-item{font-size:13px; color:var(--ink-soft)}
+.builton-item{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-soft); text-decoration:none}
+.builton-item svg{width:17px; height:17px; color:var(--ink-faint); flex:0 0 auto}
+.builton-item:hover{color:var(--ink)}
+.builton-item:hover svg{color:var(--accent-ink)}
 
 /* ---------- what you get ---------- */
 #output{padding:64px 0}
