@@ -286,6 +286,8 @@ feedbackBtns.forEach(btn => {
   btn.addEventListener('click', async () => {
     if (!currentPrediction || !currentSequence) return;
     const outcome = btn.dataset.outcome;
+    const errEl = document.getElementById('feedback-error');
+    if (errEl) { errEl.hidden = true; errEl.textContent = ''; }
     feedbackBtns.forEach(b => b.disabled = true);
     try {
       const emailEl = document.getElementById('feedback-email');
@@ -318,7 +320,14 @@ feedbackBtns.forEach(btn => {
         }),
       });
       if (!resp.ok) {
-        // Re-enable buttons on failure
+        // Surface a data-quality rejection (e.g. a failed outcome needs a
+        // failure mode) so the user knows what to add, then let them retry.
+        let msg = 'Could not submit. Please try again.';
+        try {
+          const body = await resp.json();
+          if (body && body.detail) msg = body.detail;
+        } catch (e) { /* keep default */ }
+        if (errEl) { errEl.textContent = msg; errEl.hidden = false; }
         feedbackBtns.forEach(b => b.disabled = false);
         return;
       }
