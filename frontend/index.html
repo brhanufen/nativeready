@@ -247,18 +247,22 @@
     <h2 class="reveal">One call, three answers.</h2>
     <p class="section-lead reveal">Every prediction returns a calibrated score, the risk factors behind it, and whether the sample can even be resolved.</p>
     <div class="output-grid">
-      <div class="output-card reveal" role="img" aria-label="Example result for ubiquitin: suitability 96, Excellent, all risks low, resolvable.">
-        <div class="oc-head"><span class="oc-eyebrow mono">Example · ubiquitin</span><span class="oc-dot"></span></div>
-        <div class="oc-body">
-          <div class="oc-score"><span class="oc-num mono">96</span><span class="oc-cap mono">/100</span></div>
-          <div class="oc-scorelabel">Excellent</div>
-          <div class="oc-risks">
-            <div class="oc-risk"><span>Membrane topology</span><span class="oc-pill low">Low</span></div>
-            <div class="oc-risk"><span>Glycosylation · 0 sequons</span><span class="oc-pill low">Low</span></div>
-            <div class="oc-risk"><span>Aggregation · soluble</span><span class="oc-pill low">Low</span></div>
+      <div class="demo reveal" aria-label="Demo: paste a protein sequence and get a prediction">
+        <div class="demo-bar"><span class="db-dot"></span><span class="db-dot"></span><span class="db-dot"></span><span class="db-url mono">nativeready.bio</span></div>
+        <div class="demo-body">
+          <div class="demo-label">Protein sequence</div>
+          <div class="demo-input"><span class="demo-typed mono">MQIFVKTLTGKTITLEVEPSDTIENVK...</span><span class="demo-caret" aria-hidden="true"></span></div>
+          <button class="demo-btn" type="button" tabindex="-1" aria-hidden="true"><span class="demo-btn-label">Predict suitability</span><span class="demo-spin"></span></button>
+          <div class="demo-result">
+            <div class="demo-score"><span class="demo-num mono">96</span><span class="demo-cap mono">/100</span><span class="demo-scorelabel">Excellent</span></div>
+            <div class="demo-bar-track"><div class="demo-bar-fill"></div></div>
+            <div class="demo-risks">
+              <span class="demo-pill">Membrane · Low</span>
+              <span class="demo-pill">Glyco · Low</span>
+              <span class="demo-pill">Aggregation · Low</span>
+            </div>
           </div>
         </div>
-        <div class="oc-foot mono"><span class="oc-hz">Resolvable</span> · single proteoform · 200 mM NH₄OAc, pH 7.5</div>
       </div>
       <div class="output-legend">
         <div class="ol-item reveal"><div class="ol-k mono">01 · Score</div><h3>Calibrated suitability, 0 to 100</h3><p>An isotonically calibrated probability with a 95% interval and an out-of-distribution flag, not a raw guess.</p></div>

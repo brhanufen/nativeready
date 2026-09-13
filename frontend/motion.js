@@ -234,12 +234,77 @@
     start();
   }
 
+  // Auto-playing product demo: type a sequence, predict, reveal the score, loop.
+  // Purely cosmetic; the real predictor is the live tool above. Under reduced
+  // motion this file returns early, so the demo stays in its static filled state.
+  function initDemo() {
+    var root = document.querySelector(".demo");
+    if (!root) return;
+    var input  = root.querySelector(".demo-input"),
+        typed  = root.querySelector(".demo-typed"),
+        btn    = root.querySelector(".demo-btn"),
+        result = root.querySelector(".demo-result"),
+        num    = root.querySelector(".demo-num"),
+        fill   = root.querySelector(".demo-bar-fill"),
+        pills  = Array.prototype.slice.call(root.querySelectorAll(".demo-pill"));
+    if (!typed || !btn || !result || !num || !fill) return;
+    var SEQ = "MQIFVKTLTGKTITLEVEPSDTIENVK...";
+    var timers = [];
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+    function clearAll() { timers.forEach(clearTimeout); timers = []; }
+    function reset() {
+      clearAll();
+      typed.textContent = "";
+      if (input) input.classList.add("active");
+      result.hidden = true;
+      num.textContent = "0";
+      fill.style.width = "0%";
+      pills.forEach(function (p) { p.style.opacity = "0"; });
+      btn.classList.remove("loading");
+    }
+    function type(i) {
+      if (i > SEQ.length) { afterType(); return; }
+      typed.textContent = SEQ.slice(0, i);
+      later(function () { type(i + 1); }, 24 + Math.random() * 34);
+    }
+    function countUp(to) {
+      var start = null, dur = 800;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        num.textContent = String(Math.round(to * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(step); else num.textContent = String(to);
+      }
+      requestAnimationFrame(step);
+    }
+    function afterType() {
+      if (input) input.classList.remove("active");
+      later(function () {
+        btn.classList.add("loading");
+        later(function () {
+          btn.classList.remove("loading");
+          result.hidden = false;
+          requestAnimationFrame(function () { fill.style.width = "96%"; });
+          countUp(96);
+          pills.forEach(function (p, idx) { later(function () { p.style.opacity = "1"; }, 180 + idx * 150); });
+          later(loop, 5000);
+        }, 1100);
+      }, 600);
+    }
+    function loop() { reset(); later(function () { type(1); }, 650); }
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) clearAll(); else loop();
+    });
+    loop();
+  }
+
   function init() {
     var hasVideo = initHeroVideo();
     initReveals();
     initCountUp();
     initRotatingNote();
     initHeroSpectrum();
+    initDemo();
     if (!hasVideo) initSeqField(); // canvas field is the fallback when no video
   }
 
