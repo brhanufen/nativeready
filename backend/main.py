@@ -516,6 +516,68 @@ def admin_stats(token: str = "") -> Dict[str, Any]:
     }
 
 
+class PruneRequest(BaseModel):
+    """Criteria for removing feedback records. A record is a match only if every
+    provided field equals the record's stored value (pass null to require null).
+    The prune refuses unless the number of matches equals `expect`, so a broad or
+    mistaken filter can never quietly delete the wrong rows."""
+    match: Dict[str, Any] = Field(..., description="Field->value criteria a record must match exactly.")
+    expect: int = Field(1, ge=1, le=50, description="Exact number of matches required, or the prune refuses.")
+
+
+@app.post("/admin/feedback/prune")
+def admin_feedback_prune(req: PruneRequest, token: str = "") -> Dict[str, Any]:
+    """Remove specific feedback records by exact-match criteria (admin only).
+
+    Safe by construction: it snapshots the current log to a timestamped backup on
+    the same volume before writing, matches only records where *every* provided
+    field equals the stored value, and refuses (writing nothing) unless the match
+    count equals `expect`. Requires ?token=... matching NATIVEREADY_ADMIN_TOKEN.
+    """
+    if not ADMIN_TOKEN:
+        raise HTTPException(status_code=503, detail="admin_token_not_configured_on_server")
+    if token.strip() != ADMIN_TOKEN:
+        raise HTTPException(status_code=403, detail="forbidden")
+
+    records = list(_read_jsonl(FEEDBACK_LOG))
+    crit = req.match
+
+    def _matches(rec: Dict[str, Any]) -> bool:
+        return all(rec.get(k) == v for k, v in crit.items())
+
+    matched = [r for r in records if _matches(r)]
+    if len(matched) != req.expect:
+        raise HTTPException(
+            status_code=409,
+            detail=(
+                f"refused: matched {len(matched)} record(s) but expect={req.expect}. "
+                "Nothing was deleted. Refine the match criteria."
+            ),
+        )
+
+    # Snapshot before rewriting, on the same durable volume.
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    backup_path = FEEDBACK_LOG.parent / f"feedback-prune-backup-{stamp}.jsonl"
+    try:
+        FEEDBACK_LOG.parent.mkdir(parents=True, exist_ok=True)
+        backup_path.write_text(
+            "".join(json.dumps(r) + "\n" for r in records), encoding="utf-8"
+        )
+        kept = [r for r in records if not _matches(r)]
+        with open(FEEDBACK_LOG, "w", encoding="utf-8") as f:
+            for r in kept:
+                f.write(json.dumps(r) + "\n")
+    except OSError as exc:
+        raise HTTPException(status_code=500, detail=f"prune write failed: {exc}")
+
+    return {
+        "status": "pruned",
+        "removed": len(matched),
+        "remaining": len(records) - len(matched),
+        "backup": str(backup_path),
+    }
+
+
 @app.get("/admin/export")
 def admin_export(token: str = "") -> PlainTextResponse:
     """Full feedback-log export (JSONL) for off-Railway backup.
