@@ -147,17 +147,16 @@ def main(argv=None) -> int:
             skipped += 1
             continue
 
-        # Data-quality gate, mirroring the API. FAILED outcomes must carry the
-        # minimum conditions that make a failure interpretable (buffer or
-        # instrument, plus a failure mode); a condition-free failure is ambiguous
-        # and can mistrain the model. "worked" and "not_tested" rows are exempt
-        # ("worked" is a clean positive label on its own). Rows that cannot meet
-        # this are skipped with a reason rather than sent and rejected.
+        # Data-quality gate, mirroring the API. A worked or failed outcome must
+        # carry the conditions that make it interpretable (buffer or instrument);
+        # a failed one additionally needs a failure mode. "not_tested" rows are
+        # exempt. Rows that cannot meet this are skipped with a reason rather than
+        # sent and rejected.
         _buf = _get(row, "buffer")
         _instr = _get(row, "instrument")
         _fmode = _get(row, "failure_mode")
-        if outcome == "failed" and not (_buf or _instr):
-            print(f"  skip {row_id or '?'}: failed needs buffer or instrument",
+        if outcome in ("worked", "failed") and not (_buf or _instr):
+            print(f"  skip {row_id or '?'}: {outcome} needs buffer or instrument",
                   file=sys.stderr)
             skipped += 1
             continue

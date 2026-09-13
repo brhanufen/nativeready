@@ -294,36 +294,36 @@ def feedback_endpoint(req: FeedbackRequest, request: Request) -> Dict[str, Any]:
     seq = _clean_sequence(req.sequence)
     _validate_sequence(seq)
 
-    # Data-quality gate, applied to FAILED outcomes only. The asymmetry is
-    # deliberate: a failure without its conditions is ambiguous (a real
-    # protein-level failure cannot be told apart from a bad-conditions failure,
-    # e.g. wrong buffer/instrument), so a condition-free failure can actively
-    # mistrain the model, and failures are the un-scrapeable moat. A "worked"
-    # outcome is a clean positive label on its own (the protein is amenable), so
-    # it stays one-tap easy with conditions merely encouraged. "not_tested" is
-    # exempt (the experiment has not run yet). The minimum is deliberately small.
+    # Data-quality gate. A real outcome (worked or failed) that becomes a
+    # training label has to carry the conditions that make it interpretable:
+    # without buffer/instrument the result cannot be tied to the run, and a
+    # failure especially must be told apart from a bad-conditions failure. Both
+    # worked and failed therefore require at least a buffer or an instrument, and
+    # a failure additionally requires a failure mode. "not_tested" is exempt (the
+    # experiment has not run yet). The minimum is deliberately small so anyone who
+    # actually ran the experiment can meet it; the dropdowns make it a few taps.
     _buf = (req.buffer or "").strip()
     _instr = (req.instrument or "").strip()
     _fmode = (req.failure_mode or "").strip()
-    if req.user_outcome == "failed":
-        if not (_buf or _instr):
-            raise HTTPException(
-                status_code=422,
-                detail=(
-                    "A 'failed' outcome needs at least the buffer or the instrument "
-                    "used, so a real failure can be told apart from a conditions "
-                    "problem. Add one and resubmit."
-                ),
-            )
-        if not _fmode:
-            raise HTTPException(
-                status_code=422,
-                detail=(
-                    "A 'failed' outcome needs a failure mode (what went wrong, e.g. "
-                    "'no ionization', 'unresolved heterogeneity', 'salt adducts'). "
-                    "That is the part that actually trains the model. Add it and resubmit."
-                ),
-            )
+    if req.user_outcome in ("worked", "failed") and not (_buf or _instr):
+        raise HTTPException(
+            status_code=422,
+            detail=(
+                f"A '{req.user_outcome}' outcome needs at least the buffer or the "
+                "instrument used, so the result can be tied to the run (a failure "
+                "especially must be told apart from a conditions problem). Add one "
+                "and resubmit, or choose 'not tested' if you have not run it yet."
+            ),
+        )
+    if req.user_outcome == "failed" and not _fmode:
+        raise HTTPException(
+            status_code=422,
+            detail=(
+                "A 'failed' outcome needs a failure mode (what went wrong, e.g. "
+                "'no ionization', 'unresolved heterogeneity', 'salt adducts'). "
+                "That is the part that actually trains the model. Add it and resubmit."
+            ),
+        )
 
     # Hash sequence for privacy (don't store raw user proteins)
     sequence_hash = hashlib.sha256(seq.encode("utf-8")).hexdigest()[:16]
