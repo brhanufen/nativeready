@@ -9,6 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="canonical" href="https://nativeready.bio/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nativeready.bio/" />
+  <meta property="og:title" content="NativeReady: will your protein survive native MS?" />
+  <meta property="og:description" content="Predict native mass spectrometry suitability from a protein sequence, in seconds. Calibrated score, risk factors, and resolvability. Free during beta." />
+  <meta property="og:image" content="https://nativeready.bio/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NativeReady: will your protein survive native MS?" />
+  <meta name="twitter:description" content="Predict native MS suitability from a sequence, in seconds. Free during beta." />
+  <meta name="twitter:image" content="https://nativeready.bio/og-image.png" />
 </head>
 <body>
 
@@ -49,6 +62,17 @@
     </div>
   </div>
 </header>
+
+<section class="builton" aria-label="Built on public data and open models">
+  <div class="wrap builton-in">
+    <span class="builton-lead">Built on</span>
+    <span class="builton-item">ESM-2 · Meta AI</span>
+    <span class="builton-item">RCSB PDB</span>
+    <span class="builton-item">UniProt</span>
+    <span class="builton-item">EuropePMC</span>
+    <span class="builton-item">bioRxiv</span>
+  </div>
+</section>
 
 <section class="tool-section" id="tool">
   <div class="wrap">
@@ -202,6 +226,50 @@
   </div>
 </section>
 
+<section id="output">
+  <div class="wrap">
+    <span class="eyebrow reveal">What you get</span>
+    <h2 class="reveal">One call, three answers.</h2>
+    <p class="section-lead reveal">Every prediction returns a calibrated score, the risk factors behind it, and whether the sample can even be resolved.</p>
+    <div class="output-grid">
+      <div class="output-card reveal" role="img" aria-label="Example result for ubiquitin: suitability 96, Excellent, all risks low, resolvable.">
+        <div class="oc-head"><span class="oc-eyebrow mono">Example · ubiquitin</span><span class="oc-dot"></span></div>
+        <div class="oc-body">
+          <div class="oc-score"><span class="oc-num mono">96</span><span class="oc-cap mono">/100</span></div>
+          <div class="oc-scorelabel">Excellent</div>
+          <div class="oc-risks">
+            <div class="oc-risk"><span>Membrane topology</span><span class="oc-pill low">Low</span></div>
+            <div class="oc-risk"><span>Glycosylation · 0 sequons</span><span class="oc-pill low">Low</span></div>
+            <div class="oc-risk"><span>Aggregation · soluble</span><span class="oc-pill low">Low</span></div>
+          </div>
+        </div>
+        <div class="oc-foot mono"><span class="oc-hz">Resolvable</span> · single proteoform · 200 mM NH₄OAc, pH 7.5</div>
+      </div>
+      <div class="output-legend">
+        <div class="ol-item reveal"><div class="ol-k mono">01 · Score</div><h3>Calibrated suitability, 0 to 100</h3><p>An isotonically calibrated probability with a 95% interval and an out-of-distribution flag, not a raw guess.</p></div>
+        <div class="ol-item reveal"><div class="ol-k mono">02 · Risk factors</div><h3>The reasons behind the number</h3><p>Membrane topology, glycosylation, aggregation and charge, each with a severity and a targeted buffer or prep recommendation.</p></div>
+        <div class="ol-item reveal"><div class="ol-k mono">03 · Resolvability</div><h3>Can the proteoforms be separated</h3><p>For glycoproteins and ADCs it simulates the mass envelope and computes the resolving power you would need. Arithmetic from published glycan masses.</p></div>
+      </div>
+    </div>
+    <p class="two-layer reveal"><strong>Two signals, one call.</strong> A calibrated ML score (47 biophysical features plus ESM-2 embeddings) and a physics-based heterogeneity and resolvability calculator (published glycan masses, R = m / FWHM).</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow reveal">FAQ</span>
+    <h2 class="reveal">Questions, answered.</h2>
+    <div class="faq-list">
+      <details class="faq-item reveal"><summary>Is my protein sequence stored?</summary><p>No raw sequence is kept. It is hashed before storage, with no login, no IP, and no email unless you choose to leave one.</p></details>
+      <details class="faq-item reveal"><summary>How accurate is it?</summary><p>Cluster-aware ROC-AUC 0.835 on a 635-protein benchmark. It is most reliable as a positive-suitability triage tool, not a validated failure detector: trust a high-confidence positive, and treat a low score as a flag for manual review.</p></details>
+      <details class="faq-item reveal"><summary>What is the model?</summary><p>47 biophysical features plus ESM-2 protein-language embeddings, isotonically calibrated, with an out-of-distribution flag. Glycoproteins and ADCs also get a physics-based heterogeneity and resolvability calculation.</p></details>
+      <details class="faq-item reveal"><summary>Is it free?</summary><p>Yes, free during beta: 50 predictions per month per IP, no login required.</p></details>
+      <details class="faq-item reveal"><summary>Can I run it in a pipeline?</summary><p>Yes. There is a REST API, a Python SDK (pip install nativeready) and a CLI, all batch-capable for screening many candidates before you book instrument time.</p></details>
+      <details class="faq-item reveal"><summary>Who is behind it?</summary><p>Built by Brhanu Znabu, with an open benchmark and a bioRxiv preprint. The code, dataset and trained model are open under MIT on GitHub.</p></details>
+    </div>
+  </div>
+</section>
+
 <section id="about">
   <div class="wrap">
     <span class="eyebrow reveal">Honest scope</span>
@@ -217,14 +285,32 @@
 </section>
 
 <footer>
-  <div class="wrap foot-in">
-    <span class="foot-brand">NativeReady</span>
-    <div class="foot-links">
-      <a href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://pypi.org/project/nativeready" target="_blank" rel="noopener">Python SDK</a>
-      <a href="https://www.biorxiv.org/content/10.64898/2026.05.03.722506v1" target="_blank" rel="noopener">bioRxiv</a>
+  <div class="wrap foot-grid">
+    <div class="foot-brand-col">
+      <span class="foot-brand">NativeReady</span>
+      <p>Native mass spec suitability, before you run it. Built by <a href="https://brhanufen.github.io" target="_blank" rel="noopener">Brhanu Znabu</a>.</p>
     </div>
-    <p class="foot-note">Research tool, not a medical or diagnostic device. © 2026</p>
+    <div class="foot-col">
+      <h4>Product</h4>
+      <a href="#tool">Web tool</a>
+      <a href="#output">What you get</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="foot-col">
+      <h4>Developers</h4>
+      <a href="https://pypi.org/project/nativeready" target="_blank" rel="noopener">Python SDK</a>
+      <a href="https://nativeready-production.up.railway.app/docs" target="_blank" rel="noopener">API docs</a>
+      <a href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="foot-col">
+      <h4>Research</h4>
+      <a href="https://www.biorxiv.org/content/10.64898/2026.05.03.722506v1" target="_blank" rel="noopener">Preprint</a>
+      <a href="https://github.com/brhanufen/nativeready" target="_blank" rel="noopener">Open benchmark</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>Research tool, not a medical or diagnostic device.</span>
+    <span>© 2026 NativeReady</span>
   </div>
 </footer>
 
