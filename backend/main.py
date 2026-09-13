@@ -294,6 +294,34 @@ def feedback_endpoint(req: FeedbackRequest, request: Request) -> Dict[str, Any]:
     seq = _clean_sequence(req.sequence)
     _validate_sequence(seq)
 
+    # Data-quality gate. An outcome that becomes a training label has to carry
+    # the minimum conditions that make it interpretable, otherwise it teaches the
+    # model nothing. "not_tested" is exempt: the experiment has not run yet, so
+    # there are no real conditions to give. The minimum is deliberately small so a
+    # user who actually ran the experiment can always meet it; someone who cannot
+    # should report "not_tested" instead.
+    _buf = (req.buffer or "").strip()
+    _instr = (req.instrument or "").strip()
+    _fmode = (req.failure_mode or "").strip()
+    if req.user_outcome in ("worked", "failed") and not (_buf or _instr):
+        raise HTTPException(
+            status_code=422,
+            detail=(
+                f"A '{req.user_outcome}' outcome needs at least the buffer or the "
+                "instrument used, so the result can be interpreted. Add one and "
+                "resubmit, or choose 'not tested' if you have not run it yet."
+            ),
+        )
+    if req.user_outcome == "failed" and not _fmode:
+        raise HTTPException(
+            status_code=422,
+            detail=(
+                "A 'failed' outcome needs a failure mode (what went wrong, e.g. "
+                "'no ionization', 'unresolved heterogeneity', 'salt adducts'). "
+                "That is the part that actually trains the model. Add it and resubmit."
+            ),
+        )
+
     # Hash sequence for privacy (don't store raw user proteins)
     sequence_hash = hashlib.sha256(seq.encode("utf-8")).hexdigest()[:16]
 

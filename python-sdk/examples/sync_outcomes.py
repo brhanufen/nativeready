@@ -147,6 +147,24 @@ def main(argv=None) -> int:
             skipped += 1
             continue
 
+        # Data-quality gate, mirroring the API. A worked/failed outcome must carry
+        # the minimum conditions that make it interpretable; a failed one also
+        # needs a failure mode. Rows that cannot meet this are skipped (with a
+        # reason) rather than sent and rejected. "not_tested" rows are exempt.
+        _buf = _get(row, "buffer")
+        _instr = _get(row, "instrument")
+        _fmode = _get(row, "failure_mode")
+        if outcome in ("worked", "failed") and not (_buf or _instr):
+            print(f"  skip {row_id or '?'}: {outcome} needs buffer or instrument",
+                  file=sys.stderr)
+            skipped += 1
+            continue
+        if outcome == "failed" and not _fmode:
+            print(f"  skip {row_id or '?'}: failed needs a failure_mode",
+                  file=sys.stderr)
+            skipped += 1
+            continue
+
         payload = dict(
             sequence=seq,
             predicted_score=int(float(score)),
