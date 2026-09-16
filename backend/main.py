@@ -325,11 +325,14 @@ def feedback_endpoint(req: FeedbackRequest, request: Request) -> Dict[str, Any]:
             ),
         )
 
-    # Hash sequence for privacy (don't store raw user proteins)
+    # Store the raw sequence so a logged outcome is a usable training example.
+    # The sequence is the model's input; without it an outcome cannot become a
+    # training label. The hash is kept alongside it for the dedup guard below.
     sequence_hash = hashlib.sha256(seq.encode("utf-8")).hexdigest()[:16]
 
     record = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
+        "sequence": seq,
         "sequence_hash": sequence_hash,
         "sequence_length": len(seq),
         "predicted_score": req.predicted_score,

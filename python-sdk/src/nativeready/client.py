@@ -284,8 +284,8 @@ class Client:
         Parameters
         ----------
         sequence : str
-            The sequence you tested. Hashed before storage; the raw protein is
-            never stored server-side.
+            The sequence you tested. Stored with the outcome so it can be used
+            as a training example (a hash is also kept for deduplication).
         predicted_score : int
             The 0-100 score the model returned for this sequence (use
             ``result.score`` from a PredictionResult).
